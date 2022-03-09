@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import {RouterModule, Routes} from "@angular/router";
+import { RegisterComponent } from './component/register/register.component';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 export const appRoutes: Routes = [
@@ -15,7 +18,10 @@ export const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
