@@ -9,10 +9,17 @@ import {RouterModule, Routes} from "@angular/router";
 import { RegisterComponent } from './component/register/register.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'register', component: RegisterComponent, data: {title: 'Register'}}
 ];
 @NgModule({
   declarations: [
@@ -21,12 +28,19 @@ export const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
+    FormsModule,
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
