@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import {RouterModule, Routes} from "@angular/router";
-import { RegisterComponent } from './component/register/register.component';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
+import {HeaderComponent} from "./component/header/header.component";
+import {FooterComponent} from "./component/footer/footer.component";
+import {RegisterComponent} from "./component/register/register.component";
+import {Show12usersComponent} from "./component/show12users/show12users.component";
 
 
 export const appRoutes: Routes = [
@@ -19,14 +21,15 @@ export const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
+    Show12usersComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
