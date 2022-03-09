@@ -9,10 +9,14 @@ import {RouterModule, Routes} from "@angular/router";
 import { RegisterComponent } from './component/register/register.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ProfileProviderComponent } from './component/profile/profile-provider/profile-provider.component';
 
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'profile-provider', component: ProfileProviderComponent},
 ];
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ export const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    ProfileProviderComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
