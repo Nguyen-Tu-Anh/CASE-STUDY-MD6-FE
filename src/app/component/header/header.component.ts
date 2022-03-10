@@ -8,16 +8,20 @@ import {TokenService} from "../../service/token.service";
 })
 export class HeaderComponent implements OnInit {
   // username: string[] | undefined;
-  // checkLogin = false;
+  username: any = 'My account';
+  checkLogin = false;
 
   constructor(private tokenService: TokenService) {
   }
 
   ngOnInit(): void {
-  //   if(this.tokenService.getToken()){
-  //     this.checkLogin = true;
-  //     this.username = this.tokenService.getUsers();
-  //   }
+    if(this.tokenService.getToken()){
+      console.log('vao if khong')
+      this.checkLogin = true;
+      console.log('checkLogin == ', this.checkLogin)
+      console.log('user == ', this.tokenService.getUsers())
+      this.username = this.tokenService.getUsers().name;
+    }
   }
 
 }

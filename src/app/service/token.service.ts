@@ -10,7 +10,7 @@ const USERS_KEY = 'Users_Key';
 })
 export class TokenService {
   // khai bao user kieu mang?
-  private users: Array<string> = [];
+
 
   constructor() {
   }
@@ -26,20 +26,15 @@ export class TokenService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public setUsers(users: string[]) {
+  public setUsers(username: string | undefined) {
     window.sessionStorage.removeItem(USERS_KEY);
-    window.sessionStorage.setItem(USERS_KEY, JSON.stringify(users))
+    if (typeof username === "string") {
+      window.sessionStorage.setItem(USERS_KEY, username)
+    }
   }
 
-  public getUsers(): string[]{
-    this.users = [];
-    if (sessionStorage.getItem(TOKEN_KEY)){
-      // @ts-ignore
-      JSON.parse(sessionStorage.getItem(USERS_KEY)).forEach(user => {
-        this.users.push(user.authority)
-        })
-    }
-    return this.users;
+  public getUsers(): any{
+    return window.sessionStorage.getItem(USERS_KEY)
   }
 
   // ham LogOut chay ve profile

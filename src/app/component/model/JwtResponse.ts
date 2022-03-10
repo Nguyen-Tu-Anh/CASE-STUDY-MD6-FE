@@ -1,10 +1,10 @@
 export  class JwtResponse{
   public token: string | undefined;
-  public users: any;
+  public username?: string;
 
 
-  constructor(token: string | undefined, users: any) {
+  constructor(token: string | undefined, username: string) {
     this.token = token;
-    this.users = users;
+    this.username = username;
   }
 }

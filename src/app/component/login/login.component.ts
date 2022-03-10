@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(this.signInForm).subscribe(data =>{
      if(data.token!=undefined) {
        this.tokenService.setToken(data.token);
-       this.tokenService.setUsers(data.users);
+       this.tokenService.setUsers(data.username);
        this.router.navigate(['/profile']).then(()=>{
          window.location.reload();
        })  //router link truc tiep den componment
