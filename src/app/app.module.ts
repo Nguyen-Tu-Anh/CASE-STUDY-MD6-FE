@@ -10,12 +10,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {HeaderComponent} from "./component/header/header.component";
 import {FooterComponent} from "./component/footer/footer.component";
 import {RegisterComponent} from "./component/register/register.component";
-import {Show12usersComponent} from "./component/show12users/show12users.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { SetStatusOnOffComponent } from './component/set-status-on-off/set-status-on-off.component';
+import {Show12ProviderComponent} from "./component/show12Provider/show12Provider.component";
+import {ShowDetailOrderByProviderComponent} from "./component/show-detail-order-by-provider/show-detail-order-by-provider.component";
 
 
-export const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +25,15 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    Show12usersComponent
+    Show12ProviderComponent,
+    ShowDetailOrderByProviderComponent,
+    SetStatusOnOffComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

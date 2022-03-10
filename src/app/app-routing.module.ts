@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {Show12usersComponent} from "./component/show12users/show12users.component";
 import {HomeComponent} from "./component/home/home.component";
+import {Show12ProviderComponent} from "./component/show12Provider/show12Provider.component";
 
 const routes: Routes = [
-  { path: 'show12user', component: Show12usersComponent },
+  { path: 'show12user', component: Show12ProviderComponent },
   { path: '', component: HomeComponent },
 ];
 
