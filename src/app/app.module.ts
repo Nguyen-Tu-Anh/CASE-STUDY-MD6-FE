@@ -11,19 +11,15 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ProfileProviderComponent } from './component/profile/profile-provider/profile-provider.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatIconModule} from "@angular/material/icon";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { DetailComponent } from './component/detail/detail.component';
+import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
 
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'profile-provider', component: ProfileProviderComponent},
-  {path: 'register', component: RegisterComponent, data: {title: 'Register'}}
+  {path: 'modal-rent', component: ModalRentComponent},
 ];
 @NgModule({
   declarations: [
@@ -34,19 +30,14 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
-    ProfileProviderComponent
+    ProfileProviderComponent,
+    DetailComponent,
+    ModalRentComponent
   ],
   imports: [
-    FormsModule,
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
