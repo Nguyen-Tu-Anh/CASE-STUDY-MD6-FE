@@ -21,6 +21,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
+import {MatButtonModule} from "@angular/material/button";
 
 
 export const appRoutes: Routes = [
@@ -59,7 +60,8 @@ export const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

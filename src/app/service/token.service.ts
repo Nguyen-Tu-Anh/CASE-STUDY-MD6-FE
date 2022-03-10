@@ -42,4 +42,9 @@ export class TokenService {
     return this.users;
   }
 
+  // ham LogOut chay ve profile
+  public logOut(){
+    window.sessionStorage.clear()
+    window.location.reload();
+  }
 }

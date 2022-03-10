@@ -7,17 +7,17 @@ import {TokenService} from "../../service/token.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  name: string[] | undefined;
-  checkLogin = false;
+  // username: string[] | undefined;
+  // checkLogin = false;
 
   constructor(private tokenService: TokenService) {
   }
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.checkLogin = true;
-      this.name = this.tokenService.getUsers();
-    }
+  //   if(this.tokenService.getToken()){
+  //     this.checkLogin = true;
+  //     this.username = this.tokenService.getUsers();
+  //   }
   }
 
 }
