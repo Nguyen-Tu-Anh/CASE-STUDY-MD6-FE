@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
      if(data.token!=undefined) {
        this.tokenService.setToken(data.token);
        this.tokenService.setUsers(data.users);
-       this.router.navigate(['user-account'])  //router link truc tiep den componment
+       this.router.navigate(['/profile'])  //router link truc tiep den componment
                                                         // ko phai qua HTML
      }
     })
