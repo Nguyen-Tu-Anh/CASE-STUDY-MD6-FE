@@ -9,6 +9,8 @@ import {RouterModule, Routes} from "@angular/router";
 import { RegisterComponent } from './component/register/register.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ProfileProviderComponent } from './component/profile/profile-provider/profile-provider.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -19,6 +21,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'profile-provider', component: ProfileProviderComponent},
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}}
 ];
 @NgModule({
@@ -29,6 +33,8 @@ export const appRoutes: Routes = [
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
+    ProfileComponent,
+    ProfileProviderComponent
   ],
   imports: [
     FormsModule,
