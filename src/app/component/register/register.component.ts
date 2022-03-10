@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit {
   success: any = {
     message: "yes"
   }
+
+  // truyen Service vao contrutor
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

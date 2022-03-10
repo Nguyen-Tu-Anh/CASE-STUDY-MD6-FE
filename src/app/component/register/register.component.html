@@ -8,8 +8,8 @@
       <div class="modal-body">
         <div class="d-flex flex-column text-center">
 
-          // BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
-          // triển khai hàm ngSubmit() bên Register.componment.ts
+          <!-- BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
+          // triển khai hàm ngSubmit() bên Register.componment.ts -->
           <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
             <mat-error class="alert alert-primary" >{{status}}</mat-error>
 
@@ -53,10 +53,10 @@
 
 
             <!-- Register -->
-
             <button mat-stroked-button style="width: 100px" class="mat-button-toggle-group btn-outline-primary">Register
             <mat-icon matSuffix>add_circle_outline</mat-icon>
             </button>
+
           </form>
           <div class="modal-footer d-flex justify-content-center">
             <div class="signup-section">Have an account? <a data-toggle="modal" data-target="#loginModal"

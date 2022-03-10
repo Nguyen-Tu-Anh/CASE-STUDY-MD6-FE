@@ -1,3 +1,5 @@
+
+// KIEU DU LIEU JSON
 export class SignUpForm {
   public username: string | undefined;
   public email: string | undefined;
