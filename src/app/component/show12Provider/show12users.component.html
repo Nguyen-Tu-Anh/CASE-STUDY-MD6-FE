@@ -105,11 +105,13 @@
         <div class="col">
           <div class="product-grid"
                data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
             <!-- Product 1 -->
+
             <div class="product-item men" *ngFor="let u of users">
               <div class="product discount product_filter">
                 <div class="product_image">
-                  <a routerLink="/show12user"><img src="{{u.avatar}}" alt=""></a>
+                  <img src="{{u.avatar}}" alt="">
                 </div>
                 <div class="favorite favorite_left"></div>
                 <div
@@ -117,23 +119,16 @@
                   <span>{{u.price}}</span></div>
                 <div class="product_info">
                   <h6 class="product_name"><a href="single.html">{{u.name}}</a></h6>
-                  <h6 class="product_name"><a href="single.html" *ngIf="u.status == 1">user</a></h6>
-                  <h6 class="product_name"><a href="single.html" *ngIf="u.status == 2">provider</a></h6>
                   <div class="product_price">$520.00<span>$590.00</span></div>
                 </div>
               </div>
-              <div class="red_button add_to_cart_button"><a href="/home">add to cart</a></div>
+              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
             </div>
-            <div>
-              <ul class="pager">
-                <li class="previos">
-                  <button (click)="previous()">&larr; previous</button>
-                </li>
-                <li class="next">
-                  <button (click)="nextPage()"> Next &larr;</button>
-                </li>
-              </ul>
-            </div>
+<!--            <mat-paginator [length]="100"-->
+<!--                           [pageSize]="10"-->
+<!--                           [pageSizeOptions]="[5, 10, 25, 100]"-->
+<!--                           aria-label="Select page">-->
+<!--            </mat-paginator>-->
           </div>
         </div>
       </div>
@@ -147,7 +142,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="deal_ofthe_week_img">
-                        <img src="assets/images/deal_ofthe_week.png" alt="">
+            <img src="assets/images/deal_ofthe_week.png" alt="">
           </div>
         </div>
         <div class="col-lg-6 text-right deal_ofthe_week_col">
@@ -179,7 +174,9 @@
       </div>
     </div>
   </div>
+
   <!-- Best Sellers -->
+
   <div class="best_sellers">
     <div class="container">
       <div class="row">
