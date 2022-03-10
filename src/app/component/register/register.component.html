@@ -1,26 +1,62 @@
 <!--Register-->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+     aria-hidden="true" xmlns="http://www.w3.org/1999/html">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
-      <h4 style="text-align: center; color: #fe4c50">Signup</h4>
+<!--      <h4 style="text-align: center; color: #fe4c50">Signup</h4>-->
       <div class="modal-body">
         <div class="d-flex flex-column text-center">
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="username1" placeholder="Username">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="email1" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="phone1" placeholder="Phone">
-            </div>
-            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+
+          <!-- BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
+          // triển khai hàm ngSubmit() bên Register.componment.ts -->
+          <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+            <mat-error class="alert alert-primary" >{{status}}</mat-error>
+
+            <!-- UserName -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input name="username" [(ngModel)]="form.username" matInput placeholder="Placeholder" #username="ngModel" minlength="3" maxlength="50" required>
+              <mat-icon matSuffix>person_outline</mat-icon>
+              <mat-error *ngIf="username.hasError('required')">Username is required!</mat-error>
+              <mat-error *ngIf="username.hasError('minlength')">Username must more than 3 character!</mat-error>
+            </mat-form-field> <br>
+
+            <!-- Email -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input name="email" [(ngModel)]="form.email" matInput placeholder="Placeholder" [formControl]="emailFormControl" required>
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="emailFormControl.hasError('required')">Email is required!</mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('email')">The email is invalid!</mat-error>
+            </mat-form-field> <br>
+
+            <!-- Password -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input name="password" [(ngModel)]="form.password" matInput [type]="hide ? 'password' : 'text'" #password="ngModel" required minlength="6" maxlength="15">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                   <mat-icon>{{hide ? 'visibility_off' : 'visibilyti'}}</mat-icon>
+             </button>
+              <mat-error *ngIf="password.hasError('required')">Password is required!</mat-error>
+              <mat-error *ngIf="password.hasError('minlength')">Password must more than 6 character!</mat-error>
+            </mat-form-field> <br>
+
+            <!-- PhoneNumber -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Enter your phone</mat-label>
+              <input name="phoneNumber" [(ngModel)]="form.phoneNumber" matInput placeholder="Placeholder" #phoneNumber="ngModel" minlength="10" maxlength="12" required>
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="phoneNumber.hasError('required')">PhoneNumber is required!</mat-error>
+              <mat-error *ngIf="phoneNumber.hasError('minlength')">phoneNumber must more than 9 character!</mat-error>
+            </mat-form-field> <br>
+
+
+            <!-- Register -->
+            <button mat-stroked-button style="width: 100px" class="mat-button-toggle-group btn-outline-primary">Register
+            <mat-icon matSuffix>add_circle_outline</mat-icon>
+            </button>
+
           </form>
           <div class="modal-footer d-flex justify-content-center">
             <div class="signup-section">Have an account? <a data-toggle="modal" data-target="#loginModal"
@@ -31,7 +67,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 

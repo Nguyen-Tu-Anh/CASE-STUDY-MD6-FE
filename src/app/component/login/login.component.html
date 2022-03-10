@@ -5,15 +5,37 @@
       <h4 style="text-align: center; color: #fe4c50">Login</h4>
       <div class="modal-body">
         <div class="d-flex flex-column text-center">
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+
+          <!-- BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
+         // triển khai hàm ngSubmit() bên Login.componment.ts -->
+          <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+<!--            <mat-error class="alert alert-primary" >{{status}}</mat-error>-->
+
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input name="username" [(ngModel)]="form.username" matInput placeholder="Placeholder" #username="ngModel" minlength="3" maxlength="50" required>
+              <mat-icon matSuffix>person_outline</mat-icon>
+              <mat-error *ngIf="username.hasError('required')">Username is required!</mat-error>
+              <mat-error *ngIf="username.hasError('minlength')">Username must more than 3 character!</mat-error>
+            </mat-form-field> <br>
+
+            <!-- Password -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input name="password" [(ngModel)]="form.password" matInput [type]="hide ? 'password' : 'text'" #password="ngModel" required minlength="6" maxlength="15">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                <mat-icon>{{hide ? 'visibility_off' : 'visibilyti'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="password.hasError('required')">Password is required!</mat-error>
+              <mat-error *ngIf="password.hasError('minlength')">Password must more than 6 character!</mat-error>
+            </mat-form-field> <br>
+
+            <!-- Login -->
+            <button mat-stroked-button style="width: 100px" class="mat-button-toggle-group btn-outline-primary">Login
+              <mat-icon matSuffix>login</mat-icon>
+            </button>
           </form>
+
           <div class="modal-footer d-flex justify-content-center">
             <div class="signup-section">Not a member yet? <a data-toggle="modal" data-target="#registerModal"
                                                              class="text-info" type="button" data-dismiss="modal"
