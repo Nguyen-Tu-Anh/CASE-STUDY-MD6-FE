@@ -11,11 +11,11 @@ import {HeaderComponent} from "./component/header/header.component";
 import {FooterComponent} from "./component/footer/footer.component";
 import {RegisterComponent} from "./component/register/register.component";
 import {Show12usersComponent} from "./component/show12users/show12users.component";
+import {HomeService} from "./service/home.service";
+import {UserService} from "./service/user.service";
+import {DetailsComponent} from "./component/details/details.component";
+import {FormsModule} from "@angular/forms";
 
-
-export const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,14 +24,16 @@ export const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    Show12usersComponent
+    Show12usersComponent,
+    DetailsComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [HomeService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
