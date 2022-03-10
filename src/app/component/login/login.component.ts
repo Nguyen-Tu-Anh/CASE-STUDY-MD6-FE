@@ -4,9 +4,6 @@ import {AuthService} from "../../service/auth.service";
 import {TokenService} from "../../service/token.service";
 import {Router} from "@angular/router";
 
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +14,8 @@ export class LoginComponent implements OnInit {
   hide = true;
   form: any = {};
   signInForm!: SignInForm;   //khai bao SignUpform moi
-
+  // name: string[] | undefined;
+  // checkLogin = false;
   // truyen service vao contructor
  // goi lớp tokenService xuống
   constructor(private authService: AuthService,
@@ -26,6 +24,10 @@ export class LoginComponent implements OnInit {
                                             // class Router co san Angular
 
   ngOnInit(): void {
+    // if(this.tokenService.getToken()){
+    //   this.checkLogin = true;
+    //   this.name = this.tokenService.getUsers();
+    // }
   }
 
   ngSubmit() {
@@ -39,8 +41,10 @@ export class LoginComponent implements OnInit {
      if(data.token!=undefined) {
        this.tokenService.setToken(data.token);
        this.tokenService.setUsers(data.users);
-       this.router.navigate(['/profile'])  //router link truc tiep den componment
-                                                        // ko phai qua HTML
+       this.router.navigate(['/profile']).then(()=>{
+         window.location.reload();
+       })  //router link truc tiep den componment
+       // ko phai qua HTML
      }
     })
   }

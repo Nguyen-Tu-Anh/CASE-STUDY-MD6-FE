@@ -14,7 +14,7 @@ export class AuthService {
 
   //API LOCAL
   private API_SIGNUP = environment.API_LOCAL +'/signup';
-
+   data: boolean | undefined;
   constructor(private http:HttpClient) { }
   signUp(signUp : SignUpForm) : Observable<any>{
     return this.http.post<any>(this.API_SIGNUP,signUp);
@@ -26,5 +26,12 @@ export class AuthService {
     return this.http.post<JwtResponse>(this.API_SIGNIN,signIn);
     // Tao ham nay ben Service, truy xuat ra ben componment,
     // hung ra du lieu JWTReponse nhu ben BE
+  }
+
+  setData(data: boolean | undefined){
+    this.data = data;
+  }
+  getData(): boolean{
+    return <boolean>this.data;
   }
 }
