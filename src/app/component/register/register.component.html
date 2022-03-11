@@ -4,7 +4,6 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
-<!--      <h4 style="text-align: center; color: #fe4c50">Signup</h4>-->
       <div class="modal-body">
         <div class="d-flex flex-column text-center">
 
@@ -12,6 +11,14 @@
           // triển khai hàm ngSubmit() bên Register.componment.ts -->
           <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
             <mat-error class="alert alert-primary" >{{status}}</mat-error>
+
+            <!-- Name -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input name="name" [(ngModel)]="form.name" matInput placeholder="Placeholder" #name="ngModel" minlength="1" maxlength="50" >
+              <mat-icon matSuffix>person_outline</mat-icon>
+              <mat-error *ngIf="name.hasError('minlength')">Name must more than 1 character!</mat-error>
+            </mat-form-field> <br>
 
             <!-- UserName -->
             <mat-form-field style="width: 450px" appearance="outline">
@@ -39,7 +46,7 @@
                    <mat-icon>{{hide ? 'visibility_off' : 'visibilyti'}}</mat-icon>
              </button>
               <mat-error *ngIf="password.hasError('required')">Password is required!</mat-error>
-              <mat-error *ngIf="password.hasError('minlength')">Password must more than 6 character!</mat-error>
+              <mat-error *ngIf="password.hasError('minlength')">Password must more than 5 character!</mat-error>
             </mat-form-field> <br>
 
             <!-- PhoneNumber -->

@@ -14,20 +14,25 @@
           <nav class="navbar">
             <ul class="navbar_menu">
               <li><a routerLink="/">home</a></li>
-              <li><a routerLink="/show12user">show12user</a></li>
+              <li><a routerLink="/show12user">Show12User</a></li>
               <li><a href="#">ranking</a></li>
 
-              <li><a href="contact.html">contact</a></li>
               <li>
-                <a type="button" data-toggle="modal" data-target="#loginModal">
-                  <i class="fa fa-sign-in"></i> {{username}}
+                <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#loginModal">
+                  <i class="fa fa-sign-in"></i> Login
+<!--                  {{username}}-->
                 </a>
               </li>
               <li>
-                <a type="button" data-toggle="modal" data-target="#registerModal">
+                <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#registerModal">
                   <i class="fa fa-sign-in"></i> Register
                 </a>
               </li>
+<!--              <li>-->
+<!--                <a *ngIf="!checkLogin" type="button" routerLink="/profile-provider" >-->
+<!--                  <i class="fa fa-sign-in"></i> {{name}}-->
+<!--                </a>-->
+<!--              </li>-->
             </ul>
             <ul class="navbar_user">
               <li>

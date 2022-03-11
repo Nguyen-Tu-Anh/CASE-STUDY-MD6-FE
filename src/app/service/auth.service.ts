@@ -13,15 +13,14 @@ import {SignInForm} from "../component/model/SignInForm";
 export class AuthService {
 
   //API LOCAL
-  private API_SIGNUP = environment.API_LOCAL +'/signup';
+  private API_SIGNUP = environment.API_LOCAL +'signup';
    data: boolean | undefined;
   constructor(private http:HttpClient) { }
   signUp(signUp : SignUpForm) : Observable<any>{
     return this.http.post<any>(this.API_SIGNUP,signUp);
     //truyen doi tuong nay vao Service
   }
-
-  private API_SIGNIN = environment.API_LOCAL +'/signin';
+  private API_SIGNIN = environment.API_LOCAL +'signin';
   signIn(signIn : SignInForm) : Observable<JwtResponse>{
     return this.http.post<JwtResponse>(this.API_SIGNIN,signIn);
     // Tao ham nay ben Service, truy xuat ra ben componment,

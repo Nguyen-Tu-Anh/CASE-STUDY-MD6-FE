@@ -9,7 +9,8 @@ import {Users} from "../../model/Users";
 })
 // @ts-ignore
 export class HeaderComponent implements OnInit {
-  username: string = "Login";
+  name!: string;
+  // username: string = "Login";
   checkLogin = false;
 
   constructor(private tokenService: TokenService) {
@@ -19,8 +20,8 @@ export class HeaderComponent implements OnInit {
     if (this.tokenService.getToken()) {
       console.log("co token")
       this.checkLogin = true;
-      this.username = this.tokenService.getUser().username;
-      console.log('user name--->', this.username)
+      this.name = this.tokenService.getUsers().name;
+      console.log('name--->', this.name)
     }
   }
 }

@@ -1,6 +1,7 @@
 
 // KIEU DU LIEU JSON
 export class SignUpForm {
+  public name: string | undefined;
   public username: string | undefined;
   public email: string | undefined;
   public password: string | undefined;
@@ -8,11 +9,12 @@ export class SignUpForm {
   public roles: string[] | undefined;
 
 
-  constructor(username: string | undefined, email: string | undefined, password: string | undefined, phoneNumber: string) {
+  constructor(name: string | undefined, username: string | undefined, email: string | undefined, password: string | undefined, phoneNumber: string) {
+    this.name = name;
     this.username = username;
     this.email = email;
     this.password = password;
     this.phoneNumber = phoneNumber;
-    this.roles = ['user'];
+    this.roles = ['admin'];
   }
 }
