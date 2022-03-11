@@ -7,7 +7,7 @@ import {HomeService} from "../../service/home.service";
   templateUrl: './show12users.component.html',
   styleUrls: ['./show12users.component.css']
 })
-export class Show12usersComponent implements OnInit {
+export class Show12ProviderComponent implements OnInit {
 
 
   users: Users[] = [];

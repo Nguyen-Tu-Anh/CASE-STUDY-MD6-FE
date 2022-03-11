@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  // username: string[] | undefined;
+  // checkLogin = false;
 
-  constructor() { }
+  constructor()  {
+  }
 
   ngOnInit(): void {
+  //   if(this.tokenService.getToken()){
+  //     this.checkLogin = true;
+  //     this.username = this.tokenService.getUsers();
+  //   }
   }
 
 }

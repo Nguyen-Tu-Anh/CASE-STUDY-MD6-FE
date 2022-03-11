@@ -16,6 +16,23 @@ import {UserService} from "./service/user.service";
 import {DetailsComponent} from "./component/details/details.component";
 import {FormsModule} from "@angular/forms";
 
+import { ProfileComponent } from './component/profile/profile.component';
+import { ProfileProviderComponent } from './component/profile/profile-provider/profile-provider.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+// import { UserAccountComponent } from './component/user-account/user-account.component';
+import {MatCardModule} from "@angular/material/card";
+import { DetailComponent } from './component/detail/detail.component';
+import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
+import {MatButtonModule} from "@angular/material/button";
+
+
+export const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,16 +41,14 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    Show12usersComponent,
-    DetailsComponent,
+    Show12usersComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    AppRoutingModule,HttpClientModule
   ],
-  providers: [HomeService, UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
