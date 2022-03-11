@@ -5,32 +5,33 @@ import {Review} from "./Review";
 
 export class Users{
   id!: number;
-  name!:String;
-  username!:String;
-  email!:String;
-  password!:String;
-  avatar!:String;
-  phoneNumber!:String;
+  name!:string;
+  username!:string;
+  email!:string;
+  password!:string;
+  avatar!:string;
+  phoneNumber!:string;
   age!:number;
-  gender!:String;
-  dateOfBirth!:String;
-  city!:String;
-  nationality!:String;
+  gender!:string;
+  dateOfBirth!:string;
+  city!:string;
+  nationality!:string;
   status!:number;
-  description!:String;
-  requirement!:String;
+  description!:string;
+  requirement!:string;
   startDate!:Date;
   vipDate!:Date;
-  facebookUrl!:String;
+  facebookUrl!:string;
   countOfDate!:number;
-  identify!:String;
+  identify!:string;
   images!:Images;
   roles!:Role;
   price!:number;
   serviceOfProviders!:ServiceOfProvider;
   reviews!:Review;
 
-  constructor(id: number, name: String, username: String, email: String, password: String, avatar: String, phoneNumber: String, age: number, gender: String, dateOfBirth: String, city: String, nationality: String, status: number, description: String, requirement: String, startDate: Date, vipDate: Date, facebookUrl: String, countOfDate: number, identify: String, images: Images, roles: Role, price: number, serviceOfProviders: ServiceOfProvider, reviews: Review) {
+
+  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, phoneNumber: string, age: number, gender: string, dateOfBirth: string, city: string, nationality: string, status: number, description: string, requirement: string, startDate: Date, vipDate: Date, facebookUrl: string, countOfDate: number, identify: string, images: Images, roles: Role, price: number, serviceOfProviders: ServiceOfProvider, reviews: Review) {
     this.id = id;
     this.name = name;
     this.username = username;

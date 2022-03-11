@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../service/token.service";
+import {Users} from "../../model/Users";
 
 @Component({
   selector: 'app-profile',
@@ -7,14 +8,15 @@ import {TokenService} from "../../service/token.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
   }
 
   // ham Logout
  logOut(){
-  this.tokenService.logOut()
+   window.sessionStorage.clear();
+   window.location.reload();
  }
 }
