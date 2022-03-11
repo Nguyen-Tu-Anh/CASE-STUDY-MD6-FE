@@ -1,7 +1,9 @@
 import {Role} from "./Role";
-import {Images} from "./images";
+
 import {ServiceOfProvider} from "./ServiceOfProvider";
 import {Review} from "./Review";
+import {Images} from "./Image";
+import {Order} from "./order";
 
 export class Users{
   id!: number;
@@ -24,14 +26,15 @@ export class Users{
   facebookUrl!:string;
   countOfDate!:number;
   identify!:string;
-  images!:Images;
-  roles!:Role;
+  images!:Images[];
+  roles!:Role[];
   price!:number;
-  serviceOfProviders!:ServiceOfProvider;
-  reviews!:Review;
+  serviceOfProviders!:ServiceOfProvider[];
+  reviews!:Review[];
+  order! : Order[];
 
 
-  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, phoneNumber: string, age: number, gender: string, dateOfBirth: string, city: string, nationality: string, status: number, description: string, requirement: string, startDate: Date, vipDate: Date, facebookUrl: string, countOfDate: number, identify: string, images: Images, roles: Role, price: number, serviceOfProviders: ServiceOfProvider, reviews: Review) {
+  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, phoneNumber: string, age: number, gender: string, dateOfBirth: string, city: string, nationality: string, status: number, description: string, requirement: string, startDate: Date, vipDate: Date, facebookUrl: string, countOfDate: number, identify: string, images: Images[], roles: Role[], price: number, serviceOfProviders: ServiceOfProvider[], reviews: Review[], order: Order[]) {
     this.id = id;
     this.name = name;
     this.username = username;
@@ -57,5 +60,6 @@ export class Users{
     this.price = price;
     this.serviceOfProviders = serviceOfProviders;
     this.reviews = reviews;
+    this.order = order;
   }
 }
