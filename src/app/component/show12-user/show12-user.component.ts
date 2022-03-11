@@ -3,14 +3,14 @@ import {Users} from "../../model/Users";
 import {HomeService} from "../../service/home.service";
 
 @Component({
-  selector: 'app-show12users',
-  templateUrl: './show12users.component.html',
-  styleUrls: ['./show12users.component.css']
+  selector: 'app-show12-user',
+  templateUrl: './show12-user.component.html',
+  styleUrls: ['./show12-user.component.css']
 })
-export class Show12ProviderComponent implements OnInit {
+export class Show12UserComponent implements OnInit {
 
 
-  users: Users[] = [];
+  users!: Users[];
   page:number = 0;
 
   constructor(private homeService: HomeService) {
@@ -30,5 +30,4 @@ export class Show12ProviderComponent implements OnInit {
       this.users = data.content;
     })
   }
-
 }

@@ -8,10 +8,9 @@ import {HomeService} from "../../service/home.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-
   users: Users[] = [];
   page:number = 0;
+
 
   constructor(private homeService: HomeService) {
   }
@@ -34,6 +33,5 @@ export class HomeComponent implements OnInit {
       this.users = data.content;
     })
   }
-
 
 }
