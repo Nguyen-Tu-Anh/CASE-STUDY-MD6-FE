@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
      this.form.username,
      this.form.password
    )
+    console.log("form--->", this.signInForm)
     //data nay tra ve kieu cua JWTREPONSE(trong data co token, users)
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data =>{
@@ -46,9 +47,9 @@ export class LoginComponent implements OnInit {
        console.log('vao day 2--->')
        this.tokenService.setToken(data.token);
        // @ts-ignore
-        this.tokenService.setUser(JSON.stringify(data.users));
-       console.log(this.tokenService.getUser())
-       this.router.navigate(['/profile']).then(()=>{
+        this.tokenService.setUsers(JSON.stringify(data.users));
+       console.log(this.tokenService.getUsers())
+       this.router.navigate(['profile']).then(()=>{
          window.location.reload();
        })  //router link truc tiep den componment
        // ko phai qua HTML

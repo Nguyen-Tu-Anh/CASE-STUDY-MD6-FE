@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
               Validators.email
 ])   //validate email
 
-  signUpForm!: SignUpForm;   //khai bao SignUpform moi
+
 
   // khai bao 2 bien de kiem tra trung lap
   // bat kieu json ben tycripe
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   success: any = {
     message: "yes"
   }
-
+  signUpForm!: SignUpForm;   //khai bao SignUpform moi
   // truyen Service vao contrutor
   constructor(private authService: AuthService) { }
 
@@ -43,19 +43,19 @@ export class RegisterComponent implements OnInit {
   // BƯỚC 2 : Chạy vào hàm triển khai LOGIC API
   ngSubmit() {
     this.signUpForm = new SignUpForm(
+      this.form.name,
       this.form.username,
       this.form.email,
       this.form.password,
       this.form.phoneNumber
     );
-
+    console.log("chay submit",this.signUpForm)
     // BƯỚC 3 CHECK TRÙNG LẶP VALIDATE MÌNH TỰ LOGIC
     // goi ham ra de truyenvao goi Signup ra truyen this.signup vua khoi tao
     // truy xuat data .subcribe-> truy xuat du lieu Observable ben Service
     // data la ben BE gui ve ( check trung lap ) request lúc nào cũng có data trả về để FE so sánh
     this.authService.signUp(this.signUpForm).subscribe(data =>{
-      console.log("data")
-      console.log(data)
+      console.log("data ==", data);
        if(JSON.stringify(data)==JSON.stringify(this.error1)) {
          this.status = 'The Username is existed! Please try again!'
        }

@@ -2,13 +2,12 @@
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <h4 style="text-align: center; color: #fe4c50">Login</h4>
       <div class="modal-body">
         <div class="d-flex flex-column text-center">
 
           <!-- BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
          // triển khai hàm ngSubmit() bên Login.componment.ts -->
-          <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+          <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
 <!--            <mat-error class="alert alert-primary" >{{status}}</mat-error>-->
 
             <mat-form-field style="width: 450px" appearance="outline">
