@@ -25,7 +25,7 @@ import {FormsModule} from "@angular/forms";
     FooterComponent,
     RegisterComponent,
     Show12usersComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
