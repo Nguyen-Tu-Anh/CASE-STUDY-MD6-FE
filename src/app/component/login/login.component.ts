@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   form: any = {};
   signInForm!: SignInForm;   //khai bao SignUpform moi
+
   // name: string[] | undefined;
   // checkLogin = false;
   // truyen service vao contructor
@@ -38,9 +39,15 @@ export class LoginComponent implements OnInit {
     //data nay tra ve kieu cua JWTREPONSE(trong data co token, users)
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data =>{
-     if(data.token!=undefined) {
+      console.log('vao day 1--->')
+      console.log("data ==>" , data)
+
+      if(data.token!=undefined) {
+       console.log('vao day 2--->')
        this.tokenService.setToken(data.token);
-       this.tokenService.setUsers(data.users);
+       // @ts-ignore
+        this.tokenService.setUser(JSON.stringify(data.users));
+       console.log(this.tokenService.getUser())
        this.router.navigate(['/profile']).then(()=>{
          window.location.reload();
        })  //router link truc tiep den componment
