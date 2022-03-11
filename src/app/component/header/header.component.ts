@@ -11,7 +11,7 @@ import {Users} from "../../model/Users";
 export class HeaderComponent implements OnInit {
   name!: string;
   // username: string = "Login";
-  checkLogin = false;
+  checkLogin = true;
 
   constructor(private tokenService: TokenService) {
   }
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
       console.log("co token")
-      this.checkLogin = true;
+      this.checkLogin = false;
       this.name = this.tokenService.getUsers().name;
       console.log('name--->', this.name)
     }
