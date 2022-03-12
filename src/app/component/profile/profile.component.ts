@@ -17,6 +17,6 @@ export class ProfileComponent implements OnInit {
   // ham Logout
  logOut(){
    window.sessionStorage.clear();
-   window.location.reload();
+   window.location.replace("");
  }
 }
