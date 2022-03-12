@@ -1,37 +1,53 @@
-<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
-<!--     aria-hidden="true">-->
-<!--  <div class="modal-dialog modal-dialog-centered" role="document">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-body">-->
-<!--        <div class="d-flex flex-column text-center">-->
+<div class="modal fade" id="rentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex flex-column text-center">
 
-<!--          &lt;!&ndash; BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"-->
-<!--         // triển khai hàm ngSubmit() bên Login.componment.ts &ndash;&gt;-->
-<!--          <form class="form-login" #f="ngForm" (ngSubmit)="f.form" novalidate>-->
-<!--            &lt;!&ndash;            <mat-error class="alert alert-primary" >{{status}}</mat-error>&ndash;&gt;-->
+          <!-- BƯỚC 1: REGISTER: ĐẦU TIÊN thông qua #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()"
+         // triển khai hàm ngSubmit() bên Login.componment.ts -->
+          <form class="form-login" (ngSubmit)="rent()" [formGroup]="rentForm" novalidate>
+            <!--            <mat-error class="alert alert-primary" >{{status}}</mat-error>-->
 
-<!--            <mat-form-field style="width: 450px" appearance="outline">-->
-<!--              <mat-label>Username</mat-label>-->
-<!--              <input name="username" [(ngModel)]="form.username" matInput placeholder="Placeholder" #username="ngModel" minlength="3" maxlength="50" required>-->
-<!--              <mat-icon matSuffix>person_outline</mat-icon>-->
-<!--            </mat-form-field> <br>-->
+            <!--   provider name-->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Tên:</mat-label>
+              <p>{{user.name}}</p>
+            </mat-form-field> <br>
 
-<!--            &lt;!&ndash; Password &ndash;&gt;-->
-<!--            <mat-form-field style="width: 450px" appearance="outline">-->
-<!--              <mat-label>Nhập giờ muốn thuê</mat-label>-->
-<!--              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >-->
-<!--                <mat-icon>{{hide ? 'visibility_off' : 'visibilyti'}}</mat-icon>-->
-<!--              </button>-->
-<!--            </mat-form-field> <br>-->
+            <!-- Tiền thuê theo giờ -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Giá thuê theo giờ:</mat-label>
+              <p>{{user.price}}</p>
+            </mat-form-field> <br>
 
-<!--            &lt;!&ndash; Login &ndash;&gt;-->
-<!--            <button  mat-stroked-button style="width: 100px" class="mat-button-toggle-group btn-outline-primary"-->
-<!--            >Login-->
-<!--              <mat-icon matSuffix>login</mat-icon>-->
-<!--            </button>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+            <!-- Số giờ thuê -->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Nhập giờ muốn thuê</mat-label>
+             <input formControlName="hoursOfService" type="number">
+            </mat-form-field> <br>
+
+            <!-- Ngày thuê-->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Ngày thuê:</mat-label>
+              <input formControlName="hoursOfService" type="date">
+            </mat-form-field> <br>
+
+            <!--   provider name-->
+            <mat-form-field style="width: 450px" appearance="outline">
+              <mat-label>Tổng tiền:</mat-label>
+              <p>{{totalPrice}}</p>
+            </mat-form-field> <br>
+
+            <!-- Login -->
+            <button  mat-stroked-button style="width: 100px" class="mat-button-toggle-group btn-outline-primary" type="submit">
+              Thuê
+              <mat-icon matSuffix>login</mat-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

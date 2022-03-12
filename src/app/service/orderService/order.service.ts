@@ -27,4 +27,7 @@ export class OrderService {
   // hiển thị chi tiết đơn hàng đã đặt của Provider
 
 
+  rent(order: Order): Observable<any>{
+    return this.http.post("http://localhost:8080/order",order);
+  }
 }

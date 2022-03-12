@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {HomeService} from "../../service/home.service";
 import {Users} from "../../model/Users";
 import {ActivatedRoute} from "@angular/router";
+import { OrderService } from 'src/app/service/orderService/order.service';
 
 @Component({
   selector: 'app-modal-rent',
@@ -15,7 +16,7 @@ export class ModalRentComponent implements OnInit {
   providerId!: number;
   totalPrice: number = this.rentForm.value.hoursOfService * this.user.price;
 
-  constructor(private homeService: HomeService, private activeRoute: ActivatedRoute) {
+  constructor(private homeService: HomeService, private activeRoute: ActivatedRoute,private  orderService: OrderService) {
   }
 
   ngOnInit(): void {
@@ -38,7 +39,9 @@ export class ModalRentComponent implements OnInit {
   }
 
   rent(): void {
-
+    this.orderService.rent(this.rentForm.value).subscribe((data)=>{
+      window.location.replace("/details");
+    })
   }
 
 }

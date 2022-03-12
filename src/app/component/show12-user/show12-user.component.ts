@@ -18,6 +18,9 @@ export class Show12UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll(this.page)
+    console.log("success");
+    localStorage.setItem("providerId","1");
+    localStorage.setItem("customerId","1");
   }
 
   nextPage():void{
