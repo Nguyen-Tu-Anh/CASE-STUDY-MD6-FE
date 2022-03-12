@@ -578,6 +578,7 @@ section
 {
 	display: inline-block;
 	text-align: center;
+  padding-left: 25px;
 }
 .navbar_user li a
 {

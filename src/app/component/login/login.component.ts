@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  status = 'Please fill in the form Login!'
   hide = true;
   form: any = {};
   signInForm!: SignInForm;   //khai bao SignUpform moi
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
        // @ts-ignore
         this.tokenService.setUsers(JSON.stringify(data.users));
        console.log(this.tokenService.getUsers())
-       this.router.navigate(['profile']).then(()=>{
+       this.router.navigate(['']).then(()=>{
          window.location.reload();
        })  //router link truc tiep den componment
        // ko phai qua HTML

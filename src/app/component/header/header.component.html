@@ -20,7 +20,6 @@
               <li>
                 <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#loginModal">
                   <i class="fa fa-sign-in"></i> Login
-<!--                  {{username}}-->
                 </a>
               </li>
               <li>
@@ -28,9 +27,17 @@
                   <i class="fa fa-sign-in"></i> Register
                 </a>
               </li>
+              <li>
+              <a *ngIf="!checkLogin" (click)="logOut()"><i class="fa fa-sign-out"  aria-hidden="true"></i>LogOut</a>
+              </li>
+              <li>
+              <a *ngIf="!checkLogin" routerLink="/profile" class="border px-3 p-1 add-experience"><i class="fa fa-user"></i></a>
+              </li>
+
 <!--              <li>-->
-<!--                <a *ngIf="!checkLogin" type="button" routerLink="/profile-provider" >-->
-<!--                  <i class="fa fa-sign-in"></i> {{name}}-->
+<!--                <a *ngIf="!checkLogin" mat-button class="docs-button" data-toggle="modal" data-target="#loginModal">-->
+<!--                  <mat-icon color="accent">account_cirle</mat-icon>-->
+<!--                  <span> {{name}}</span>-->
 <!--                </a>-->
 <!--              </li>-->
             </ul>
@@ -41,7 +48,6 @@
                    style="background-color: #eceff6; border: none"><i
                   class="fa fa-search" aria-hidden="true"></i></a>
               </li>
-              <li><a routerLink="/profile"><i class="fa fa-user" aria-hidden="true"></i></a></li>
               <li class="checkout">
                 <a href="#">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -57,7 +63,6 @@
       </div>
     </div>
   </div>
-
 </header>
 
 
