@@ -9,8 +9,7 @@ import {Users} from "../../model/Users";
 })
 // @ts-ignore
 export class HeaderComponent implements OnInit {
-  name!: string;
-  // username: string = "Login";
+  name?: string;
   checkLogin = true;
 
   constructor(private tokenService: TokenService) {
@@ -24,4 +23,14 @@ export class HeaderComponent implements OnInit {
       console.log('name--->', this.name)
     }
   }
+  // ham Logout
+  logOut(){
+    window.sessionStorage.clear();
+    window.location.replace("");
+  }
+  // // ham Logout
+  // logOut(){
+  //   window.sessionStorage.clear();
+  //   window.location.replace("");
+  // }
 }
