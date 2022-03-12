@@ -3,7 +3,7 @@ import {Role} from "./Role";
 import {ServiceOfProvider} from "./ServiceOfProvider";
 import {Review} from "./Review";
 import {Images} from "./Image";
-import {Order} from "./order";
+import {Order} from "./Order";
 
 export class Users{
   id!: number;

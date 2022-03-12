@@ -22,6 +22,7 @@ import {MatCardModule} from "@angular/material/card";
 import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
 import {MatButtonModule} from "@angular/material/button";
+import { DetailsComponent } from './component/details/details.component';
 
 
 export const appRoutes: Routes = [
@@ -45,7 +46,8 @@ export const appRoutes: Routes = [
     // UserAccountComponent,
     ProfileProviderComponent,
     DetailComponent,
-    ModalRentComponent
+    ModalRentComponent,
+    DetailsComponent
   ],
   imports: [
     FormsModule,
