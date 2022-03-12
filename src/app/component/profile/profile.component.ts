@@ -8,10 +8,14 @@ import {Users} from "../../model/Users";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  // @ts-ignore
+  user: Users;
+
   constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
-
+    // @ts-ignore
+    this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
   }
 
 
