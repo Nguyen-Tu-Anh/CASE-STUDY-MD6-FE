@@ -11,7 +11,8 @@ import {Users} from "../../model/Users";
 export class HeaderComponent implements OnInit {
   name?: string;
   checkLogin = true;
-
+  // @ts-ignore
+  user: Users;
   constructor(private tokenService: TokenService) {
   }
 
@@ -21,6 +22,8 @@ export class HeaderComponent implements OnInit {
       this.checkLogin = false;
       this.name = this.tokenService.getUsers().name;
       console.log('name--->', this.name)
+      // @ts-ignore
+      this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
     }
   }
   // ham Logout
@@ -28,9 +31,4 @@ export class HeaderComponent implements OnInit {
     window.sessionStorage.clear();
     window.location.replace("");
   }
-  // // ham Logout
-  // logOut(){
-  //   window.sessionStorage.clear();
-  //   window.location.replace("");
-  // }
 }

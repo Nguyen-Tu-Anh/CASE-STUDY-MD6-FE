@@ -43,6 +43,5 @@ export class TokenService {
   //       })
   //     } return this.getUsers();
   // }
-  logout() {
-  }
+
 }
