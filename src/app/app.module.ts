@@ -26,7 +26,7 @@ import {MatButtonModule} from "@angular/material/button";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
   {path: 'profile-provider', component: ProfileProviderComponent},
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
@@ -61,7 +61,8 @@ export const appRoutes: Routes = [
     HttpClientModule,
     MatCardModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

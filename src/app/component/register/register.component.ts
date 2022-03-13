@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
 import {SignUpForm} from "../model/SignUpForm";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,8 @@ export class RegisterComponent implements OnInit {
   }
   signUpForm!: SignUpForm;   //khai bao SignUpform moi
   // truyen Service vao contrutor
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -64,6 +66,9 @@ export class RegisterComponent implements OnInit {
       }
       if(JSON.stringify(data)==JSON.stringify(this.success)) {
         this.status = 'Create account success!'
+        this.router.navigate(['']).then(()=>{
+          window.location.replace('');
+        })
       }
     })
   }

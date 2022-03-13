@@ -31,7 +31,7 @@
               <a *ngIf="!checkLogin" (click)="logOut()"><i class="fa fa-sign-out"  aria-hidden="true"></i>LogOut</a>
               </li>
               <li>
-              <a *ngIf="!checkLogin" routerLink="/profile" class="border px-3 p-1 add-experience"><i class="fa fa-user"></i></a>
+                <a *ngIf="!checkLogin" routerLink="/profile/{{user.id}}" mat-button class="docs-button"><i class="fa fa-user-secret">{{user.name}}</i></a>
               </li>
 
 <!--              <li>-->
