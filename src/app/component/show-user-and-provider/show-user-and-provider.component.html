@@ -1,0 +1,74 @@
+
+
+
+<div class="super_container">
+
+    <div class="container" style="height: 1500px">
+                  <div class="card my-6">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                      <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h3 class="text-white text-capitalize ps-12">Show All User And Provider</h3>
+                      </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-4" >
+                          <thead>
+                          <tr>
+                            <th >Name</th>
+                            <th >Img</th>
+                            <th >identify</th>
+                            <th >Role</th>
+                            <th >Status</th>
+                            <th >Edit</th>
+                            <th >Delete</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let a of users">
+                            <td>
+                              <div class="d-flex px-2 py-1">
+                                <h3> {{a.name}}</h3>
+                              </div>
+                            </td>
+                            <td >
+                              <div>
+                              <img src="{{a.avatar}}" height="150" width="180" >
+                              </div>
+                            </td>
+                            <td >
+                              <h3 >{{a.identify}}</h3>
+                            </td>
+                            <td>
+                              <h3 *ngFor="let c of a.roles">{{c.name}}</h3>
+                            </td>
+                            <td >
+                              <h3 *ngIf="a.status === 1" class="col-6">active</h3>
+                              <h3 *ngIf="a.status === 2" class="col-6">no active</h3>
+                              <h3 *ngIf="a.status === 3" class="col-6">block</h3>
+                            </td>
+                            <td >
+                              <h3 ><button type="button" class="btn btn-warning" style="font-size: 11px">Edit</button>
+                              </h3>
+                            </td>
+                            <td >
+                              <h3 ><button type="button" class="btn btn-danger" style="font-size: 11px" >Delete</button></h3>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div ><button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="backPage()"> << </button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAll(page=0)" > 1</button>
+                      <button type="button" class="btn btn-danger"  style=" font-size: 11px " > {{page+1}}</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " > ...</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page = totalElements-2)"> {{totalElements-1}}</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page =totalElements-1)"> {{totalElements}}</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >> </button></div>
+
+                  </div>
+                </div>
+              </div>
+
+
