@@ -43,7 +43,6 @@ export const appRoutes: Routes = [
     FooterComponent,
     ProfileComponent,
     ProfileProviderComponent,
-    // UserAccountComponent,
     ProfileProviderComponent,
     DetailComponent,
     ModalRentComponent

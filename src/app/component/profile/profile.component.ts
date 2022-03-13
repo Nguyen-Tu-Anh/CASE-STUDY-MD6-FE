@@ -48,6 +48,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+
+  // ham Logout
+ logOut(){
+   window.sessionStorage.clear();
+   window.location.replace("");
+ }
+
   updateProfile() {
     this.homeService.updateUser(this.formUserProfile.value).subscribe(() => {
       alert("cập nhật profile thanh cong");
