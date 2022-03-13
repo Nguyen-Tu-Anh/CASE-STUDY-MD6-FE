@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  status = 'Please fill in the form Login!'
   hide = true;
   form: any = {};
   signInForm!: SignInForm;   //khai bao SignUpform moi
@@ -40,20 +41,17 @@ export class LoginComponent implements OnInit {
     //data nay tra ve kieu cua JWTREPONSE(trong data co token, users)
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data =>{
-      console.log('vao day 1--->')
-      console.log("data ==>" , data)
-
       if(data.token!=undefined) {
-       console.log('vao day 2--->')
        this.tokenService.setToken(data.token);
        // @ts-ignore
         this.tokenService.setUsers(JSON.stringify(data.users));
        console.log(this.tokenService.getUsers())
-       this.router.navigate(['profile']).then(()=>{
-         window.location.replace("");
+
+       this.router.navigate(['']).then(()=>{
+         window.location.replace('');
        })  //router link truc tiep den componment
        // ko phai qua HTML
-     }
-    })
+     
+    
   }
 }

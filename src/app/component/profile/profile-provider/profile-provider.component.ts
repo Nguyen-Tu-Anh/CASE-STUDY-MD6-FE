@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import {FormControl, FormGroup} from "@angular/forms";
 import {Users} from "../../../model/Users";
+
 import {HomeService} from "../../../service/home.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,6 +12,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
+  // @ts-ignore
+  user: Users;
+  formUserProfile!: FormGroup;
+  id: any;
+  userProvider!: Users;
+
 
   formProfiveProvider!: FormGroup;
   id: any;
@@ -19,13 +27,16 @@ export class ProfileProviderComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formProfiveProvider = new FormGroup({
+
       id: new FormControl(),
       name: new FormControl(),
       username: new FormControl(),
       password: new FormControl(),
       email: new FormControl(),
+
       avatar: new FormControl(),
       phoneNumber: new FormControl(),
+
       age: new FormControl(),
       gender: new FormControl(),
       status: new FormControl(),
@@ -35,6 +46,7 @@ export class ProfileProviderComponent implements OnInit {
       roles: new FormControl(),
       price: new FormControl(),
       serviceOfProviders: new FormControl(),
+
 
     })
     this.activerouter.params.subscribe((data) => {
@@ -70,6 +82,7 @@ export class ProfileProviderComponent implements OnInit {
       this.formProfiveProvider.get('price')?.setValue(this.userProvider.price);
       this.formProfiveProvider.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
     }));
+
 
   }
 
