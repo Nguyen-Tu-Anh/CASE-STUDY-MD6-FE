@@ -22,6 +22,8 @@ import {MatCardModule} from "@angular/material/card";
 import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
 import {MatButtonModule} from "@angular/material/button";
+import {DetailsComponent} from "./component/details/details.component";
+import {ShowUserAndProviderComponent} from "./component/show-user-and-provider/show-user-and-provider.component";
 
 
 export const appRoutes: Routes = [
@@ -31,6 +33,9 @@ export const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
   {path: 'modal-rent', component: ModalRentComponent},
+
+  {path: 'details', component: DetailsComponent},
+  {path: 'show-user-and-provider', component: ShowUserAndProviderComponent},
 
 ];
 @NgModule({
@@ -45,7 +50,9 @@ export const appRoutes: Routes = [
     ProfileProviderComponent,
     ProfileProviderComponent,
     DetailComponent,
-    ModalRentComponent
+    ModalRentComponent,
+    DetailsComponent,
+    ShowUserAndProviderComponent
   ],
   imports: [
     FormsModule,

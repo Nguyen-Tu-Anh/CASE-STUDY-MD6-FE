@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SignInForm} from "../model/SignInForm";
 import {AuthService} from "../../service/auth.service";
 import {TokenService} from "../../service/token.service";
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data => {
       console.log("data", data)
+
       if (data.token != undefined) {
         this.tokenService.setToken(data.token);
         // @ts-ignore

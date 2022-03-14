@@ -13,10 +13,9 @@
           </div>
           <nav class="navbar">
             <ul class="navbar_menu">
-              <li><a routerLink="/">home</a></li>
+              <li><a routerLink="">home</a></li>
               <li><a routerLink="showDetail">showDetail</a></li>
               <li><a href="#">ranking</a></li>
-
               <li>
                 <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#loginModal">
                   <i class="fa fa-sign-in"></i> Login
@@ -25,6 +24,7 @@
               <li>
                 <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#registerModal">
                   <i class="fa fa-sign-in"></i> Register
+
                 </a>
               </li>
               <li>
@@ -57,6 +57,7 @@
             </ul>
             <div class="hamburger_container">
               <i class="fa fa-bars" aria-hidden="true"></i>
+
             </div>
           </nav>
         </div>

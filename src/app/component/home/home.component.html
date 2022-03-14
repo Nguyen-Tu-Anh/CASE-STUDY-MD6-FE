@@ -75,7 +75,6 @@
   <div class="col">
     <div class="product_slider_container">
       <div class="owl-carousel owl-theme product_slider">
-
         <!-- Slide 1 -->
         <div  *ngFor="let u of users">
           <div class="owl-item product_slider_item">
@@ -87,15 +86,15 @@
                 <div class="favorite favorite_left"></div>
                 <div class="product_info">
                   <h4 class="product_name"> name: <a>{{u.name}}</a></h4>
+
                   <!--                    <h4 class="product_name">age :{{u.age}}</h4>-->
+
                   <h6 class="product_name"><a href="">{{u.description}}</a></h6>
                   <div class="product_price">{{u.price}} / H<span></span></div>
                 </div>
                 <div class="red_button add_to_cart_button"><a href="#">Order Provider</a></div>
               </div>
-
             </div>
-
           </div>
         </div>
 

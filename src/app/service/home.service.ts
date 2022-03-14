@@ -15,10 +15,13 @@ export class HomeService {
   findAllPage(page:number){
     return this.http.get<any>('http://localhost:8080/home/hot/providers/' + page);
   }
+  findAllUserAndProvider(page:number){
+    return this.http.get<any>(  'http://localhost:8080/home/page/' + page );
+  }
 
   //tìm UserById trả về 1 đối tượng.
   findById(id: number): Observable<Users> {
-    return this.http.get<Users>(`http://localhost:8080/home/${id}`)
+    return this.http.get<Users>(`http://localhost:8080/home/1`)
   }
 
   //set lại status userProvider và lưu lại vào đb
