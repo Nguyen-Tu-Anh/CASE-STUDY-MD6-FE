@@ -26,7 +26,6 @@
           <div  class="col-md-12"><label class="labels">Description</label><input type="text" class="form-control" formControlName="description"></div>
           <br>
           <div  class="col-md-12"><label class="labels">Requirement</label><input type="text" class="form-control" formControlName="requirement"></div>
-
         </div>
         <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
       </div>
@@ -34,7 +33,7 @@
     <div class="col-md-4">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center experience"><span>Profile-User</span>
-          <a routerLink="/profile-provider" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Provider</a>
+          <a routerLink="/profile-provider/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;trở thành Provider</a>
         </div><br>
        <div>
          <div     *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]" class="col-md-12"><label class="labels">DateOfBirth</label><input type="text" class="form-control" formControlName="dateOfBirth"></div>
@@ -54,5 +53,5 @@
 </div>
 
 
-
+</form>
 </div>
