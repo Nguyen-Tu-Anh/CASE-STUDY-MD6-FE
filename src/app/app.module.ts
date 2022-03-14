@@ -28,13 +28,15 @@ import {ShowUserAndProviderComponent} from "./component/show-user-and-provider/s
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
   {path: 'profile-provider', component: ProfileProviderComponent},
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
   {path: 'modal-rent', component: ModalRentComponent},
+
   {path: 'details', component: DetailsComponent},
   {path: 'show-user-and-provider', component: ShowUserAndProviderComponent},
+
 ];
 @NgModule({
   declarations: [
@@ -46,7 +48,6 @@ export const appRoutes: Routes = [
     FooterComponent,
     ProfileComponent,
     ProfileProviderComponent,
-    // UserAccountComponent,
     ProfileProviderComponent,
     DetailComponent,
     ModalRentComponent,
@@ -66,7 +67,8 @@ export const appRoutes: Routes = [
     HttpClientModule,
     MatCardModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

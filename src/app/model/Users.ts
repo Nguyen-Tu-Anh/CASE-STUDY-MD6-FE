@@ -1,5 +1,6 @@
 import {Role} from "./Role";
 
+
 import {ServiceOfProvider} from "./ServiceOfProvider";
 import {Review} from "./Review";
 import {Images} from "./Image";
@@ -32,6 +33,7 @@ export class Users{
   serviceOfProviders!:ServiceOfProvider[];
   reviews!:Review[];
   order! : Order[];
+
 
 
   constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, phoneNumber: string, age: number, gender: string, dateOfBirth: string, city: string, nationality: string, status: number, description: string, requirement: string, startDate: Date, vipDate: Date, facebookUrl: string, countOfDate: number, identify: string, images: Images[], roles: Role[], price: number, serviceOfProviders: ServiceOfProvider[], reviews: Review[], order: Order[]) {
