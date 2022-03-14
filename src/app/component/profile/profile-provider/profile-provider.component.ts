@@ -12,13 +12,8 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
-  // @ts-ignore
-  user: Users;
-  formUserProfile!: FormGroup;
-  id: any;
-  userProvider!: Users;
-
-
+  // // @ts-ignore
+  // user: Users;
   formProfiveProvider!: FormGroup;
   id: any;
   userProvider!: Users;

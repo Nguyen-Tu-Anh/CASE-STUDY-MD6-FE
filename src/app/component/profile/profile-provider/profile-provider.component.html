@@ -3,7 +3,7 @@
 
   <div class="container rounded bg-white mt-5 mb-5">
 
-    <form [formGroup]="formProfiveProvider">
+    <form [formGroup]="formProfiveProvider" (ngSubmit)="updateProfileProvider()">
     <div class="row">
       <div class="col-md-3 border-right">
 <!--        //email-->
@@ -11,7 +11,7 @@
           <span class="font-weight-bold">email:</span>
           <span class="text-black-50">{{userProvider.email}}</span><span> </span>
           <span class="font-weight-bold">status:</span>
-          <span class="text-black-50" *ngIf="userProvider.status==1">tài khoản thường</span><span> </span>
+          <span class="text-black-50" *ngIf="userProvider.status==1">User</span><span> </span>
         </div>
       </div>
 <!--      //profile seting-->
@@ -21,51 +21,50 @@
             <h4 class="text-right">Profile Settings</h4>
           </div>
           <div class="row mt-3">
-            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"formControlName="name"></div>
-            <div class="col-md-6"><label class="labels">age</label><input type="text" class="form-control" formControlName="age"></div>
-            <div class="col-md-6"><label class="labels">phoneNumber</label><input type="number" class="form-control" formControlName="phoneNumber"></div>
-            <div class="col-md-6"><label class="labels">username</label><input type="text" class="form-control" formControlName="username"></div>
+            <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"formControlName="name"></div>
+<!--            <div class="col-md-6"><label class="labels">age</label><input type="text" class="form-control" formControlName="age"></div>-->
+            <div class="col-md-12"><label class="labels">phoneNumber</label><input type="text" class="form-control" formControlName="phoneNumber"></div>
+            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" formControlName="email"></div>
           </div>
           <div class="row mt-3">
             <div class="col-md-12"><label class="labels">description</label><input type="text" class="form-control" formControlName="description"></div>
             <div class="col-md-12"><label class="labels">serviceOfProviders</label><input type="text" class="form-control" formControlName="serviceOfProviders"></div>
           </div>
-          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-          <div class="mt-5 text-center"><button routerLink="/" class="btn btn-primary profile-button" type="button">home</button></div>
+          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+<!--          <div class="mt-5 text-center"><button routerLink="/" class="btn btn-primary profile-button" type="button">home</button></div>-->
 
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
 
-          <div class="d-flex justify-content-between align-items-center experience"><span>Edit Provider</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Return</span></div><br>
-            <label class="mdb-main-label">gender : </label>
-            <select class="mdb-select md-form colorful-select dropdown-primary" formControlName="gender">
-              <option value="nam">Nam</option>
-              <option value="nu">Nu</option>
-              <option value="lest">lest</option>
-              <option value="gey">gey</option>
-              <option value="BD">BD</option>
-            </select>
-
-
-          <div class="row mt-2">
-
-            <div class="col-md-6"><label class="labels">price</label><input type="text" class="form-control"formControlName="price"></div>
-            <div class="col-md-6"><label class="labels">age</label><input type="text" class="form-control" formControlName="age"></div>
-            <div class="col-md-6"><label class="labels">phoneNumber</label><input type="number" class="form-control" formControlName="phoneNumber"></div>
-            <div class="col-md-6"><label class="labels">age</label><input type="text" class="form-control" formControlName="age"></div>
-
+          <div class="d-flex justify-content-between align-items-center experience"><span>Profile-Provider</span>
+            <span routerLink="/profile/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Return</span></div><br>
+          <div>
+            <div     *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]" class="col-md-12"><label class="labels">DateOfBirth</label><input type="text" class="form-control" formControlName="dateOfBirth"></div>
+            <br>
+            <div     *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]" class="col-md-12"><label class="labels">Facebook</label><input type="text" class="form-control" formControlName="facebook"></div>
+            <br>
+            <div><label class="mdb-main-label">Gender</label>
+              <select class="mdb-select md-form colorful-select dropdown-primary" formControlName="gender">
+                <option value="nam">Nam</option>
+                <option value="nu">Nu</option>
+                <option value="lest">Lest</option>
+                <option value="gey">Gey</option>
+              </select>
+            </div><br>
+            <div  class="col-md-12"><label class="labels">VipDate</label><input type="text" class="form-control" formControlName="vipDate"></div> <br>
+            <div  class="col-md-12"><label class="labels">StarDate</label><input type="text" class="form-control" formControlName="starDate"></div>
+            <div  class="col-md-6"><label class="labels">Age</label><input type="text" class="form-control" formControlName="age"></div>
+            <!--         <div  class="col-md-6"><label class="labels">Gender</label><input type="text" class="form-control" formControlName="gender"></div>-->
+            <div  class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" value="" formControlName="city"></div>
+            <div  class="col-md-6"><label class="labels">Nationality</label><input type="text" class="form-control" value="" formControlName="nationality"></div>
+            <div  class="col-md-6"><label class="labels">Status</label><input type="text" class="form-control" value="" formControlName="status"></div>
           </div>
-
-<!--          <div class="col-md-12"><label class="labels">description</label><input type="text" class="form-control" formControlName="description"></div> <br>-->
-<!--          <div class="col-md-12"><label class="labels">serviceOfProviders</label><input type="text" class="form-control" formControlName="serviceOfProviders"></div>-->
-
-        </div>
       </div>
     </div>
-    </form>
-
+    </div>
+</form>
   </div>
 
 
