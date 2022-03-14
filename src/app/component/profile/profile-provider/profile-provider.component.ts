@@ -14,8 +14,10 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
-  // // @ts-ignore
-  // user: Users;
+
+
+
+
 
   formProfiveProvider!: FormGroup;
   id: any;
@@ -55,6 +57,11 @@ export class ProfileProviderComponent implements OnInit {
   }
 
   updateProfileProvider() {
+
+    this.homeService.updateUser(this.formProfiveProvider.value).subscribe(() => {
+
+      alert("cập nhật profile thanh cong");
+
     if (this.formProfiveProvider.get('roles')?.value == "1" || this.formProfiveProvider.get('roles')?.value == "3" ) {
       this.formProfiveProvider.get('roles')?.setValue("2")
       this.formProfiveProvider.value.avatar = this.fb;
@@ -68,6 +75,7 @@ export class ProfileProviderComponent implements OnInit {
       })
     } else {
       this.formProfiveProvider.get('roles')?.setValue("2")
+
       this.router.navigate([''])
     }
   }

@@ -11,7 +11,7 @@ export class ShowUserAndProviderComponent implements OnInit {
   users: Users[] = [];
   page:number = 0;
   user!: Users;
-  totalElements : number = 1;
+  totalPages : number = 1;
 
   constructor(private homeService: HomeService) {
   }
@@ -23,8 +23,8 @@ export class ShowUserAndProviderComponent implements OnInit {
   nextPage():void{
     this.page++
     this.findAll(this.page)
-    if(this.page > this.totalElements-1){
-      this.page = this.totalElements-1
+    if(this.page > this.totalPages-1){
+      this.page = this.totalPages-1
       console.log('page')
       console.log(this.page)
       this.findAll(this.page)
@@ -44,9 +44,9 @@ export class ShowUserAndProviderComponent implements OnInit {
   findAll(page: number) {
     this.homeService.findAllUserAndProvider(page).subscribe((data)=> {
       this.users = data.content;
-      this.totalElements = data['totalElements']
-     console.log("totalElements")
-      console.log(this.totalElements)
+      this.totalPages = data['totalPages']
+     console.log("totalPages")
+      console.log(this.totalPages)
 
     })
   }

@@ -95,6 +95,28 @@
         </div>
       </div>
     </div>
-  </form>
+
+    <div class="col-md-4">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center experience"><span>Profile-User</span>
+          <a routerLink="/profile-provider" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Provider</a>
+        </div><br>
+       <div>
+         <div     *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]" class="col-md-12"><label class="labels">DateOfBirth</label><input type="text" class="form-control" formControlName="dateOfBirth"></div>
+         <br>
+         <div     *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]" class="col-md-12"><label class="labels">Facebook</label><input type="text" class="form-control" formControlName="facebook"></div>
+         <br>
+        <div  class="col-md-12"><label class="labels">VipDate</label><input type="text" class="form-control" formControlName="vipDate"></div> <br>
+        <div  class="col-md-12"><label class="labels">StarDate</label><input type="text" class="form-control" formControlName="starDate"></div>
+         <div  class="col-md-6"><label class="labels">Age</label><input type="text" class="form-control" formControlName="age"></div>
+         <div  class="col-md-6"><label class="labels">Gender</label><input type="text" class="form-control" formControlName="gender"></div>
+         <div  class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" value="" formControlName="city"></div>
+         <div  class="col-md-6"><label class="labels">Nationality</label><input type="text" class="form-control" value="" formControlName="nationality"></div>
+         <div  class="col-md-6"><label class="labels">Status</label><input type="text" class="form-control" value="" formControlName="status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
 
 </div>

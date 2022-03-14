@@ -50,12 +50,14 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUsers(JSON.stringify(data.users));
         console.log(this.tokenService.getUsers())
 
-        this.router.navigate(['']).then(() => {
-          window.location.replace('');
-        })
-        //router link truc tiep den componment
-        // ko phai qua HTML
-      }
-    })
+
+       this.router.navigate(['']).then(()=>{
+         window.location.replace('');
+       })  //router link truc tiep den componment
+       // ko phai qua HTML
+
+
+
   }
-}
+})}}
+
