@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
     //data nay tra ve kieu cua JWTREPONSE(trong data co token, users)
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data => {
+      console.log("data", data)
+
       if (data.token != undefined) {
         this.tokenService.setToken(data.token);
         // @ts-ignore
@@ -50,9 +52,9 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['']).then(() => {
           window.location.replace('');
-        })  //router link truc tiep den componment
+        })
+        //router link truc tiep den componment
         // ko phai qua HTML
-
       }
     })
   }

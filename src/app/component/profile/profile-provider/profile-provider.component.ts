@@ -14,7 +14,8 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
-
+  // // @ts-ignore
+  // user: Users;
 
   formProfiveProvider!: FormGroup;
   id: any;

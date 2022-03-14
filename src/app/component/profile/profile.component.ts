@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
       gender: new FormControl(),
       status: new FormControl(),
       description: new FormControl(),
+      requirement: new FormControl(),
       vipDate: new FormControl(),
       startDate: new FormControl(),
       roles: new FormControl(),
@@ -56,9 +57,9 @@ export class ProfileComponent implements OnInit {
  }
 
   updateProfile() {
-    this.homeService.updateUser(this.formUserProfile.value).subscribe(() => {
+    this.homeService.updateUser(this.formUserProfile.value, this.user.id).subscribe(() => {
       alert("cập nhật profile thanh cong");
-      this.router.navigate(['']);
+      window.location.reload();
     })
   }
   showProfileUser() {
@@ -74,6 +75,7 @@ export class ProfileComponent implements OnInit {
       this.formUserProfile.get('gender')?.setValue(this.userProvider.gender);
       this.formUserProfile.get('status')?.setValue(this.userProvider.status);
       this.formUserProfile.get('description')?.setValue(this.userProvider.description);
+      this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
       this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
       this.formUserProfile.get('startDate')?.setValue(this.userProvider.startDate);
       this.formUserProfile.get('roles')?.setValue(this.userProvider.roles);
