@@ -25,16 +25,16 @@ export class HomeService {
   }
 
   //set lại status userProvider và lưu lại vào đb
-  setStatusUserProvider(userProviderStatus: Users): Observable<any> {
-    return this.http.put('http://localhost:8080/home/provider/change/' + userProviderStatus.id ,userProviderStatus)
+  setStatusUserProvider(id : number): Observable<any> {
+    return this.http.put('http://localhost:8080/home/provider/change/' + id,null)
   }
 
   updateUser(userProfile : Users, id: number) : Observable<any> {
     return this.http.put('http://localhost:8080/home/' + id, userProfile )
   }
 
-  UpdateProfileUserProvider(userProfile : Users) : Observable<any> {
-    return this.http.put('http://localhost:8080/home/', userProfile )
+  UpdateProfileUserProvider(userProfile : Users, id : number) : Observable<any> {
+    return this.http.put('http://localhost:8080/home/'+ id, userProfile )
   }
 
 
