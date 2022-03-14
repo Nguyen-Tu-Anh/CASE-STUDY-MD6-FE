@@ -21,7 +21,7 @@ export class HomeService {
 
   //tìm UserById trả về 1 đối tượng.
   findById(id: number): Observable<Users> {
-    return this.http.get<Users>(`http://localhost:8080/home/1`)
+    return this.http.get<Users>(`http://localhost:8080/home/${id}`)
   }
 
   //set lại status userProvider và lưu lại vào đb

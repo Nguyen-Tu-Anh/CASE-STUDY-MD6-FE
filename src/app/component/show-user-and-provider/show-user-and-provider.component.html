@@ -63,8 +63,8 @@
                       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAll(page=0)" > 1</button>
                       <button type="button" class="btn btn-danger"  style=" font-size: 11px " > {{page+1}}</button>
                       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " > ...</button>
-                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page = totalElements-2)"> {{totalElements-1}}</button>
-                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page =totalElements-1)"> {{totalElements}}</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page = totalPages-2)"> {{totalPages-1}}</button>
+                      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page =totalPages-1)"> {{totalPages}}</button>
                       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >> </button></div>
 
                   </div>

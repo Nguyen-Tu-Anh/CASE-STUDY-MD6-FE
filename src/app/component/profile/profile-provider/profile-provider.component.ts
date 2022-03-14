@@ -12,11 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
-  // @ts-ignore
-  user: Users;
-  formUserProfile!: FormGroup;
-  id: any;
-  userProvider!: Users;
+
 
 
   formProfiveProvider!: FormGroup;
@@ -57,7 +53,7 @@ export class ProfileProviderComponent implements OnInit {
   }
 
   updateProfileProvider() {
-    this.homeService.UpdateProfileUserProvider(this.formProfiveProvider.value).subscribe(() => {
+    this.homeService.updateUser(this.formProfiveProvider.value).subscribe(() => {
 
       alert("cập nhật profile thanh cong");
       this.router.navigate([''])

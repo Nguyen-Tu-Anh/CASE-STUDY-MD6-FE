@@ -51,7 +51,8 @@ export class LoginComponent implements OnInit {
          window.location.replace('');
        })  //router link truc tiep den componment
        // ko phai qua HTML
-     
-    
+
+
   }
-}
+})}}
+
