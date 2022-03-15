@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
       email: new FormControl(),
       phoneNumber: new FormControl(),
       avatar: new FormControl(),
+      images: new FormControl(),
       age: new FormControl(),
       gender: new FormControl(),
       status: new FormControl(),
@@ -59,7 +60,7 @@ export class ProfileComponent implements OnInit {
  }
 
   updateProfile() {
-    this.homeService.updateUser(this.formUserProfile.value, this.userProvider.id).subscribe(() => {
+    this.homeService.updateUser(this.formUserProfile.value).subscribe(() => {
       alert("cập nhật profile thanh cong");
       window.location.reload();
     })
@@ -76,6 +77,7 @@ export class ProfileComponent implements OnInit {
       this.formUserProfile.get('age')?.setValue(this.userProvider.age);
       this.formUserProfile.get('gender')?.setValue(this.userProvider.gender);
       this.formUserProfile.get('status')?.setValue(this.userProvider.status);
+      this.formUserProfile.get('images')?.setValue(this.userProvider.images);
       this.formUserProfile.get('description')?.setValue(this.userProvider.description);
       this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
       this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
