@@ -13,28 +13,28 @@ export class HomeService {
 
   // Hiển thị 12 user...
   findAllPage(page:number){
-    return this.http.get<any>('http://localhost:8080/home/hot/providers/' + page);
+    return this.http.get<any>('http://localhost:8080/users/hot/providers/' + page);
   }
   findAllUserAndProvider(page:number){
-    return this.http.get<any>(  'http://localhost:8080/home/page/' + page );
+    return this.http.get<any>(  'http://localhost:8080/users/page/' + page );
   }
 
   //tìm UserById trả về 1 đối tượng.
   findById(id: number): Observable<Users> {
-    return this.http.get<Users>(`http://localhost:8080/home/${id}`)
+    return this.http.get<Users>(`http://localhost:8080/users/${id}`)
   }
 
   //set lại status userProvider và lưu lại vào đb
   setStatusUserProvider(id : number): Observable<any> {
-    return this.http.put('http://localhost:8080/home/provider/change/' + id,null)
+    return this.http.put('http://localhost:8080/users/provider/change/' + id,null)
   }
 
   updateUser(userProfile : Users, id: number) : Observable<any> {
-    return this.http.put('http://localhost:8080/home/' + id, userProfile )
+    return this.http.put('http://localhost:8080/users/' + id, userProfile )
   }
 
-  UpdateProfileUserProvider(userProfile : Users, id : number) : Observable<any> {
-    return this.http.put('http://localhost:8080/home/'+ id, userProfile )
+  updateProfileUserProvider( userProfile : Users) : Observable<any> {
+    return this.http.put('http://localhost:8080/users/provider/',userProfile )
   }
 
 

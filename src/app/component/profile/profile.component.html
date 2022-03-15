@@ -1,12 +1,12 @@
 <div class="container rounded bg-white mt-5 mb-5">
   <!--  <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>-->
-  <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()">
+  <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                                                                                      width="150px"
                                                                                      src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-          class="font-weight-bold">{{userProvider.name}}</span><span class="text-black-50">{{userProvider.email}}</span>
+          class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -77,7 +77,7 @@
               <div class="col-md-6"><label class="labels">VipDate</label><input type="text" class="form-control"
                                                                                 formControlName="vipDate"></div>
               <div class="col-md-6"><label class="labels">StarDate</label><input type="text" class="form-control"
-                                                                                 formControlName="starDate"></div>
+                                                                                 formControlName="startDate"></div>
               <div class="col-md-6"><label class="labels">Age</label><input type="text" class="form-control"
                                                                             formControlName="age"></div>
               <div class="col-md-6"><label class="labels">Status</label><input type="text" class="form-control" value=""

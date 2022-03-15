@@ -12,13 +12,13 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  // @ts-ignore
-  user: Users;
+
+  checkUserProvider = false;
   formUserProfile!: FormGroup;
   id: any;
   userProvider!: Users;
 
-  // @ts-ignore
+
   constructor(private homeService: HomeService, private router: Router, private activerouter: ActivatedRoute) {
   }
   ngOnInit(): void {
@@ -39,6 +39,8 @@ export class ProfileComponent implements OnInit {
       requirement: new FormControl(),
       vipDate: new FormControl(),
       startDate: new FormControl(),
+      city: new FormControl(),
+      nationality: new FormControl(),
       roles: new FormControl(),
       price: new FormControl(),
       serviceOfProviders: new FormControl(),
@@ -57,7 +59,7 @@ export class ProfileComponent implements OnInit {
  }
 
   updateProfile() {
-    this.homeService.updateUser(this.formUserProfile.value, this.user.id).subscribe(() => {
+    this.homeService.updateUser(this.formUserProfile.value, this.userProvider.id).subscribe(() => {
       alert("cập nhật profile thanh cong");
       window.location.reload();
     })
@@ -78,9 +80,12 @@ export class ProfileComponent implements OnInit {
       this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
       this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
       this.formUserProfile.get('startDate')?.setValue(this.userProvider.startDate);
+      this.formUserProfile.get('city')?.setValue(this.userProvider.city);
+      this.formUserProfile.get('nationality')?.setValue(this.userProvider.nationality);
       this.formUserProfile.get('roles')?.setValue(this.userProvider.roles);
       this.formUserProfile.get('price')?.setValue(this.userProvider.price);
       this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
+      this.checkUserProvider = true;
     }));
   }
 }
