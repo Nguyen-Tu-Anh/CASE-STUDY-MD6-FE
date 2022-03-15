@@ -3,9 +3,12 @@
   <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
       <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                                                                                     width="150px"
-                                                                                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
+          <div class="btn btn-primary btn-sm float-left">
+            <span>Choose file</span>
+            <input type="file" (change)="onFileSelected($event)">
+          </div>
           <p *ngIf="userProvider.status==1" style="color: #0dcaf0">online</p>
           <span class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
         </div>
@@ -41,12 +44,12 @@
             <div class="col-md-12"><label
               class="labels">Avatar</label><input type="text" class="form-control" formControlName="avatar"></div>
             <br>
-<!--            <div class="col-md-12"><label-->
-<!--              class="labels">Images</label><input type="text" class="form-control" formControlName="image"></div>-->
+
+
             <br>
           </div>
           <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+            <button class="btn btn-primary profile-button" [disabled]="!checkUploadFile" type="submit">Save Profile</button>
           </div>
 
         </div>
@@ -55,8 +58,8 @@
         <div class="p-3 py-5">
           <div class="d-flex justify-content-between align-items-center experience"><span>Service</span>
 
-            <a routerLink="/profile-provider/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i
-              class="fa fa-plus"></i>&nbsp;Provider</a>
+            <a routerLink="/" class="border px-3 p-1 add-experience"><i
+              class="fa fa-plus"></i>&nbsp;return</a>
 
           </div>
 
