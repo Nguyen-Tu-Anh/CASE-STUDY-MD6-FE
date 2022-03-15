@@ -12,8 +12,11 @@ export class HomeService {
   }
 
   // Hiển thị 12 user...
-  findAllPage(page:number){
-    return this.http.get<any>('http://localhost:8080/users/hot/providers/' + page);
+  show12ProviderHotPage(page:number){
+    return this.http.get<any>(`http://localhost:8080/users/most/date/provider/${page}`);
+  }
+  show12ProviderCreateNewAccount(page:number){
+    return this.http.get<any>(`http://localhost:8080/users/hot/providers/${page}`);
   }
   findAllUserAndProvider(page:number){
     return this.http.get<any>(  'http://localhost:8080/users/page/' + page );

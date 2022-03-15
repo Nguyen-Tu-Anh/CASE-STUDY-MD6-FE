@@ -1,5 +1,3 @@
-
-
 <div class="super_container">
   <!-- New Arrivals -->
 
@@ -13,12 +11,12 @@
         </div>
       </div>
 
-      <div class="row"  >
+      <div class="row">
         <div class="col">
           <div class="product-grid"
                data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
-            <div class="product-item men hiep" *ngFor="let a of users"  >
+            <div class="product-item men hiep" *ngFor="let a of users">
               <div class="product discount product_filter">
 
                 <div class="product_image">
@@ -27,7 +25,8 @@
                   </a>
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                <div
+                  class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                   <span>-$20</span></div>
                 <div class="product_info">
 
@@ -37,147 +36,122 @@
                 </div>
               </div>
 
-              <div class="col text-center"  ><a href="#" class="btn btn-danger"  >add to choice</a></div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: 30px"><button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="backPage()"> << </button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAll(page=0)" > 1</button>
-        <button type="button" class="btn btn-danger"  style=" font-size: 11px " > {{page+1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " > ...</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page = totalPages-2)"> {{totalPages-1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "  (click)="findAll(page =totalPages-1)"> {{totalPages}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >> </button></div>
-    </div>
-    </div>
-  </div>
-
-
-<div class="deal_ofthe_week">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <img src="https://img.freepik.com/free-vector/super-sale-up-50-off-banner-sales-promotions-banner-discount_71208-286.jpg" alt="" height="300" width="590">
-      </div>
-
-      <div class="col-lg-6 text-right deal_ofthe_week_col">
-        <div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
-          <div class="section_title">
-            <h2>Deal Of The Week</h2>
-
-          </div>
-          <ul class="timer">
-            <li class="d-inline-flex flex-column justify-content-center align-items-center">
-              <div id="day" class="timer_num">03</div>
-              <div class="timer_unit">Day</div>
-            </li>
-            <li class="d-inline-flex flex-column justify-content-center align-items-center">
-              <div id="hour" class="timer_num">15</div>
-              <div class="timer_unit">Hours</div>
-            </li>
-            <li class="d-inline-flex flex-column justify-content-center align-items-center">
-              <div id="minute" class="timer_num">45</div>
-              <div class="timer_unit">Mins</div>
-            </li>
-            <li class="d-inline-flex flex-column justify-content-center align-items-center">
-              <div id="second" class="timer_num">23</div>
-              <div class="timer_unit">Sec</div>
-            </li>
-          </ul>
-          <button class="btn btn-danger" ><a href="#" style="color: black">Buy Now</a></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="best_sellers">
-    <div class="container">
-      <div class="row">
-        <div style="left: 50px">
-          <div class=" ">
-            <p class="vipPlayer">Vip Player</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-
-              <div class="owl-item product_slider_item">
-                <div class="product-item women">
-                  <div class="product">
-                    <div class="product_image">
-                      <img src="images/product_2.png" alt="">
-                    </div>
-                    <div class="favorite"></div>
-                    <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                      <span>new</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved
-                        27-Inch FHD Monitor</a></h6>
-                      <div class="product_price">$610.00</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            <div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
-              <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            </div>
-            <div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-  <div class="newsletter">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-            <h2>Please enter promo code if you have</h2>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <form action="post">
-            <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-              <input id="newsletter_email" type="email" placeholder="Gif code" required="required"
-                     data-error="Valid email is required.">
-              <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300"
-                      value="Submit">Return
+              <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
               </button>
+
             </div>
-          </form>
+          </div>
         </div>
+      </div>
+      <div style="margin-top: 30px">
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                (click)="show12ProviderHot(page=0)"> 1
+        </button>
+        <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
+        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
       </div>
     </div>
   </div>
-
-
-
 </div>
 
-<!--Modal search-->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Search</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-      </div>
-      <input class="modal-body" type="text">
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          Send
-        </button>
+<div class="new_arrivals"  style="margin-top: 100px">
+  <div class="container">
+    <div class="row">
+      <div style="left: 50px">
+        <div class=" ">
+          <p class="vipPlayer">New Player</p>
+        </div>
       </div>
     </div>
 
+    <div class="row">
+      <div class="col">
+        <div class="product-grid"
+             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+          <div class="product-item men hiep" *ngFor="let a of usersNew">
+            <div class="product discount product_filter">
+              <div class="product_image">
+                <a [routerLink]="'details/'+a.id">
+                  <img src="{{a.avatar}}" alt="" height="200" width="230">
+                </a>
+              </div>
+              <div class="favorite favorite_left"></div>
+              <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                <span>-$20</span></div>
+              <div class="product_info">
+                <h3 class="product_name">{{a.name}}</h3>
+                <div class="product_price">{{a.price}}</div>
+              </div>
+            </div>
+            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 30px">
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="show12ProviderCreateNewAccount(page=0)"> 1</button>
+      <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
+    </div>
+    <div class="newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div
+              class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+              <h2>Please enter promo code if you have</h2>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <form action="post">
+              <div
+                class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+                <input id="newsletter_email" type="email" placeholder="Gif code" required="required"
+                       data-error="Valid email is required.">
+                <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300"
+                        value="Submit">Return
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!--Modal search-->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>Search</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+              <input class="modal-body" type="text">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  Send
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
