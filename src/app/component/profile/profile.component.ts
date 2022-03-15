@@ -90,8 +90,7 @@ export class ProfileComponent implements OnInit {
       this.formUserProfile.get('description')?.setValue(this.userProvider.description);
       this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
       this.formUserProfile.get('identify')?.setValue(this.userProvider.identify);
-      this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
-
+      this.formUserProfile.get('startDate')?.setValue(this.userProvider.startDate);
       this.formUserProfile.get('status')?.setValue(this.userProvider.status);
       this.fb= this.userProvider.avatar;
       this.checkUserProvider = true;

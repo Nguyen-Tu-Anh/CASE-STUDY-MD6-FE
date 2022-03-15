@@ -3,14 +3,15 @@
   <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
       <div class="col-md-3 border-right">
+
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
-          <div class="btn btn-primary btn-sm float-left">
+          <img class="rounded-circle mt-5" width="150px" src="{{fb}}">
+          <div style="margin-top: 30px" class="btn btn-primary btn-sm float-left">
             <span>Choose file</span>
             <input type="file" (change)="onFileSelected($event)">
           </div>
-          <p *ngIf="userProvider.status==1" style="color: #0dcaf0">online</p>
-          <span class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
+          <span
+            class="font-weight-bold" class="text-black-50">{{userProvider.email}}</span>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -19,159 +20,137 @@
           </div>
           <!--          <h4 class="text-right">Profile Settings</h4>-->
           <div class="row mt-2">
-            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
-                                                                           formControlName="name"></div>
-            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control"
-                                                                               formControlName="username"></div><br>
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Name</label><input type="text"
+                                                                                                    class="form-control"
+                                                                                                    formControlName="name">
+            </div>
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
+                                                                                                        class="form-control"
+                                                                                                        formControlName="username">
+            </div>
+            <br>
           </div>
           <!--        *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]"-->
           <div class="row mt-3">
 
-            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"
-                                                                                     formControlName="phoneNumber">
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Mobile Number</label><input
+              type="text" class="form-control"
+              formControlName="phoneNumber">
             </div>
-            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control"
-                                                                             formControlName="email"></div>
-            <div class="form-group">
-              <label for="comment">description:</label><p></p>
-              <textarea class="form-control" rows="3" cols="100" id="comment" formControlName="description"></textarea>
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label><input type="text"
+                                                                                                      class="form-control"
+                                                                                                      formControlName="email">
             </div>
-
-            <div class="form-group">
-              <label for="comment1">requirement:</label>
-              <textarea class="form-control" rows="3" cols="100" id="comment1" formControlName="requirement"></textarea>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label><input type="text"
+                                                                                                         class="form-control"
+                                                                                                         formControlName="identify">
             </div>
-            <div class="col-md-12"><label
-              class="labels">Avatar</label><input type="text" class="form-control" formControlName="avatar"></div>
-            <br>
-
-
+            <div class="form-group" style="margin-left: 15px; margin-top: 15px">
+              <label for="comment1">Descreption</label>
+              <textarea class="form-control" rows="2" cols="54" id="comment2" formControlName="description"></textarea>
+            </div>
+            <div class="form-group" style="margin-left: 15px; margin-top: 5px">
+              <label for="comment1">Requirement</label>
+              <textarea class="form-control" rows="2" cols="54" id="comment1" formControlName="requirement"></textarea>
+            </div>
             <br>
           </div>
-          <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" [disabled]="!checkUploadFile" type="submit">Save Profile</button>
+          <div class="mt-2 text-center">
+            <button class="btn btn-primary profile-button" [disabled]="!checkUploadFile" type="submit">Save Profile
+            </button>
           </div>
 
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center experience"><span>Service</span>
+          <div class="d-flex justify-content-between align-items-center experience"><span>Provider-Profile</span>
 
 
             <a routerLink="/profile/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i
-              class="fa fa-plus"></i>&nbsp,Return</a>
-
-
+              class="fa fa-backward"></i>Return</a>
           </div>
-
           <br>
           <div>
-
           </div>
-<!--goi tinh-->
-
-
           <div>
-
             <div>
-
-              <div class="col-md-6"><label class="labels">dateOfBirth</label>
-                <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
-
-              <div class="col-md-6"><label class="labels">identify</label>
-                <input type="number" class="form-control" value="" formControlName="identify"></div>
-              <div class="col-md-6"><label class="labels">price</label>
-                <input type="text" class="form-control" value="" formControlName="price"></div>
-              <div class="col-md-6"><label class="labels">facebookUrl</label>
-                <input type="text" class="form-control" value="" formControlName="facebookUrl"></div>
+              <div>
+                <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
+                  <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
+                <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
+                  <input type="text" class="form-control" value="" formControlName="city"></div>
+                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
+                  <input type="text" class="form-control" value="" formControlName="nationality"></div>
+                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
+                  <input type="number" class="form-control" value="" formControlName="age"></div>
+              </div>
+              <div>
+                <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
+                  <label class="mdb-main-label">Gender</label>
+                  <select class="form-select" formControlName="gender">
+                    <option value="nam">Male</option>
+                    <option value="nu">Female</option>
+                  </select>
+                </div>
+              </div>
             </div>
+            <div>
+              <div class="col-lg-12" style="margin-top: 30px; margin-left: 5px">
+               <div style="float: left">
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="1" formControlName="serviceOfProviders"
+                         id="flexCheckDefault"/>
+                  <label class="form-check-label" for="flexCheckDefault"><span style="margin-left: 10px">Nắm tay</span></label>
+                </div>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" formControlName="serviceOfProviders"
+                         id="flexCheckChecked1" checked/>
+                  <label class="form-check-label" for="flexCheckChecked1"><span style="margin-left: 10px">Ôm Eo</span></label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"/>
+                  <label class="form-check-label" for="flexCheckDefault2"><span style="margin-left: 10px">Dẫn Về Nhà</span></label>
+                </div>
 
-<div >
-  <div class="col-lg-6" style="margin-top: 25px">
-    <!-- Default checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="1" formControlName="serviceOfProviders" id="flexCheckDefault" />
-      <label class="form-check-label" for="flexCheckDefault">Nắm tay</label>
-    </div>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d" checked/>
+                  <label class="form-check-label" for="flexCheckChecke3d"><span style="margin-left: 10px">Ăn Kem Trước Cổng</span></label>
+                </div>
+               </div>
+                <div style="float: right">
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4"/>
+                  <label class="form-check-label" for="flexCheckDefault4"><span style="margin-left: 10px">Đạp Vịt</span></label>
+                </div>
 
-    <!-- Checked checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" formControlName="serviceOfProviders" id="flexCheckChecked1" checked/>
-      <label class="form-check-label" for="flexCheckChecked1">Ôm Eo</label>
-    </div>
-    <!-- Default checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" />
-      <label class="form-check-label" for="flexCheckDefault2">Dẫn Về Nhà</label>
-    </div>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked12" checked/>
+                  <label class="form-check-label" for="flexCheckChecked12"><span style="margin-left: 10px">Ăn Nhậu</span></label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23"/>
+                  <label class="form-check-label" for="flexCheckDefault23"><span style="margin-left: 10px">Tâm sự Đêm Khuya</span></label>
+                </div>
 
-    <!-- Checked checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d" checked/>
-      <label class="form-check-label" for="flexCheckChecke3d">Ăn Kem Trước Cổng</label>
-    </div>
-    <!-- Default checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" />
-      <label class="form-check-label" for="flexCheckDefault4">Đạp Vịt</label>
-    </div>
-
-    <!-- Checked checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked12" checked/>
-      <label class="form-check-label" for="flexCheckChecked12">Ăn Nhậu</label>
-    </div>
-    <!-- Default checkbox -->
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23" />
-      <label class="form-check-label" for="flexCheckDefault23">Tâm sự Đêm Khuya</label>
-    </div>
-
-    <!-- Checked checkbox -->
-    <div class="form-check" >
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d1" checked/>
-      <label class="form-check-label" for="flexCheckChecke3d1">Hôn </label>
-    </div>
-  </div>
-
-  <div class="col-lg-3" style=" margin-left: 60px">
-    <div style="margin-top: 20px ; margin-left: 20px">
-      <label class="mdb-main-label" >Gender</label>
-      <select class="form-select" formControlName="gender" >
-        <option value="nam">Nam &nbsp;</option>
-        <option value="nu">Nu</option>
-      </select>
-    </div>
-    <!--thnah pho-->
-    <div style="margin-top: 20px ; margin-left: 14px">
-      <label class="mdb-main-label" >city</label>
-      <select class="form-select" formControlName="city" >
-        <option value="Hà Nội">Hà Nội</option>
-        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-        <option value="Đà Nẵng">Đà Nẵng</option>
-      </select>
-    </div>
-    <!--quoc tich-->
-    <div style="margin-top: 20px ; margin-left: 14px">
-      <label class="mdb-main-label" >Quốctịch</label>
-      <select class="form-select" formControlName="nationality" >
-        <option value="viet nam">viet nam &nbsp;</option>
-        <option value="japan">Japan</option>
-        <option value="usa">USA</option>
-        <option value="chine">chine</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-
-            <br>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d1" checked/>
+                  <label class="form-check-label" for="flexCheckChecke3d1"><span style="margin-left: 10px">Hôn </span></label>
+                </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </form>
-
 </div>
