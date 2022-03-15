@@ -28,23 +28,25 @@ export class ProfileComponent implements OnInit {
       id: new FormControl(),
       name: new FormControl(),
       username: new FormControl(),
-      password: new FormControl(),
       email: new FormControl(),
-      phoneNumber: new FormControl(),
+      password: new FormControl(),
       avatar: new FormControl(),
-      images: new FormControl(),
+      phoneNumber: new FormControl(),
       age: new FormControl(),
       gender: new FormControl(),
-      status: new FormControl(),
-      description: new FormControl(),
-      requirement: new FormControl(),
-      vipDate: new FormControl(),
-      startDate: new FormControl(),
+      dateOfBirth: new FormControl(),
       city: new FormControl(),
       nationality: new FormControl(),
-      roles: new FormControl(),
-      price: new FormControl(),
-      serviceOfProviders: new FormControl(),
+      description: new FormControl(),
+      requirement: new FormControl(),
+      identify: new FormControl(),
+      images: new FormControl(),
+      // status: new FormControl(),
+      // vipDate: new FormControl(),
+      startDate: new FormControl(),
+      // roles: new FormControl(),
+      // price: new FormControl(),
+      // serviceOfProviders: new FormControl(),
     })
     this.activerouter.params.subscribe((data: { [x: string]: any; }) => {
       this.id = data['id'];
@@ -76,17 +78,19 @@ export class ProfileComponent implements OnInit {
       this.formUserProfile.get('avatar')?.setValue(this.userProvider.avatar);
       this.formUserProfile.get('age')?.setValue(this.userProvider.age);
       this.formUserProfile.get('gender')?.setValue(this.userProvider.gender);
-      this.formUserProfile.get('status')?.setValue(this.userProvider.status);
+      this.formUserProfile.get('dateOfBirth')?.setValue(this.userProvider.dateOfBirth);
       this.formUserProfile.get('images')?.setValue(this.userProvider.images);
-      this.formUserProfile.get('description')?.setValue(this.userProvider.description);
-      this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
-      this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
-      this.formUserProfile.get('startDate')?.setValue(this.userProvider.startDate);
       this.formUserProfile.get('city')?.setValue(this.userProvider.city);
       this.formUserProfile.get('nationality')?.setValue(this.userProvider.nationality);
-      this.formUserProfile.get('roles')?.setValue(this.userProvider.roles);
-      this.formUserProfile.get('price')?.setValue(this.userProvider.price);
-      this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
+      this.formUserProfile.get('description')?.setValue(this.userProvider.description);
+      this.formUserProfile.get('requirement')?.setValue(this.userProvider.requirement);
+      this.formUserProfile.get('identify')?.setValue(this.userProvider.identify);
+      this.formUserProfile.get('vipDate')?.setValue(this.userProvider.vipDate);
+      this.formUserProfile.get('status')?.setValue(this.userProvider.status);
+      // this.formUserProfile.get('startDate')?.setValue(this.userProvider.startDate);
+      // this.formUserProfile.get('roles')?.setValue(this.userProvider.roles);
+      // this.formUserProfile.get('price')?.setValue(this.userProvider.price);
+      // this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
       this.checkUserProvider = true;
     }));
   }
