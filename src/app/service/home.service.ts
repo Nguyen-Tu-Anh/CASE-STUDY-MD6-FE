@@ -29,8 +29,8 @@ export class HomeService {
     return this.http.put('http://localhost:8080/users/provider/change/' + id,null)
   }
 
-  updateUser(userProfile : Users, id: number) : Observable<any> {
-    return this.http.put('http://localhost:8080/users/' + id, userProfile )
+  updateUser(userProfile : Users) : Observable<any> {
+    return this.http.put('http://localhost:8080/users/user/' , userProfile )
   }
 
   updateProfileUserProvider( userProfile : Users) : Observable<any> {
