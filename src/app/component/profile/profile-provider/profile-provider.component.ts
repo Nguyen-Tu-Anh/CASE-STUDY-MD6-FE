@@ -7,7 +7,6 @@ import {HomeService} from "../../../service/home.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {finalize, Observable} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
-import {ServiceOfProvider} from "../../../model/ServiceOfProvider";
 
 @Component({
   selector: 'app-profile-provider',
@@ -21,7 +20,10 @@ export class ProfileProviderComponent implements OnInit {
   userProvider!: Users;
 
 
-  constructor(private homeService: HomeService, private router: Router, private activerouter: ActivatedRoute) {
+  constructor(private homeService: HomeService,
+              private router: Router,
+              private activerouter: ActivatedRoute,
+              private storage: AngularFireStorage) {
   }
   ngOnInit(): void {
     // @ts-ignore
@@ -64,9 +66,10 @@ export class ProfileProviderComponent implements OnInit {
   }
 
   updateProfile() {
+    this.formUserProfile.value.avatar = this.fb;
     this.homeService.updateProfileUserProvider(this.formUserProfile.value).subscribe(() => {
       alert("cập nhật profile thanh cong");
-      window.location.replace("");
+      this.router.navigate([""])
     })
   }
   showProfileUser() {
@@ -92,7 +95,41 @@ export class ProfileProviderComponent implements OnInit {
       this.formUserProfile.get('nationality')?.setValue(this.userProvider.nationality);
       this.formUserProfile.get('price')?.setValue(this.userProvider.price);
       this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
+      this.fb= this.userProvider.avatar;
       this.checkUserProvider = true;
     }));
+  }
+
+
+  public  checkUploadFile = true;
+  public  fb: string | any;
+  downloadURL: Observable<string> | any;
+  onFileSelected(event: any) {
+    this.checkUploadFile= false;
+    var n = Date.now();
+    const file = event.target.files[0];
+
+    const filePath = `RoomsImages/${n}`;
+
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`RoomsImages/${n}`, file);
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          this.downloadURL.subscribe((url: any) => {
+            if (url) {
+              this.fb = url;
+              console.log("url")
+              console.log(url)
+              this.checkUploadFile = true;
+            }
+          });
+        })
+      )
+      .subscribe((url: any) => {
+        console.log(url)
+      });
   }
 }

@@ -31,7 +31,14 @@
                   <span>-$20</span></div>
                 <div class="product_info">
 
-                  <h3 class="product_name">{{a.name}}</h3>
+
+                  <div>
+                    <div class="col-lg-3">
+                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
+                    </div>
+                    <h3 class="product_name">{{a.name}}</h3>
+                  </div>
+
                   <div class="product_price">{{a.price}}</div>
 
                 </div>

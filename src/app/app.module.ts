@@ -22,7 +22,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {DetailsComponent} from "./component/details/details.component";
 import {ShowUserAndProviderComponent} from "./component/show-user-and-provider/show-user-and-provider.component";
 import {ProfileProviderComponent} from "./component/profile/profile-provider/profile-provider.component";
-
+import { AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.prod";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -62,6 +64,8 @@ export const appRoutes: Routes = [
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
 
   ],
   providers: [],
