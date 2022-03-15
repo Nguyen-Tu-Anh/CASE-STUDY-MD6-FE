@@ -2,7 +2,7 @@
 
   <div class="container single_product_container">
     <div class="row">
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <div class="single_product_pics">
           <div class="row">
             <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
@@ -20,25 +20,25 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-4">
         <div class="product_details">
           <div class="product_details_title">
             <h1>{{user.name}}</h1>
             <div>Gender : {{user.gender}}</div>
             <div class="product_price"  > {{user.price}} VND/1H</div>
           </div>
-          <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-            <span> Date Of Birth : </span>
-            <span >{{user.dateOfBirth}} </span>
+          <div class=""  *ngFor="let a of user.serviceOfProviders" >
+            <span > - {{a.name}} </span>
           </div>
 
           <div class="product_color">
             <h2>description of me :</h2>
-            <span>{{user.description}}</span>          </div>
+            <span>{{user.description}}</span>
+          </div>
           <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
           </div>
           <div>Age : {{user.age}}</div>
-          <div class="col-lg-6 benefit_col">
+          <div class="col-lg-8 benefit_col">
             <div class="benefit_item d-flex flex-row align-items-center">
               <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
               <div class="benefit_content">
@@ -55,20 +55,11 @@
 
   <!-- Tabs -->
 
-  <div class="tabs_section_container">
+  <div class="tabs_section_container" style="margin-top: 80px">
 
     <div class="container">
       <div class="row">
-        <div class="col">
-          <div class="tabs_container">
-            <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-              <li class="tab active" data-active-tab="tab_1"><span></span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
+        <div class="col ">
 
           <!-- Tab Description -->
 
@@ -76,6 +67,7 @@
             <div class="row">
               <div class="col-lg-5 desc_col">
                 <div class="tab_title">
+
                   <h4>Review of customer</h4>
                 </div>
                 <div class="tab_text_block">
