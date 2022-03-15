@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   checkLogin = true;
   // @ts-ignore
   user: Users;
+  checkRole = true;
   constructor(private tokenService: TokenService) {
   }
 
@@ -24,6 +25,11 @@ export class HeaderComponent implements OnInit {
       console.log('name--->', this.name)
       // @ts-ignore
       this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
+      for(let r of this.user.roles){
+        if(r.id==2){
+          this.checkRole=false;
+        }
+      }
     }
   }
   // ham Logout

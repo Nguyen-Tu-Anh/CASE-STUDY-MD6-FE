@@ -31,8 +31,10 @@
               <a *ngIf="!checkLogin" (click)="logOut()"><i class="fa fa-sign-out"  aria-hidden="true"></i>LogOut</a>
               </li>
               <li>
-                <a *ngIf="!checkLogin" routerLink="/profile/{{user.id}}" mat-button class="docs-button"><i class="fa fa-user-secret">{{user.name}}</i></a>
+                <a *ngIf="!checkLogin && checkRole"   routerLink="/profile/{{user.id}}" mat-button class="docs-button"><i class="fa fa-user-secret">{{user.name}}</i></a>
+                <a *ngIf="!checkLogin && !checkRole"   routerLink="/profile-provider/{{user.id}}" mat-button class="docs-button"><i class="fa fa-user-secret">{{user.name}}</i></a>
               </li>
+
 
 <!--              <li>-->
 <!--                <a *ngIf="!checkLogin" mat-button class="docs-button" data-toggle="modal" data-target="#loginModal">-->
