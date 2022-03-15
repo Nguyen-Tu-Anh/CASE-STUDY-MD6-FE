@@ -9,6 +9,7 @@ import {HomeService} from "../../service/home.service";
 })
 export class HomeComponent implements OnInit {
   users: Users[] = [];
+  usersNew : Users[] = [];
   page:number = 0;
   totalPages : number = 1;
 
@@ -16,17 +17,18 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAll(this.page)
+    this.show12ProviderHot(this.page)
+    this.show12ProviderCreateNewAccount(this.page)
 
   }
   nextPage():void{
     this.page++
-    this.findAll(this.page)
+    this.show12ProviderHot(this.page)
     if(this.page > this.totalPages-1){
       this.page = this.totalPages-1
       console.log('page')
       console.log(this.page)
-      this.findAll(this.page)
+      this.show12ProviderHot(this.page)
     }
 
   }
@@ -34,14 +36,13 @@ export class HomeComponent implements OnInit {
 
     if(this.page >0){
       this.page --;
-      this.findAll(this.page)
+      this.show12ProviderHot(this.page)
       console.log(this.page)
     }
 
   }
-
-  findAll(page: number) {
-    this.homeService.findAllPage(page).subscribe((data)=> {
+  show12ProviderHot(page: number) {
+    this.homeService.show12ProviderHotPage(page).subscribe((data)=> {
       this.users = data.content;
       this.totalPages = data['totalPages']
       console.log("totalPages")
@@ -51,4 +52,38 @@ export class HomeComponent implements OnInit {
 
     })
   }
+
+  nextPageNew():void{
+    this.page++
+    this.show12ProviderCreateNewAccount(this.page)
+    if(this.page > this.totalPages-1){
+      this.page = this.totalPages-1
+      console.log('page')
+      console.log(this.page)
+      this.show12ProviderCreateNewAccount(this.page)
+    }
+
+  }
+  backPageNew():void {
+
+    if (this.page > 0) {
+      this.page--;
+      this.show12ProviderCreateNewAccount(this.page)
+      console.log(this.page)
+    }
+  }
+
+
+    show12ProviderCreateNewAccount(page: number) {
+    this.homeService.show12ProviderCreateNewAccount(page).subscribe((data)=> {
+      this.usersNew = data.content;
+      this.totalPages = data['totalPages']
+      console.log("totalPages")
+      console.log(this.totalPages)
+      console.log("data")
+      console.log(data)
+
+    })
+  }
+
 }

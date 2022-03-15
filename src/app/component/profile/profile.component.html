@@ -3,11 +3,15 @@
   <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
       <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                                                                                     width="150px"
-                                                                                     src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-          <p *ngIf="userProvider.status==1" style="color: #0dcaf0">online</p>
-          <span class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
+
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
+          <div class="btn btn-primary btn-sm float-left">
+            <span>Choose file</span>
+            <input type="file" (change)="onFileSelected($event)">
+          </div>
+          <span
+          class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -48,7 +52,7 @@
             <br>
           </div>
           <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+            <button class="btn btn-primary profile-button" type="submit" [disabled]="!checkUploadFile">Save Profile</button>
           </div>
 
         </div>
