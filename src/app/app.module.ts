@@ -25,6 +25,7 @@ import {ProfileProviderComponent} from "./component/profile/profile-provider/pro
 import { AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -66,7 +67,8 @@ export const appRoutes: Routes = [
     MatButtonModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

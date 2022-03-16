@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 import {FormControl, FormGroup} from "@angular/forms";
 import {Users} from "../../../model/Users";
@@ -14,6 +14,11 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./profile-provider.component.css']
 })
 export class ProfileProviderComponent implements OnInit {
+  title = 'demoUploadFile'
+  @ViewChild('uploadFile1', {static: true}) public avatarDom1: ElementRef | undefined;
+  arrfiles: any = [];
+  arrayPicture : string[] = [];     //up load 3 anh
+
   checkUserProvider = false;
   formUserProfile!: FormGroup;
   id: any;
@@ -25,6 +30,31 @@ export class ProfileProviderComponent implements OnInit {
               private activerouter: ActivatedRoute,
               private storage: AngularFireStorage) {
   }
+
+  // upload 3 anh
+  submit() {
+    for (let file of this.arrfiles) {
+      if (file != null) {
+        const filePath = file.name;
+        const fileRef = this.storage.ref(filePath);
+        this.storage.upload(filePath, file).snapshotChanges().pipe(
+          finalize(() => (fileRef.getDownloadURL().subscribe(
+            url => {
+              this.arrayPicture.push(url);
+              console.log(url);
+            })))
+        ).subscribe();
+      }
+    }
+  }
+  uploadFileImg(event: any) {
+    for (const argument of event.target.files) {
+      this.arrfiles.push(argument)
+    }
+    this.submit();
+  }
+
+
   ngOnInit(): void {
     // @ts-ignore
     this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
@@ -96,6 +126,7 @@ export class ProfileProviderComponent implements OnInit {
       this.formUserProfile.get('price')?.setValue(this.userProvider.price);
       this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
       this.fb= this.userProvider.avatar;
+      // this.im=this.userProvider.images;
       this.checkUserProvider = true;
     }));
   }
@@ -132,4 +163,34 @@ export class ProfileProviderComponent implements OnInit {
         console.log(url)
       });
   }
+
+  // public  im: string | any;
+  // onFileSelectedIMG(event: any) {
+  //   this.checkUploadFile= false;
+  //   var n = Date.now();
+  //   const file = event.target.files[0];
+  //
+  //   const filePath = `RoomsImages/${n}`;
+  //
+  //   const fileRef = this.storage.ref(filePath);
+  //   const task = this.storage.upload(`RoomsImages/${n}`, file);
+  //   task
+  //     .snapshotChanges()
+  //     .pipe(
+  //       finalize(() => {
+  //         this.downloadURL = fileRef.getDownloadURL();
+  //         this.downloadURL.subscribe((url: any) => {
+  //           if (url) {
+  //             this.im = url;
+  //             console.log("url")
+  //             console.log(url)
+  //             this.checkUploadFile = true;
+  //           }
+  //         });
+  //       })
+  //     )
+  //     .subscribe((url: any) => {
+  //       console.log(url)
+  //     });
+  // }
 }
