@@ -1,146 +1,142 @@
 <div class="container rounded bg-white mt-5 mb-5">
-  <!--  <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>-->
   <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
-          <div class="btn btn-primary btn-sm float-left">
-            <span>Choose file</span>
+          <img class="rounded-circle mt-5" width="150px" src="{{fb}}">
+          <div style="margin-top: 30px" class="btn btn-primary btn-sm float-left">
+            <span>Avatar</span>
             <input type="file" (change)="onFileSelected($event)">
           </div>
-          <p *ngIf="userProvider.status==1" style="color: #0dcaf0">online</p>
-          <span class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
+          <span
+            class="font-weight-bold" class="text-black-50" style="margin-top: 15px">{{userProvider.email}}</span>
         </div>
+        <p *ngIf="userProvider.status == 1" style="color: #1e7e34">Online</p>
       </div>
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
           <div class="d-flex justify-content-between align-items-center mb-3">
           </div>
-          <!--          <h4 class="text-right">Profile Settings</h4>-->
+          <!-- Name -->
           <div class="row mt-2">
-            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
-                                                                           formControlName="name">
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tên</label><input type="text"
+                                                                                                   class="form-control"
+                                                                                                   formControlName="name">
               <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name'].touched">name
-                required.</small>
+                     *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name']">Không Để Trống</small>
             </div>
-            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control"
-                                                                               formControlName="username">
+            <!-- Ussername -->
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
+                                                                                                        class="form-control"
+                                                                                                        formControlName="username">
               <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username'].touched">Username
-                required.</small>
-            </div><br>
-          </div>
-          <!--        *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]"-->
-          <div class="row mt-3">
-
-            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Mobile Number</label><input
-              type="text" class="form-control"
-              formControlName="phoneNumber">
-              <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['phoneNumber'].hasError('required') && formUserProfile.controls['phoneNumber'].touched">phoneNumber
-                required. max 10</small>
-            </div>
-            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label>
-              <input type="text" class="form-control"
-                     formControlName="email">
-
-              <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['email'].hasError('required') && formUserProfile.controls['email'].touched">email
-                required</small>
-            </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label>
-              <input type="text" class="form-control"
-                     formControlName="identify">
-              <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">
-                identify ko được để trống</small>
-            </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FacebookUrl</label><input type="text"
-                                                                                                            class="form-control"
-                                                                                                            formControlName="facebookUrl">
-            </div>
-            <div class="form-group" style="margin-left: 15px; margin-top: 15px">
-              <label for="comment1">Descreption</label>
-              <textarea class="form-control" rows="2" cols="54" id="comment2"
-                        formControlName="description"></textarea>
-              <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
-               nhập description </small>
-            </div>
-            <div class="form-group" style="margin-left: 15px; margin-top: 5px">
-              <label for="comment1">Requirement</label>
-              <textarea class="form-control" rows="2" cols="54" id="comment1"
-                        formControlName="requirement"></textarea>
+                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username']">Không Để Trống</small>
             </div>
             <br>
+
+          </div>
+          <div class="row mt-3">
+            <!-- Phone Number -->
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Số Điện Thoại</label><input
+              type="text" class="form-control" formControlName="phoneNumber">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['phoneNumber'].hasError('required') && formUserProfile.controls['phoneNumber']">Không Để Trống</small>
+            </div>
+            <!-- Email -->
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label>
+              <input type="text" class="form-control" formControlName="email">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['email'].hasError('required') && formUserProfile.controls['email']">Không Để Trống</small></div>
+
+            <!-- Identify -->
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Chứng Minh
+              Thư</label><input type="text" class="form-control" formControlName="identify">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">Không Để Trống</small>
+            </div>
+            <!-- FacebookUrl -->
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FaceBookUrl</label><input type="text" class="form-control" formControlName="identify">
+            </div>
+            <!-- Description -->
+            <div class="form-group" style="margin-left: 15px; margin-top: 15px">
+              <label for="comment1">Mô Tả</label>
+              <textarea class="form-control" rows="2" cols="54" id="comment2" formControlName="description"></textarea>
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
+                Không Để Trống </small>
+            </div>
+            <!-- Requiment -->
+            <div class="form-group" style="margin-left: 15px; margin-top: 5px">
+              <label for="comment1">Yêu Cầu</label>
+              <textarea class="form-control" rows="2" cols="54" id="comment1" formControlName="requirement"></textarea>
+            </div>
+            <!-- IMG -->
             <div>
-              <div style=" margin-top: 5px; margin-left: 15px">
-                <label class="labels">Image</label>
-                <div class="col-md-12" class="d-flex flex-column align-items-center" >
-                  <input class="col-md-12" type="file" class="form-control"  multiple="multiple" (change)="uploadFileImg($event)">
-                  <div *ngFor="let img of arrayPicture">
-                    <img [src]="img" height="100" width="100" style="margin-top: 5px">
+              <div style=" margin-left: 15px">
+                <label class="labels">Up Ảnh</label>
+                <div class="col-md-12" class="d-flex flex-column align-items-center">
+                  <input class="col-md-12" type="file" class="form-control" multiple="multiple"
+                         (change)="uploadFileImg($event)">
+                  <div>
+                    <table>
+                      <tr>
+                        <div class="col-lg-8">
+                          <td *ngFor="let img of arrayPicture" style="background-origin: padding-box">
+                            <img [src]="img" height="120" width="120" style="margin-top: 10px"></td>
+                        </div>
+                      </tr>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Save Profile -->
           <div class="mt-2 text-center">
-            <button class="btn btn-primary profile-button" style="margin-top: 30px" [disabled]="!checkUploadFile" type="submit">Save Profile
+            <button class="btn btn-primary profile-button" style="margin-top: 30px" [disabled]="!checkUploadFile"
+                    type="submit">Lưu Thông Tin
             </button>
           </div>
-
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center experience"><span>Provider-Profile</span>
-
-
+          <div class="d-flex justify-content-between align-items-center experience"><span>Thông Tin Thành Viên</span>
             <a routerLink="/profile/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i
               class="fa fa-backward"></i>Return</a>
           </div>
-          <br>
-          <div>
-          </div>
           <div>
             <div>
-              <div>
-                <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
-                  <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
-                  <div>
-                    <input type="text" class="form-control" value="" formControlName="city">
-                    <small style="color: darkred"
-                           *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">
-                      city ko dược để trống....</small>
-                  </div>
-
-                </div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
-                  <input type="text" class="form-control" value="" formControlName="nationality">
-                  <small style="color: darkred"
-                         *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">
-                   nhập nationality ..</small>
-
-                </div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
-                  <input type="number" class="form-control" value="" formControlName="age">
-                  <small style="color: darkred"
-                         *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">
-                  age không được để trống....</small>
-                </div>
+              <div class="col-md-12" style="margin-top: 15px"><label class="labels">Ngày Sinh</label>
+                <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
+              <div class="col-md-6" style="margin-top: 35px"><label class="labels">Thành Phố</label>
+                <input type="text" class="form-control" value="" formControlName="city">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">Không
+                  Để Trống</small>
               </div>
-              <div>
-                <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
-                  <label class="mdb-main-label">Gender</label>
-                  <select class="form-select" formControlName="gender">
-                    <option value="nam">Male</option>
-                    <option value="nu">Female</option>
-                  </select>
-                </div>
+
+              <div class="col-md-6" style="margin-top: 35px"><label class="labels">Quốc Tịch</label>
+                <input type="text" class="form-control" value="" formControlName="nationality">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">Không
+                  Để Trống</small>
+              </div>
+
+              <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tuổi</label>
+                <input type="number" class="form-control" value="" formControlName="age">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">Không
+                  Để Trống</small>
+              </div>
+            </div>
+            <div>
+              <div class="col-lg-5" style=" margin-left: 5px; margin-top: 20px">
+                <label class="mdb-main-label">Giới Tính</label>
+                <select class="form-select" formControlName="gender">
+                  <option value="nam">Nam</option>
+                  <option value="nu">Nữ</option>
+                </select>
               </div>
             </div>
             <div>
@@ -189,23 +185,22 @@
                   <!-- Default checkbox -->
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23"/>
-                    <label class="form-check-label" for="flexCheckDefault23"><span style="margin-left: 10px">Tâm sự Đêm Khuya</span></label>
+                    <label class="form-check-label" for="flexCheckDefault23"><span style="margin-left: 10px">Tâm Sự Đêm</span></label>
                   </div>
 
                   <!-- Checked checkbox -->
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d1" checked/>
-                    <label class="form-check-label" for="flexCheckChecke3d1"><span style="margin-left: 10px">Hôn </span></label>
+                    <label class="form-check-label" for="flexCheckChecke3d1"><span style="margin-left: 10px">Hôn Tay</span></label>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Price</label>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Giá Tiền</label>
               <input type="number" class="form-control" value="" formControlName="price"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </form>
-
 </div>
