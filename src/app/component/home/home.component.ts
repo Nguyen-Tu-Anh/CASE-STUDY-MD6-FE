@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Users} from "../../model/Users";
 import {HomeService} from "../../service/home.service";
+import {Search} from "../../model/Search";
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,9 @@ export class HomeComponent implements OnInit {
   usersNew : Users[] = [];
   page:number = 0;
   totalPages : number = 1;
+  search:Search = {};
+  provider : Users [] = [] ;
+  checkSearch = false;
 
   constructor(private homeService: HomeService) {
   }
@@ -20,14 +24,14 @@ export class HomeComponent implements OnInit {
     this.show12ProviderHot(this.page)
     this.show12ProviderCreateNewAccount(this.page)
 
+
   }
   nextPage():void{
     this.page++
     this.show12ProviderHot(this.page)
     if(this.page > this.totalPages-1){
       this.page = this.totalPages-1
-      console.log('page')
-      console.log(this.page)
+
       this.show12ProviderHot(this.page)
     }
 
@@ -37,7 +41,6 @@ export class HomeComponent implements OnInit {
     if(this.page >0){
       this.page --;
       this.show12ProviderHot(this.page)
-      console.log(this.page)
     }
 
   }
@@ -45,10 +48,7 @@ export class HomeComponent implements OnInit {
     this.homeService.show12ProviderHotPage(page).subscribe((data)=> {
       this.users = data.content;
       this.totalPages = data['totalPages']
-      console.log("totalPages")
-      console.log(this.totalPages)
-      console.log("data")
-      console.log(data)
+
 
     })
   }
@@ -58,8 +58,6 @@ export class HomeComponent implements OnInit {
     this.show12ProviderCreateNewAccount(this.page)
     if(this.page > this.totalPages-1){
       this.page = this.totalPages-1
-      console.log('page')
-      console.log(this.page)
       this.show12ProviderCreateNewAccount(this.page)
     }
 
@@ -69,7 +67,6 @@ export class HomeComponent implements OnInit {
     if (this.page > 0) {
       this.page--;
       this.show12ProviderCreateNewAccount(this.page)
-      console.log(this.page)
     }
   }
 
@@ -78,12 +75,22 @@ export class HomeComponent implements OnInit {
     this.homeService.show12ProviderCreateNewAccount(page).subscribe((data)=> {
       this.usersNew = data.content;
       this.totalPages = data['totalPages']
-      console.log("totalPages")
-      console.log(this.totalPages)
-      console.log("data")
-      console.log(data)
+
+
 
     })
   }
+  searchNow() {
+    this.checkSearch = true;
+    console.log('this.search')
+    console.log(this.search)
+    this.homeService.searchNow(this.search).subscribe((data)=>{
+      this.provider = data['content'];
+      console.log(data)
+      console.log('this.provider')
+      console.log(this.provider)
 
+    })
+
+}
 }
