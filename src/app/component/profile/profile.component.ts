@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TokenService} from "../../service/token.service";
 import {Users} from "../../model/Users";
 import {AuthService} from "../../service/auth.service";
@@ -14,6 +14,10 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  title = 'demoUploadFile'
+  @ViewChild('uploadFile1', {static: true}) public avatarDom1: ElementRef | undefined;
+  arrfiles: any = [];
+  arrayPicture : string[] = [];     //up load 3 anh
 
   checkUserProvider = false;
   formUserProfile!: FormGroup;
@@ -25,6 +29,30 @@ export class ProfileComponent implements OnInit {
               private activerouter: ActivatedRoute,
               private storage: AngularFireStorage) {
   }
+
+  // upload 3 anh
+  submit() {
+    for (let file of this.arrfiles) {
+      if (file != null) {
+        const filePath = file.name;
+        const fileRef = this.storage.ref(filePath);
+        this.storage.upload(filePath, file).snapshotChanges().pipe(
+          finalize(() => (fileRef.getDownloadURL().subscribe(
+            url => {
+              this.arrayPicture.push(url);
+              console.log(url);
+            })))
+        ).subscribe();
+      }
+    }
+  }
+  uploadFileImg(event: any) {
+    for (const argument of event.target.files) {
+      this.arrfiles.push(argument)
+    }
+    this.submit();
+  }
+
   ngOnInit(): void {
     // @ts-ignore
     this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
