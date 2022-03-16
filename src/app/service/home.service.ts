@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {Users} from "../model/Users";
 import {HttpClient} from "@angular/common/http";
+import {Search} from "../model/Search";
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class HomeService {
 
   updateProfileUserProvider( userProfile : Users) : Observable<any> {
     return this.http.put('http://localhost:8080/users/provider/',userProfile )
+  }
+
+  searchNow(search:Search):Observable<any>{
+    return this.http.post<any>('http://localhost:8080/users/search/0',search);
   }
 
 
