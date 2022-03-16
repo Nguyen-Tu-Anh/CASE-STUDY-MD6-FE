@@ -1,4 +1,7 @@
+
+
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+
 
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Users} from "../../../model/Users";
@@ -13,7 +16,13 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   templateUrl: './profile-provider.component.html',
   styleUrls: ['./profile-provider.component.css']
 })
-export class ProfileProviderComponent implements OnInit,AfterViewInit {
+
+export class ProfileProviderComponent implements OnInit {
+  title = 'demoUploadFile'
+  @ViewChild('uploadFile1', {static: true}) public avatarDom1: ElementRef | undefined;
+  arrfiles: any = [];
+  arrayPicture : string[] = [];     //up load 3 anh
+
   checkUserProvider = false;
   formUserProfile!: FormGroup;
   id: any;
@@ -34,6 +43,31 @@ export class ProfileProviderComponent implements OnInit,AfterViewInit {
               private activerouter: ActivatedRoute,
               private storage: AngularFireStorage) {
   }
+
+  // upload 3 anh
+  submit() {
+    for (let file of this.arrfiles) {
+      if (file != null) {
+        const filePath = file.name;
+        const fileRef = this.storage.ref(filePath);
+        this.storage.upload(filePath, file).snapshotChanges().pipe(
+          finalize(() => (fileRef.getDownloadURL().subscribe(
+            url => {
+              this.arrayPicture.push(url);
+              console.log(url);
+            })))
+        ).subscribe();
+      }
+    }
+  }
+  uploadFileImg(event: any) {
+    for (const argument of event.target.files) {
+      this.arrfiles.push(argument)
+    }
+    this.submit();
+  }
+
+
   ngOnInit(): void {
     // @ts-ignore
     this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
@@ -41,21 +75,21 @@ export class ProfileProviderComponent implements OnInit,AfterViewInit {
 
       name: new FormControl(null,Validators.required),//ko dc de trong
       username: new FormControl(null,Validators.required),
-      password: new FormControl("",[Validators.required,Validators.minLength(4)]),
+      password: new FormControl(),
       email: new FormControl("",[Validators.required,Validators.email]),
-      phoneNumber: new FormControl(null,[Validators.required,Validators.maxLength(10)]),
+      phoneNumber: new FormControl(null,Validators.required),
       avatar: new FormControl(),
       images: new FormControl(),
-      age: new FormControl(null,[Validators.minLength(16),Validators.maxLength(50)]),
+      age: new FormControl(null,Validators.required),
       gender: new FormControl(),
       status: new FormControl(),
-      description: new FormControl(),
+      description: new FormControl(null,Validators.required),
       requirement: new FormControl(),
       dateOfBirth: new FormControl(),
       city: new FormControl(null,Validators.required),
       facebookUrl: new FormControl(null,Validators.required),
-      identify: new FormControl(null,Validators.minLength(5)),
-      nationality: new FormControl("",[Validators.maxLength(10)]),
+      identify: new FormControl(null,Validators.required),
+      nationality: new FormControl(null,Validators.required),
       price: new FormControl(),
       serviceOfProviders: new FormControl(),
     })
@@ -103,6 +137,7 @@ export class ProfileProviderComponent implements OnInit,AfterViewInit {
       this.formUserProfile.get('price')?.setValue(this.userProvider.price);
       this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
       this.fb= this.userProvider.avatar;
+      // this.im=this.userProvider.images;
       this.checkUserProvider = true;
     }));
   }

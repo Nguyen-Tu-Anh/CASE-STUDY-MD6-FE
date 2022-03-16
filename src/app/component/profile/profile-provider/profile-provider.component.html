@@ -2,11 +2,6 @@
   <!--  <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>-->
   <form [formGroup]="formUserProfile" (ngSubmit)="updateProfile()" *ngIf="checkUserProvider">
     <div class="row">
-
-<!--      <small style="color: darkred"-->
-<!--             *ngIf="registerFormUser.controls['email'].hasError('required') && registerFormUser.controls['email'].touched">Email-->
-<!--        required.</small>-->
-
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
           <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
@@ -58,11 +53,21 @@
             <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label>
               <input type="text" class="form-control"
                      formControlName="identify">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">
+                identify ko được để trống</small>
+            </div>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FacebookUrl</label><input type="text"
+                                                                                                            class="form-control"
+                                                                                                            formControlName="facebookUrl">
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 15px">
               <label for="comment1">Descreption</label>
               <textarea class="form-control" rows="2" cols="54" id="comment2"
                         formControlName="description"></textarea>
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
+               nhập description </small>
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 5px">
               <label for="comment1">Requirement</label>
@@ -70,9 +75,20 @@
                         formControlName="requirement"></textarea>
             </div>
             <br>
+            <div>
+              <div style=" margin-top: 5px; margin-left: 15px">
+                <label class="labels">Image</label>
+                <div class="col-md-12" class="d-flex flex-column align-items-center" >
+                  <input class="col-md-12" type="file" class="form-control"  multiple="multiple" (change)="uploadFileImg($event)">
+                  <div *ngFor="let img of arrayPicture">
+                    <img [src]="img" height="100" width="100" style="margin-top: 5px">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="mt-2 text-center">
-            <button class="btn btn-primary profile-button" [disabled]="!checkUploadFile" type="submit">Save Profile
+            <button class="btn btn-primary profile-button" style="margin-top: 30px" [disabled]="!checkUploadFile" type="submit">Save Profile
             </button>
           </div>
 
@@ -95,11 +111,27 @@
                 <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
                   <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
-                  <input type="text" class="form-control" value="" formControlName="city"></div>
+                  <div>
+                    <input type="text" class="form-control" value="" formControlName="city">
+                    <small style="color: darkred"
+                           *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">
+                      city ko dược để trống....</small>
+                  </div>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
-                  <input type="text" class="form-control" value="" formControlName="nationality"></div>
+                  <input type="text" class="form-control" value="" formControlName="nationality">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">
+                   nhập nationality ..</small>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
-                  <input type="number" class="form-control" value="" formControlName="age"></div>
+                  <input type="number" class="form-control" value="" formControlName="age">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">
+                  age không được để trống....</small>
+                </div>
               </div>
               <div>
                 <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
@@ -113,57 +145,63 @@
             </div>
             <div>
               <div class="col-lg-12" style="margin-top: 30px; margin-left: 5px">
-               <div style="float: left">
-                <!-- Default checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="1" formControlName="serviceOfProviders"
-                         id="flexCheckDefault"/>
-                  <label class="form-check-label" for="flexCheckDefault"><span style="margin-left: 10px">Nắm tay</span></label>
-                </div>
-                <!-- Checked checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" formControlName="serviceOfProviders"
-                         id="flexCheckChecked1" checked/>
-                  <label class="form-check-label" for="flexCheckChecked1"><span style="margin-left: 10px">Ôm Eo</span></label>
-                </div>
-                <!-- Default checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"/>
-                  <label class="form-check-label" for="flexCheckDefault2"><span style="margin-left: 10px">Dẫn Về Nhà</span></label>
-                </div>
+                <div style="float: left">
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" formControlName="serviceOfProviders"
+                           id="flexCheckDefault"/>
+                    <label class="form-check-label" for="flexCheckDefault"><span
+                      style="margin-left: 10px">Nắm tay</span></label>
+                  </div>
+                  <!-- Checked checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" formControlName="serviceOfProviders"
+                           id="flexCheckChecked1" checked/>
+                    <label class="form-check-label" for="flexCheckChecked1"><span style="margin-left: 10px">Ôm Eo</span></label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"/>
+                    <label class="form-check-label" for="flexCheckDefault2"><span
+                      style="margin-left: 10px">Dẫn Về Nhà</span></label>
+                  </div>
 
-                <!-- Checked checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d" checked/>
-                  <label class="form-check-label" for="flexCheckChecke3d"><span style="margin-left: 10px">Ăn Kem Trước Cổng</span></label>
+                  <!-- Checked checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d" checked/>
+                    <label class="form-check-label" for="flexCheckChecke3d"><span style="margin-left: 10px">Ăn Kem Trước Cổng</span></label>
+                  </div>
                 </div>
-               </div>
                 <div style="float: right">
-                <!-- Default checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4"/>
-                  <label class="form-check-label" for="flexCheckDefault4"><span style="margin-left: 10px">Đạp Vịt</span></label>
-                </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4"/>
+                    <label class="form-check-label" for="flexCheckDefault4"><span
+                      style="margin-left: 10px">Đạp Vịt</span></label>
+                  </div>
 
-                <!-- Checked checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked12" checked/>
-                  <label class="form-check-label" for="flexCheckChecked12"><span style="margin-left: 10px">Ăn Nhậu</span></label>
-                </div>
-                <!-- Default checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23"/>
-                  <label class="form-check-label" for="flexCheckDefault23"><span style="margin-left: 10px">Tâm sự Đêm Khuya</span></label>
-                </div>
+                  <!-- Checked checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked12" checked/>
+                    <label class="form-check-label" for="flexCheckChecked12"><span
+                      style="margin-left: 10px">Ăn Nhậu</span></label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault23"/>
+                    <label class="form-check-label" for="flexCheckDefault23"><span style="margin-left: 10px">Tâm sự Đêm Khuya</span></label>
+                  </div>
 
-                <!-- Checked checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d1" checked/>
-                  <label class="form-check-label" for="flexCheckChecke3d1"><span style="margin-left: 10px">Hôn </span></label>
-                </div>
+                  <!-- Checked checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke3d1" checked/>
+                    <label class="form-check-label" for="flexCheckChecke3d1"><span style="margin-left: 10px">Hôn </span></label>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Price</label>
+              <input type="number" class="form-control" value="" formControlName="price"></div>
           </div>
         </div>
       </div>
