@@ -25,6 +25,7 @@ import {ProfileProviderComponent} from "./component/profile/profile-provider/pro
 import { AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
+import { AdminComponent } from './component/admin/admin.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,7 +35,8 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
   {path: 'modal-rent', component: ModalRentComponent},
   {path: 'details/:id', component: DetailsComponent},
-  {path: 'show-user-and-provider', component: ShowUserAndProviderComponent},
+  {path: 'admin/details/:id', component: DetailsComponent},
+  {path: 'admin',component: ShowUserAndProviderComponent},
 
 ];
 @NgModule({
@@ -50,7 +52,8 @@ export const appRoutes: Routes = [
     DetailComponent,
     ModalRentComponent,
     DetailsComponent,
-    ShowUserAndProviderComponent
+    ShowUserAndProviderComponent,
+    AdminComponent
   ],
   imports: [
     FormsModule,

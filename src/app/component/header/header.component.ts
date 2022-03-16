@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit {
   // @ts-ignore
   user: Users;
   checkRole = false;
+  checkAdmin = false;
+
+
   constructor(private tokenService: TokenService,private homeService:HomeService) {
   }
 
@@ -35,10 +38,14 @@ export class HeaderComponent implements OnInit {
         if(r.id==2){
           this.checkRole=true;
         }
+        if(r.id==3){
+          this.checkAdmin=true;
+        }
       }
     });
   }
   // ham Logout
+
   logOut(){
     window.sessionStorage.clear();
     window.location.replace("");
