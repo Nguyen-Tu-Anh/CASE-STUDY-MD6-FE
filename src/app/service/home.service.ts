@@ -41,9 +41,21 @@ export class HomeService {
     return this.http.put('http://localhost:8080/users/provider/',userProfile )
   }
 
+
   searchNow(search:Search):Observable<any>{
     return this.http.post<any>('http://localhost:8080/users/search/0',search);
   }
 
+  ban(id: number) {
+    return this.http.get(`http://localhost:8080/users/ban/${id}`)
+  }
 
+  unban(id:number){
+    return this.http.get(`http://localhost:8080/users/unban/${id}`);
+  }
+
+
+  findAllUsers(page:number):Observable<any>{
+    return this.http.get(`http://localhost:8080/users/page/${page}`);
+  }
 }
