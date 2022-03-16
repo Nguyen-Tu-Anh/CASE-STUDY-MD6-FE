@@ -58,11 +58,17 @@
             <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label>
               <input type="text" class="form-control"
                      formControlName="identify">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">
+                identify ko được để trống</small>
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 15px">
               <label for="comment1">Descreption</label>
               <textarea class="form-control" rows="2" cols="54" id="comment2"
                         formControlName="description"></textarea>
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
+               nhập description </small>
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 5px">
               <label for="comment1">Requirement</label>
@@ -95,11 +101,27 @@
                 <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
                   <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
-                  <input type="text" class="form-control" value="" formControlName="city"></div>
+                  <div>
+                    <input type="text" class="form-control" value="" formControlName="city">
+                    <small style="color: darkred"
+                           *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">
+                      city ko dược để trống....</small>
+                  </div>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
-                  <input type="text" class="form-control" value="" formControlName="nationality"></div>
+                  <input type="text" class="form-control" value="" formControlName="nationality">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">
+                   nhập nationality ..</small>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
-                  <input type="number" class="form-control" value="" formControlName="age"></div>
+                  <input type="number" class="form-control" value="" formControlName="age">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">
+                  age không được để trống....</small>
+                </div>
               </div>
               <div>
                 <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
