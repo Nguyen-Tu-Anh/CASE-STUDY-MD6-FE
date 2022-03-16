@@ -40,5 +40,15 @@ export class HomeService {
     return this.http.put('http://localhost:8080/users/provider/',userProfile )
   }
 
+  ban(id: number) {
+    return this.http.get(`http://localhost:8080/users/ban/${id}`)
+  }
 
+  unban(id:number){
+    return this.http.get(`http://localhost:8080/users/unban/${id}`);
+  }
+
+  findAllUsers(page:number):Observable<any>{
+    return this.http.get(`http://localhost:8080/users/page/${page}`);
+  }
 }

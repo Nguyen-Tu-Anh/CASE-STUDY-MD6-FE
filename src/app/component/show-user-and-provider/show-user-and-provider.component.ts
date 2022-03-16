@@ -50,4 +50,18 @@ export class ShowUserAndProviderComponent implements OnInit {
 
     })
   }
+
+  ban(id: number) {
+    this.homeService.ban(id).subscribe(data => {
+      alert("Ban success!")
+      this.findAll(this.page);
+    })
+  }
+
+  unban(id: number) {
+    this.homeService.unban(id).subscribe(data => {
+      alert("Unban success!")
+      this.findAll(this.page);
+    })
+  }
 }
