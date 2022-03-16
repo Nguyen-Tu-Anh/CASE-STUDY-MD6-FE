@@ -50,7 +50,11 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUsers(JSON.stringify(data.users));
         console.log(this.tokenService.getUsers())
 
-
+        for(let r of data.users.roles){
+          if(r.id===3){
+            window.location.replace('/admin')
+          }
+        }
        this.router.navigate(['']).then(()=>{
          window.location.replace('');
        })  //router link truc tiep den componment
