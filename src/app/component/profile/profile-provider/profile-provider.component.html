@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img class="rounded-circle mt-5" width="150px" src="{{fb}}">
-          <div style="margin-top: 30px" class="btn btn-primary btn-sm float-left">
+          <img class="rounded-circle mt-5" width="200px" src="{{fb}}">
+          <div class="btn btn-primary btn-sm float-left">
             <span>Choose file</span>
             <input type="file" (change)="onFileSelected($event)">
           </div>
-          <span
-            class="font-weight-bold" class="text-black-50">{{userProvider.email}}</span>
+          <p *ngIf="userProvider.status==1" style="color: #0dcaf0">online</p>
+          <span class="font-weight-bold">email</span><span class="text-black-50">{{userProvider.email}}</span>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -19,15 +19,18 @@
           </div>
           <!--          <h4 class="text-right">Profile Settings</h4>-->
           <div class="row mt-2">
-            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Name</label><input type="text"
-                                                                                                    class="form-control"
-                                                                                                    formControlName="name">
+            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                                                                           formControlName="name">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name'].touched">name
+                required.</small>
             </div>
-            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
-                                                                                                        class="form-control"
-                                                                                                        formControlName="username">
-            </div>
-            <br>
+            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control"
+                                                                               formControlName="username">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username'].touched">Username
+                required.</small>
+            </div><br>
           </div>
           <!--        *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]"-->
           <div class="row mt-3">
@@ -35,14 +38,24 @@
             <div class="col-md-12" style="margin-top: 10px"><label class="labels">Mobile Number</label><input
               type="text" class="form-control"
               formControlName="phoneNumber">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['phoneNumber'].hasError('required') && formUserProfile.controls['phoneNumber'].touched">phoneNumber
+                required. max 10</small>
             </div>
-            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label><input type="text"
-                                                                                                      class="form-control"
-                                                                                                      formControlName="email">
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label>
+              <input type="text" class="form-control"
+                     formControlName="email">
+
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['email'].hasError('required') && formUserProfile.controls['email'].touched">email
+                required</small>
             </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label><input type="text"
-                                                                                                         class="form-control"
-                                                                                                         formControlName="identify">
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label>
+              <input type="text" class="form-control"
+                     formControlName="identify">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">
+                identify ko được để trống</small>
             </div>
             <div class="col-md-12" style="margin-top: 15px"><label class="labels">FacebookUrl</label><input type="text"
                                                                                                             class="form-control"
@@ -50,11 +63,16 @@
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 15px">
               <label for="comment1">Descreption</label>
-              <textarea class="form-control" rows="2" cols="54" id="comment2" formControlName="description"></textarea>
+              <textarea class="form-control" rows="2" cols="54" id="comment2"
+                        formControlName="description"></textarea>
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
+               nhập description </small>
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 5px">
               <label for="comment1">Requirement</label>
-              <textarea class="form-control" rows="2" cols="54" id="comment1" formControlName="requirement"></textarea>
+              <textarea class="form-control" rows="2" cols="54" id="comment1"
+                        formControlName="requirement"></textarea>
             </div>
             <br>
             <div>
@@ -93,11 +111,27 @@
                 <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
                   <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
-                  <input type="text" class="form-control" value="" formControlName="city"></div>
+                  <div>
+                    <input type="text" class="form-control" value="" formControlName="city">
+                    <small style="color: darkred"
+                           *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">
+                      city ko dược để trống....</small>
+                  </div>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
-                  <input type="text" class="form-control" value="" formControlName="nationality"></div>
+                  <input type="text" class="form-control" value="" formControlName="nationality">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">
+                   nhập nationality ..</small>
+
+                </div>
                 <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
-                  <input type="number" class="form-control" value="" formControlName="age"></div>
+                  <input type="number" class="form-control" value="" formControlName="age">
+                  <small style="color: darkred"
+                         *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">
+                  age không được để trống....</small>
+                </div>
               </div>
               <div>
                 <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
@@ -173,4 +207,5 @@
       </div>
     </div>
   </form>
+
 </div>

@@ -1,6 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
-import {FormControl, FormGroup} from "@angular/forms";
+
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+
+
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Users} from "../../../model/Users";
 
 import {HomeService} from "../../../service/home.service";
@@ -13,6 +16,7 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   templateUrl: './profile-provider.component.html',
   styleUrls: ['./profile-provider.component.css']
 })
+
 export class ProfileProviderComponent implements OnInit {
   title = 'demoUploadFile'
   @ViewChild('uploadFile1', {static: true}) public avatarDom1: ElementRef | undefined;
@@ -24,8 +28,17 @@ export class ProfileProviderComponent implements OnInit {
   id: any;
   userProvider!: Users;
 
+  valuetexa : string[] = [
+    "chiều cao :",
+    "cân nặng  :",
+    "sở thích  :",
+    ];
+  v : string = "as";
+
+@ViewChild('areaElement')areaElement: ElementRef | undefined;
 
   constructor(private homeService: HomeService,
+
               private router: Router,
               private activerouter: ActivatedRoute,
               private storage: AngularFireStorage) {
@@ -60,25 +73,23 @@ export class ProfileProviderComponent implements OnInit {
     this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
     this.formUserProfile = new FormGroup({
 
-
-      id: new FormControl(),
-      name: new FormControl(),
-      username: new FormControl(),
+      name: new FormControl(null,Validators.required),//ko dc de trong
+      username: new FormControl(null,Validators.required),
       password: new FormControl(),
-      email: new FormControl(),
-      phoneNumber: new FormControl(),
+      email: new FormControl("",[Validators.required,Validators.email]),
+      phoneNumber: new FormControl(null,Validators.required),
       avatar: new FormControl(),
       images: new FormControl(),
-      age: new FormControl(),
+      age: new FormControl(null,Validators.required),
       gender: new FormControl(),
       status: new FormControl(),
-      description: new FormControl(),
+      description: new FormControl(null,Validators.required),
       requirement: new FormControl(),
       dateOfBirth: new FormControl(),
-      city: new FormControl(),
-      facebookUrl: new FormControl(),
-      identify: new FormControl(),
-      nationality: new FormControl(),
+      city: new FormControl(null,Validators.required),
+      facebookUrl: new FormControl(null,Validators.required),
+      identify: new FormControl(null,Validators.required),
+      nationality: new FormControl(null,Validators.required),
       price: new FormControl(),
       serviceOfProviders: new FormControl(),
     })
@@ -95,6 +106,7 @@ export class ProfileProviderComponent implements OnInit {
     window.location.replace("");
   }
 
+
   updateProfile() {
     this.formUserProfile.value.avatar = this.fb;
     this.homeService.updateProfileUserProvider(this.formUserProfile.value).subscribe(() => {
@@ -105,7 +117,6 @@ export class ProfileProviderComponent implements OnInit {
   showProfileUser() {
     this.homeService.findById(this.id).subscribe((data =>{
       this.userProvider = data;
-      this.formUserProfile.get('id')?.setValue(this.userProvider.id);
       this.formUserProfile.get('name')?.setValue(this.userProvider.name);
       this.formUserProfile.get('username')?.setValue(this.userProvider.username);
       this.formUserProfile.get('password')?.setValue(this.userProvider.password);
@@ -164,33 +175,6 @@ export class ProfileProviderComponent implements OnInit {
       });
   }
 
-  // public  im: string | any;
-  // onFileSelectedIMG(event: any) {
-  //   this.checkUploadFile= false;
-  //   var n = Date.now();
-  //   const file = event.target.files[0];
-  //
-  //   const filePath = `RoomsImages/${n}`;
-  //
-  //   const fileRef = this.storage.ref(filePath);
-  //   const task = this.storage.upload(`RoomsImages/${n}`, file);
-  //   task
-  //     .snapshotChanges()
-  //     .pipe(
-  //       finalize(() => {
-  //         this.downloadURL = fileRef.getDownloadURL();
-  //         this.downloadURL.subscribe((url: any) => {
-  //           if (url) {
-  //             this.im = url;
-  //             console.log("url")
-  //             console.log(url)
-  //             this.checkUploadFile = true;
-  //           }
-  //         });
-  //       })
-  //     )
-  //     .subscribe((url: any) => {
-  //       console.log(url)
-  //     });
-  // }
+  ngAfterViewInit(): void {
+  }
 }

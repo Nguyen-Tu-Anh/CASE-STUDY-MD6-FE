@@ -19,38 +19,43 @@
           </div>
           <!--          <h4 class="text-right">Profile Settings</h4>-->
           <div class="row mt-2">
-            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Name</label><input type="text"
-                                                                                                    class="form-control"
-                                                                                                    formControlName="name">
+
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Name</label><input type="text" class="form-control"
+                                                                           formControlName="name">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name']">
+                name ko được để trống</small>
             </div>
-            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
-                                                                                                        class="form-control"
-                                                                                                        formControlName="username">
-            </div>
-            <br>
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text" class="form-control"
+                                                                               formControlName="username">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username']">
+                username ko được để trống</small>
+            </div><br>
+
           </div>
           <!--        *ngIf="userProvider.roles == [{id: 2, name: 'SP'}]"-->
           <div class="row mt-3">
 
-            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Mobile Number</label><input
-              type="text" class="form-control"
-              formControlName="phoneNumber">
+            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Mobile Number</label><input type="text" class="form-control" formControlName="phoneNumber">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['phoneNumber'].hasError('required') && formUserProfile.controls['phoneNumber']">
+                phoneNumber ko được để trống</small>
             </div>
-            <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label><input type="text"
-                                                                                                      class="form-control"
-                                                                                                      formControlName="email">
-            </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label><input type="text"
-                                                                                                         class="form-control"
-                                                                                                         formControlName="identify">
-            </div>
-<!--            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FacebookUrl</label><input type="text"-->
-<!--                                                                                                            class="form-control"-->
-<!--                                                                                                            formControlName="facebookUrl">-->
-<!--            </div>-->
-            <div class="form-group" style="margin-left: 15px; margin-top: 15px">
+            <div class="col-md-12" style="margin-top: 10px" ><label class="labels">Email</label><input type="text" class="form-control"
+                                                                             formControlName="email">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['email'].hasError('required') && formUserProfile.controls['email']">
+                email ko được để trống</small></div>
+            <div  class="col-md-12" style="margin-top: 15px"><label class="labels">Identify</label><input type="text" class="form-control"
+                                                                             formControlName="identify"></div>
+            <div class="form-group" style="margin-left: 15px; margin-top: 15px" >
               <label for="comment1">Descreption</label>
-              <textarea class="form-control" rows="2" cols="54" id="comment2" formControlName="description"></textarea>
+              <textarea  class="form-control" rows="2" cols="54" id="comment2" formControlName="description"></textarea>
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['description'].hasError('required') && formUserProfile.controls['description']">
+                description ko được để trống</small>
+
             </div>
             <div class="form-group" style="margin-left: 15px; margin-top: 5px">
               <label for="comment1">Requirement</label>
@@ -86,20 +91,32 @@
           </div>
           <div>
             <div>
-              <div>
-                <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
-                  <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
-                  <input type="text" class="form-control" value="" formControlName="city"></div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
-                  <input type="text" class="form-control" value="" formControlName="nationality"></div>
-                <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
-                  <input type="number" class="form-control" value="" formControlName="age"></div>
+              
+              <div class="col-md-12" style="margin-top: 15px"><label class="labels">Date Of Birth</label>
+                <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
+              <div class="col-md-6" style="margin-top: 15px"><label class="labels">City</label>
+                <input type="text" class="form-control" value="" formControlName="city">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">
+                  city ko được để trống</small>
               </div>
-              <div>
-                <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
-                  <label class="mdb-main-label">Gender</label>
-                  <select class="form-select" formControlName="gender">
+              <div class="col-md-6" style="margin-top: 15px"><label class="labels">Nationality</label>
+                <input type="text" class="form-control" value="" formControlName="nationality">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">
+                  nationality ko được để trống</small>
+              </div>
+              <div class="col-md-6" style="margin-top: 15px"><label class="labels">Age</label>
+                <input type="number" class="form-control" value="" formControlName="age">
+                <small style="color: darkred"
+                       *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">
+                  age ko được để trống</small>
+              </div>
+            </div>
+            <div >
+              <div class="col-lg-3" style=" margin-left: 3px; margin-top: 20px">
+                  <label class="mdb-main-label" >Gender</label>
+                  <select class="form-select" formControlName="gender" >
                     <option value="nam">Male</option>
                     <option value="nu">Female</option>
                   </select>
