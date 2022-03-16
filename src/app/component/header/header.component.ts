@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../service/token.service";
 import {Users} from "../../model/Users";
+import {HomeService} from "../../service/home.service";
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   // @ts-ignore
   user: Users;
   checkRole = false;
-  constructor(private tokenService: TokenService) {
+  constructor(private tokenService: TokenService,private homeService:HomeService) {
   }
 
   ngOnInit(): void {
@@ -26,12 +27,16 @@ export class HeaderComponent implements OnInit {
       // @ts-ignore
       this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
     }
-    for(let r of this.user.roles){
-      console.log(r.id);
-      if(r.id==2){
-        this.checkRole=true;
+    this.homeService.findById(this.user.id).subscribe((data)=>{
+      this.user = data;
+      console.log(this.user.roles)
+      for(let r of this.user.roles){
+        console.log( "id la : " + r.id);
+        if(r.id==2){
+          this.checkRole=true;
+        }
       }
-    }
+    });
   }
   // ham Logout
   logOut(){
