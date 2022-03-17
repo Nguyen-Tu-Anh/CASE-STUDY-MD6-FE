@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
 
   }
   backPage():void{
-
     if(this.page >0){
       this.page --;
       this.show12ProviderHot(this.page)
@@ -69,8 +68,6 @@ export class HomeComponent implements OnInit {
       this.show12ProviderCreateNewAccount(this.page)
     }
   }
-
-
     show12ProviderCreateNewAccount(page: number) {
     this.homeService.show12ProviderCreateNewAccount(page).subscribe((data)=> {
       this.usersNew = data.content;
@@ -91,6 +88,8 @@ export class HomeComponent implements OnInit {
       console.log(this.provider)
 
     })
-
 }
+
+
+
 }

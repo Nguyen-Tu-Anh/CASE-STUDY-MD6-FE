@@ -3,7 +3,7 @@
   <!-- New Arrivals -->
   <div class="new_arrivals">
     <div class="container">
-      <div class="filter-players" align="center">
+      <div class="filter-players" >
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối thiểu"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối đa"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.maxAge">
         <input type="text" class="form-controls citys" placeholder="Nơi sống"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.city">
@@ -12,55 +12,44 @@
           <option value="">Giới tính</option>
           <option value="nữ">Nữ</option>
           <option value="nam">Nam</option></select>
-        <button type="button" class="form-controls btn-filters btns btn-defaults" (click)="searchNow()"><i class="fa fa-search"></i> Tìm kiếm</button>
+        <button type="button" class="form-controls btn-filters btns btn-defaults" style="color: red"(click)="searchNow()"><i class="fa fa-search" ></i> Tìm kiếm</button>
       </div>
       <div >
           <p class="vipPlayer"></p>
         </div>
       <div class="row">
-        <div class="col" >
+        <div class="col">
           <div class="product-grid"
-               data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
-            <div class="product-item men left"  *ngFor="let user of provider">
-              <div class="product discount product_filter" style="border-radius: 20px">
+               data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+            <div class="product-item men left" *ngFor="let find of provider">
+              <div class="product discount product_filter">
                 <div class="product_image">
-                  <a [routerLink]="'details/'+user.id">
-                    <img src="{{user.avatar}}" alt="" height="200" width="230">
+                  <a [routerLink]="'details/'+find.id" >
+                    <img src="{{find.avatar}}" alt="" >
                   </a>
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div
-                  class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
+                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                  <span>{{find.price}}d/h</span></div>
                 <div class="product_info">
-                  <div>
-                    <div class="col-lg-3">
-                    <p *ngIf="user.status==1" style="color: #0dcaf0">online</p>
+                  <a  [routerLink]="'details/'+find.id">
+                    <div class="product_price">{{find.name}}
                     </div>
-                    <h3 class="product_name">{{user.name}}</h3>
+                  </a>
+                  <div >
+                    <div class="description">
+                      {{find.description}}
+                    </div>
                   </div>
-                  <div class="product_price">{{user.price}}</div>
+                  <div class="imgGame">
+                    <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                    {{find.requirement}}
+                  </div>
                 </div>
               </div>
-              <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
-              </button>
-
             </div>
           </div>
         </div>
-      </div>
-      <div style="margin-top: 30px">
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page=0)"> 1
-        </button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
       </div>
     </div>
   </div>
@@ -68,48 +57,44 @@
 <div class="new_arrivals">
   <div class="container">
     <div >
-      <p class="vipPlayer">Hot Player</p>
+      <p class="vipPlayer" >Hot Player</p>
     </div>
     <div class="row">
-      <div class="col" >
+      <div class="col">
         <div class="product-grid"
-             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
-
-          <div class="product-item men left"  *ngFor="let a of users">
-            <div class="product discount product_filter" style="border-radius: 20px">
-
+             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+          <div class="product-item men left" *ngFor="let hotUser of users">
+            <div class="product discount product_filter">
               <div class="product_image">
-                <a [routerLink]="'details/'+a.id">
-                  <img src="{{a.avatar}}" alt="" height="200" width="230">
-                </a>
+                <a [routerLink]="'details/'+hotUser.id" >
+                <img src="{{hotUser.avatar}}" alt="" >
+              </a>
               </div>
               <div class="favorite favorite_left"></div>
-              <div
-                class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>-$20</span></div>
+              <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                <span>{{hotUser.price}}d/h</span></div>
               <div class="product_info">
-
-
-                <div>
-                  <div class="col-lg-3">
-                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
-                  </div>
-                  <h3 class="product_name">{{a.name}}</h3>
+                  <a  [routerLink]="'details/'+hotUser.id">
+                <div class="product_price">{{hotUser.name}}
                 </div>
-
-                <div class="product_price">{{a.price}}</div>
-
+                  </a>
+                <div >
+                  <div class="description">
+                      {{hotUser.description}}
+                  </div>
+                </div>
+                <div class="imgGame">
+                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                    {{hotUser.requirement}}
+                </div>
               </div>
             </div>
-
-            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
-            </button>
-
           </div>
         </div>
       </div>
     </div>
-    <div style="margin-top: 30px">
+
+<div style="margin-top: 30px">
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
               (click)="show12ProviderHot(page=0)"> 1
@@ -138,23 +123,32 @@
       <div class="col">
         <div class="product-grid"
              data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-          <div class="product-item men left" *ngFor="let a of usersNew">
+          <div class="product-item men left" *ngFor="let newUser of usersNew">
             <div class="product discount product_filter">
               <div class="product_image">
-                <a [routerLink]="'details/'+a.id">
-                  <img src="{{a.avatar}}" alt="" height="200" width="230">
+                <a [routerLink]="'details/'+newUser.id" >
+                  <img src="{{newUser.avatar}}" alt="" >
                 </a>
               </div>
               <div class="favorite favorite_left"></div>
               <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>-$20</span></div>
+                <span>{{newUser.price}}d/h</span></div>
               <div class="product_info">
-                <h3 class="product_name">{{a.name}}</h3>
-                <div class="product_price">{{a.price}}</div>
+                <a  [routerLink]="'details/'+newUser.id">
+                  <div class="product_price">{{newUser.name}}
+                  </div>
+                </a>
+                <div >
+                  <div class="description">
+                    {{newUser.description}}
+                  </div>
+                </div>
+                <div class="imgGame">
+                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                  {{newUser.requirement}}
+                </div>
               </div>
             </div>
-            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
-            </button>
           </div>
         </div>
       </div>
