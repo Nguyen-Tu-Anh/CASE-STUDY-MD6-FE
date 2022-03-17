@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
@@ -55,7 +55,7 @@ export const appRoutes: Routes = [
     ModalRentComponent,
     DetailsComponent,
     ShowUserAndProviderComponent,
-    AdminComponent
+
   ],
   imports: [
     FormsModule,

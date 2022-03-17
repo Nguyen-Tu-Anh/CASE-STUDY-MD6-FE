@@ -80,9 +80,15 @@
                 <label class="labels">Image</label>
                 <div class="col-md-12" class="d-flex flex-column align-items-center" >
                   <input class="col-md-12" type="file" class="form-control"  multiple="multiple" (change)="uploadFileImg($event)">
-                  <div *ngFor="let img of arrayPicture">
-                    <img [src]="img" height="100" width="100" style="margin-top: 5px">
-                  </div>
+                 <table>
+                   <td *ngFor="let img of arrayPicture">
+
+                       <img [src]="img" height="100" width="100" style="margin-top: 5px">
+
+                   </td>
+
+                 </table>
+
                 </div>
               </div>
             </div>
