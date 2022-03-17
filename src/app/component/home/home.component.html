@@ -4,12 +4,11 @@
   <div class="new_arrivals">
     <div class="container">
       <div class="filter-players" align="center">
-        <input type="text" class="form-controls citys" placeholder="Độ tuổi tối thiểu"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
+        <input type="text" class="form-controls citys" placeholder="Độ tuổi từ 18 đến "  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối đa"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.maxAge">
         <input type="text" class="form-controls citys" placeholder="Nơi sống"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.city">
         <input type="text" class="form-controls names" placeholder="Tên Player" autocomplete="off"  value="" [(ngModel)]="search.name">
         <select class="form-controls gender "[(ngModel)]="search.gender" >
-          <option value="">Giới tính</option>
           <option value="nữ">Nữ</option>
           <option value="nam">Nam</option></select>
         <button type="button" class="form-controls btn-filters btns btn-defaults" (click)="searchNow()"><i class="fa fa-search"></i> Tìm kiếm</button>
@@ -44,7 +43,6 @@
               </div>
               <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
               </button>
-
             </div>
           </div>
         </div>
@@ -72,39 +70,28 @@
     </div>
     <div class="row">
       <div class="col" >
-        <div class="product-grid"
+        <div class="fa-product-hunt"
              data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
-
           <div class="product-item men left"  *ngFor="let a of users">
-            <div class="product discount product_filter" style="border-radius: 20px">
-
               <div class="product_image">
                 <a [routerLink]="'details/'+a.id">
-                  <img src="{{a.avatar}}" alt="" height="200" width="230">
+                  <img src="{{a.avatar}}" alt="" height="230" width="230">
                 </a>
               </div>
-              <div class="favorite favorite_left"></div>
-              <div
-                class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>-$20</span></div>
-              <div class="product_info">
-
-
+              <div class=""></div>
+              <div style="margin-top: 5px"><a class=" product_price"  style="margin-left: 30%" href="/hashin">{{a.price}} đ/h</a>
+<!--              <div class="product_name">-->
                 <div>
-                  <div class="col-lg-3">
-                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
+                  <div class="col-lg-8">
+                    <p *ngIf="a.status==1"  style="color: #669900">online</p>
+                    <div class="product_name">{{a.name}}</div>
                   </div>
-                  <h3 class="product_name">{{a.name}}</h3>
                 </div>
-
-                <div class="product_price">{{a.price}}</div>
-
-              </div>
+                <!--              </div>-->
             </div>
-
-            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
+<!--          </div>-->
+            <button class="product_slider_nav " style="margin-left: 65%"><a href="#">Connect</a>
             </button>
-
           </div>
         </div>
       </div>
@@ -176,7 +163,7 @@
           <div class="col-lg-6">
             <div
               class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-              <h2>Please enter promo code if you have</h2>
+              <h2>Please enter promo code</h2>
             </div>
           </div>
           <div class="col-lg-6">
@@ -190,28 +177,6 @@
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-
-        <!--Modal search-->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3>Search</h3>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-              </div>
-              <input class="modal-body" type="text">
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                  Send
-                </button>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

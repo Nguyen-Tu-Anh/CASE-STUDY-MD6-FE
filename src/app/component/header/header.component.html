@@ -1,11 +1,6 @@
 <!-- Header -->
-
 <header class="header trans_300">
-
   <!-- Main Navigation -->
-
-
-
   <div class="main_nav_container">
     <div class="container">
       <div class="row">
@@ -16,7 +11,6 @@
           <nav class="navbar">
             <ul class="navbar_menu">
               <li><a routerLink="/">home</a></li>
-
               <li><a href="#">ranking</a></li>
               <li>
                 <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#loginModal">
@@ -26,7 +20,6 @@
               <li>
                 <a *ngIf="checkLogin" type="button" data-toggle="modal" data-target="#registerModal">
                   <i class="fa fa-sign-in"></i> Register
-
                 </a>
               </li>
               <li>
@@ -39,22 +32,14 @@
               <li>
                 <a *ngIf="!checkLogin && checkAdmin" routerLink="/admin" mat-button class="docs-button"><i class="fa fa-user-secret">Admin: {{user.name}}</i></a>
               </li>
-
-
-<!--              <li>-->
-<!--                <a *ngIf="!checkLogin" mat-button class="docs-button" data-toggle="modal" data-target="#loginModal">-->
-<!--                  <mat-icon color="accent">account_cirle</mat-icon>-->
-<!--                  <span> {{name}}</span>-->
-<!--                </a>-->
-<!--              </li>-->
             </ul>
             <ul class="navbar_user">
-              <li>
-                <!-- Trigger the modal with a button -->
-                <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
-                   style="background-color: #eceff6; border: none"><i
-                  class="fa fa-search" aria-hidden="true"></i></a>
-              </li>
+<!--              <li>-->
+<!--                &lt;!&ndash; Trigger the modal with a button &ndash;&gt;-->
+<!--                <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"-->
+<!--                   style="background-color: #eceff6; border: none"><i-->
+<!--                  class="fa fa-search" aria-hidden="true"></i></a>-->
+<!--              </li>-->
               <li class="checkout">
                 <a href="#">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -62,16 +47,12 @@
                 </a>
               </li>
             </ul>
-            <div class="hamburger_container">
-              <i class="fa fa-bars" aria-hidden="true"></i>
-            </div>
           </nav>
         </div>
       </div>
     </div>
   </div>
 </header>
-
 
 <app-login></app-login>
 <app-register></app-register>

@@ -8,10 +8,10 @@
             <span>Avatar</span>
             <input type="file" (change)="onFileSelected($event)">
           </div>
+          <p *ngIf="userProvider.status == 1" style="color: #1e7e34; margin-top: 10px">Online</p>
           <span
-            class="font-weight-bold" class="text-black-50" style="margin-top: 15px">{{userProvider.email}}</span>
+            class="font-weight-bold" class="text-black-50" >{{userProvider.email}}</span>
         </div>
-        <p *ngIf="userProvider.status == 1" style="color: #1e7e34">Online</p>
       </div>
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
@@ -196,8 +196,12 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Giá Tiền</label>
-              <input type="number" class="form-control" value="" formControlName="price"></div>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Giá Tiền/1 giờ</label>
+              <input type="number" class="form-control" value="" formControlName="price">
+              <small style="color: darkred"
+                     *ngIf="formUserProfile.controls['price'].hasError('required') && formUserProfile.controls['price']">Không
+                Để Trống</small>
+            </div>
             </div>
           </div>
         </div>

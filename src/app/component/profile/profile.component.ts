@@ -99,11 +99,13 @@ export class ProfileComponent implements OnInit {
 
   updateProfile() {
     this.formUserProfile.value.avatar = this.fb;
+    console.log(this.formUserProfile.value);
     this.homeService.updateUser(this.formUserProfile.value).subscribe(() => {
       alert("cập nhật profile thanh cong");
       this.router.navigate([""])
     })
   }
+
   showProfileUser() {
     this.homeService.findById(this.id).subscribe((data =>{
       this.userProvider = data;

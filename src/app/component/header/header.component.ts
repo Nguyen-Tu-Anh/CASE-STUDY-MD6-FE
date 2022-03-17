@@ -44,8 +44,8 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-  // ham Logout
 
+  // ham Logout
   logOut(){
     window.sessionStorage.clear();
     window.location.replace("");

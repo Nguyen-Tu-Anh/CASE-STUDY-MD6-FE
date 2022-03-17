@@ -8,8 +8,9 @@
             <span>Chọn Ảnh</span>
             <input type="file" (change)="onFileSelected($event)">
           </div>
+          <p *ngIf="userProvider.status == 1" style="color: #1e7e34; margin-top: 10px">Online</p>
           <span
-            class="font-weight-bold" class="text-black-50" style="margin-top: 15px">{{userProvider.email}}</span>
+            class="font-weight-bold" class="text-black-50" >{{userProvider.email}}</span>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -21,16 +22,15 @@
             <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tên</label><input type="text"
                                                                                                    class="form-control"
                                                                                                    formControlName="name">
-              <small style="color: darkred"
+              <small style="color: rgba(139,0,0,0)"
                      *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name']">Không Để Trống</small>
             </div>
             <!-- Ussername -->
-            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
+            <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tên Đăng Nhập</label><input type="text"
                                                                                                         class="form-control"
                                                                                                         formControlName="username">
-              <small style="color: darkred"
-                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username']">
-                Username Không Để Trống</small>
+              <small style="color: rgba(139,0,0,0)"
+                     *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username']">Không Để Trống</small>
             </div>
             <br>
 
@@ -66,19 +66,20 @@
               <label for="comment1">Yêu Cầu</label>
               <textarea class="form-control" rows="2" cols="54" id="comment1" formControlName="requirement"></textarea>
             </div>
+
             <!-- IMG -->
             <div>
               <div style=" margin-left: 15px">
-                <label class="labels">Image</label>
+                <label class="labels">Up Ảnh</label>
                 <div class="col-md-12" class="d-flex flex-column align-items-center">
                   <input class="col-md-12" type="file" class="form-control" multiple="multiple"
                          (change)="uploadFileImg($event)">
                   <div>
                     <table>
                       <tr>
-                        <div class="col-lg-4">
+                        <div class="col-lg-8">
                           <td *ngFor="let img of arrayPicture" style="background-origin: padding-box">
-                            <img [src]="img" height="100" width="100" style="margin-top: 5px"></td>
+                            <img [src]="img" height="120" width="120" style="margin-top: 10px"></td>
                         </div>
                       </tr>
                     </table>
@@ -97,35 +98,39 @@
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
+          <!-- Nút Đăng kí -->
           <div class="d-flex justify-content-between align-items-center experience"><span>Thông tin Khách</span>
             <a routerLink="/profile-provider/{{userProvider.id}}" class="border px-3 p-1 add-experience"><i
               class="fa fa-address-book"></i>Đăng Kí Thành Viên</a>
           </div>
           <div>
             <div>
+              <!-- Ngày sinh -->
               <div class="col-md-12" style="margin-top: 15px"><label class="labels">Ngày Sinh</label>
-                <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
+                <input type="date" class="form-control" formControlName="dateOfBirth"></div>
 
-              <div class="col-md-6" style="margin-top: 35px"><label class="labels">Thành Phố</label>
-                <input type="text" class="form-control" value="" formControlName="city">
-                <small style="color: darkred"
-                       *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">Không
-                  Để Trống</small>
+              <!-- city -->
+              <div class="col-md-6" style="margin-top: 35px"><label class="labels">Thành Phố</label><input
+                type="text" class="form-control" formControlName="city">
+                <small style="color: rgba(139,0,0,0)"
+                       *ngIf="formUserProfile.controls['city'].hasError('required') && formUserProfile.controls['city']">Không Để Trống</small>
               </div>
+              <!-- quốc tịch -->
               <div class="col-md-6" style="margin-top: 35px"><label class="labels">Quốc Tịch</label>
                 <input type="text" class="form-control" value="" formControlName="nationality">
-                <small style="color: darkred"
+                <small style="color: rgba(139,0,0,0)"
                        *ngIf="formUserProfile.controls['nationality'].hasError('required') && formUserProfile.controls['nationality']">Không
                   Để Trống</small>
               </div>
+              <!-- Tuổi -->
               <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tuổi</label>
-                <input type="number" class="form-control" value="" formControlName="age">
-                <small style="color: darkred"
+                <input type="text" class="form-control" value="" formControlName="age">
+                <small style="color: rgba(139,0,0,0)"
                        *ngIf="formUserProfile.controls['age'].hasError('required') && formUserProfile.controls['age']">Không
                   Để Trống</small>
               </div>
             </div>
-            <div>
+<!--            <div>-->
               <div class="col-lg-5" style=" margin-left: 5px; margin-top: 20px">
                 <label class="mdb-main-label">Giới Tính</label>
                 <select class="form-select" formControlName="gender">
@@ -133,7 +138,7 @@
                   <option value="nu">Nữ</option>
                 </select>
               </div>
-            </div>
+<!--            </div>-->
           </div>
         </div>
       </div>
