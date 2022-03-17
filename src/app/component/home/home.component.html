@@ -3,92 +3,53 @@
   <!-- New Arrivals -->
   <div class="new_arrivals">
     <div class="container">
-      <div class="filter-players" align="center">
-        <input type="text" class="form-controls citys" placeholder="Độ tuổi từ 18 đến "  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
+      <div class="filter-players" >
+        <input type="text" class="form-controls citys" placeholder="Độ tuổi tối thiểu"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối đa"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.maxAge">
         <input type="text" class="form-controls citys" placeholder="Nơi sống"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.city">
         <input type="text" class="form-controls names" placeholder="Tên Player" autocomplete="off"  value="" [(ngModel)]="search.name">
         <select class="form-controls gender "[(ngModel)]="search.gender" >
+          <option value="">Giới tính</option>
           <option value="nữ">Nữ</option>
           <option value="nam">Nam</option></select>
-        <button type="button" class="form-controls btn-filters btns btn-defaults" (click)="searchNow()"><i class="fa fa-search"></i> Tìm kiếm</button>
+        <button type="button" class="form-controls btn-filters btns btn-defaults" style="color: red"(click)="searchNow()"><i class="fa fa-search" ></i> Tìm kiếm</button>
       </div>
       <div >
-          <p class="vipPlayer"></p>
-        </div>
+        <p class="vipPlayer"></p>
+      </div>
       <div class="row">
-        <div class="col" >
+        <div class="col">
           <div class="product-grid"
                data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-
-            <div class="product-item men hiep" *ngFor="let user of users">
+            <div class="product-item men left" *ngFor="let find of provider">
               <div class="product discount product_filter">
-
-               data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
-            <div class="product-item men left"  *ngFor="let user of provider">
-              <div class="product discount product_filter" style="border-radius: 20px">
                 <div class="product_image">
-                  <a [routerLink]="'details/'+user.id">
-                    <img src="{{user.avatar}}" alt="" height="200" width="230">
+                  <a [routerLink]="'details/'+find.id" >
+                    <img src="{{find.avatar}}" alt="" >
                   </a>
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div
-                  class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
+                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                  <span>{{find.price}}d/h</span></div>
                 <div class="product_info">
-                  <div>
-                    <div class="col-lg-3">
-                      <p *ngIf="user.status==1" style="color: #0dcaf0">online</p>
-                    <p *ngIf="user.status==1" style="color: #0dcaf0">online</p>
+                  <a  [routerLink]="'details/'+find.id">
+                    <div class="product_price">{{find.name}}
                     </div>
-                    <h3 class="product_name">{{user.name}}</h3>
+                  </a>
+                  <div >
+                    <div class="description">
+                      {{find.description}}
+                    </div>
                   </div>
-
-                  <div class="product_price">{{user.price}}$</div>
-
-                  <div class="product_price">{{user.price}}</div>
+                  <div class="imgGame">
+                    <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                    {{find.requirement}}
+                  </div>
                 </div>
               </div>
-
-              <button class="red_button add_to_cart_button" data-toggle="modal" data-target="#exampleModal"
-                      style="margin-left: 32px"><a>Rent</a>
-              <button  *ngIf="userId!=user.id" class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
-              </button>
-              <app-modal-rent [provider]="user"></app-modal-rent>
             </div>
           </div>
         </div>
-      </div>
-      <div style="margin-top: 30px">
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page=0)"> 1
-        </button>
-        <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
-      </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: 30px">
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page=0)"> 1
-        </button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-                (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
       </div>
     </div>
   </div>
@@ -96,36 +57,47 @@
 <div class="new_arrivals">
   <div class="container">
     <div >
-      <p class="vipPlayer">Hot Player</p>
+      <p class="vipPlayer" >Hot Player</p>
     </div>
     <div class="row">
-      <div class="col" >
-        <div class="fa-product-hunt"
-             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
-          <div class="product-item men left"  *ngFor="let a of users">
+      <div class="col">
+        <div class="product-grid"
+             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+          <div class="product-item men left" *ngFor="let hotUser of users">
+            <div class="product discount product_filter">
               <div class="product_image">
-                <a [routerLink]="'details/'+a.id">
-                  <img src="{{a.avatar}}" alt="" height="230" width="230">
+                <a [routerLink]="'details/'+hotUser.id" >
+                  <img src="{{hotUser.avatar}}" alt="" >
                 </a>
               </div>
-              <div class=""></div>
-              <div style="margin-top: 5px"><a class=" product_price"  style="margin-left: 30%" href="/hashin">{{a.price}} đ/h</a>
-<!--              <div class="product_name">-->
+              <div class="favorite favorite_left"></div>
+              <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                <span>{{hotUser.price}}d/h</span></div>
+              <div class="product_info">
+                <a  [routerLink]="'details/'+hotUser.id">
+                  <div class="product_price">{{hotUser.name}}
+                  </div>
+                </a>
                 <div>
-                  <div class="col-lg-8">
-                    <p *ngIf="a.status==1"  style="color: #669900">online</p>
-                    <div class="product_name">{{a.name}}</div>
+                  <div class="description">
+                    {{hotUser.description}}
                   </div>
                 </div>
-                <!--              </div>-->
+                <div class="imgGame">
+                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                  {{hotUser.requirement}}
+                </div>
+              </div>
             </div>
-<!--          </div>-->
-            <button class="product_slider_nav " style="margin-left: 65%"><a href="#">Connect</a>
+            <button class="red_button add_to_cart_button" data-toggle="modal" data-target="#exampleModal"
+                    style="margin-left: 32px"><a>Rent</a>
             </button>
+            <app-modal-rent [provider]="hotUser"></app-modal-rent>
           </div>
         </div>
       </div>
     </div>
+
     <div style="margin-top: 30px">
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
@@ -155,41 +127,46 @@
       <div class="col">
         <div class="product-grid"
              data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-          <div class="product-item men left" *ngFor="let a of usersNew">
+          <div class="product-item men left" *ngFor="let newUser of usersNew">
             <div class="product discount product_filter">
               <div class="product_image">
-                <a [routerLink]="'details/'+a.id">
-                  <img src="{{a.avatar}}" alt="" height="200" width="230">
+                <a [routerLink]="'details/'+newUser.id" >
+                  <img src="{{newUser.avatar}}" alt="" >
                 </a>
               </div>
               <div class="favorite favorite_left"></div>
               <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>-$20</span></div>
+                <span>{{newUser.price}}d/h</span></div>
               <div class="product_info">
-                <h3 class="product_name">{{a.name}}</h3>
-                <div class="product_price">{{a.price}}</div>
+                <a  [routerLink]="'details/'+newUser.id">
+                  <div class="product_price">{{newUser.name}}
+                  </div>
+                </a>
+                <div >
+                  <div class="description">
+                    {{newUser.description}}
+                  </div>
+                </div>
+                <div class="imgGame">
+                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                  {{newUser.requirement}}
+                </div>
               </div>
             </div>
-            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
-            </button>
           </div>
         </div>
       </div>
     </div>
     <div style="margin-top: 30px">
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<
-      </button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderCreateNewAccount(page=0)"> 1
-      </button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="show12ProviderCreateNewAccount(page=0)"> 1</button>
       <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
               (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
               (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >>
-      </button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
     </div>
     <div class="newsletter">
       <div class="container">
@@ -211,28 +188,6 @@
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-
-        <!--Modal search-->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3>Search</h3>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-              </div>
-              <input class="modal-body" type="text">
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                  Send
-                </button>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
