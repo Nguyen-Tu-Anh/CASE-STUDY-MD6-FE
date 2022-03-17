@@ -99,17 +99,16 @@
     </div>
 
     <div style="margin-top: 30px">
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderHot(page=0)"> 1
+      <button *ngIf="hotPage!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
+      <button *ngIf="hotPage!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(hotPage=0)"> 1
       </button>
-      <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
+      <button *ngIf="hotPage>1" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+      <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{hotPage + 1}}</button>
+      <button *ngIf="hotPage<(totalPages-2)" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+      <button *ngIf="hotPage!=(totalPages-1)"type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(hotPage =totalPages-1)"> {{totalPages}}</button>
+      <button *ngIf="hotPage!=(totalPages-1)" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
     </div>
   </div>
 </div>
@@ -158,15 +157,16 @@
       </div>
     </div>
     <div style="margin-top: 30px">
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="show12ProviderCreateNewAccount(page=0)"> 1</button>
+      <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
+      <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderCreateNewAccount(page=0)"> 1
+      </button>
+      <button *ngIf="page>1" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
       <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
+      <button *ngIf="page<(totalPages-2)" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+      <button *ngIf="page!=(totalPages-1)"type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderCreateNewAccount(page =totalPages-1)"> {{totalPages}}</button>
+      <button *ngIf="page!=(totalPages-1)" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
     </div>
     <div class="newsletter">
       <div class="container">

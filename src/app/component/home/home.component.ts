@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   users: Users[] = [];
   usersNew: Users[] = [];
   page: number = 0;
+  hotPage : number = 0;
   totalPages: number = 1;
   user!: Users;
 
@@ -35,28 +36,28 @@ export class HomeComponent implements OnInit {
   }
 
   nextPage(): void {
-    this.page++
-    this.show12ProviderHot(this.page)
-    if (this.page > this.totalPages - 1) {
-      this.page = this.totalPages - 1
+    this.hotPage++
+    this.show12ProviderHot(this.hotPage)
+    if (this.hotPage > this.totalPages - 1) {
+      this.hotPage = this.totalPages - 1
       console.log('page')
-      console.log(this.page)
-      this.show12ProviderHot(this.page)
+      console.log(this.hotPage)
+      this.show12ProviderHot(this.hotPage)
     }
 
   }
 
   backPage(): void {
 
-    if (this.page > 0) {
-      this.page--;
-      this.show12ProviderHot(this.page)
+    if (this.hotPage > 0) {
+      this.hotPage--;
+      this.show12ProviderHot(this.hotPage)
     }
 
   }
 
-  show12ProviderHot(page: number) {
-    this.homeService.show12ProviderHotPage(page).subscribe((data) => {
+  show12ProviderHot(hotPage: number) {
+    this.homeService.show12ProviderHotPage(hotPage).subscribe((data) => {
       this.users = data.content;
       this.totalPages = data['totalPages']
 
