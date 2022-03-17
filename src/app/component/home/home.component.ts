@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   usersNew : Users[] = [];
   page:number = 0;
   totalPages : number = 1;
+
+  // @ts-ignore
+  userId : number  = localStorage.getItem('userId');
   search:Search = {};
   provider : Users [] = [] ;
   checkSearch = false;

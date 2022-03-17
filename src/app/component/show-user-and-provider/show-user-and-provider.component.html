@@ -20,7 +20,8 @@
               <th>identify</th>
               <th>Role</th>
               <th>Status</th>
-              <th>Action</th>
+              <th>Ban</th>
+              <th>Admin</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +33,9 @@
               </td>
               <td>
                 <div>
+                  <a routerLink="/details/{{a.id}}">
                   <img src="{{a.avatar}}" height="150" width="180">
+                  </a>
                 </div>
               </td>
               <td>
@@ -56,6 +59,14 @@
                   </div>
                 </h3>
               </td>
+              <td>
+                <h3>
+                  <div *ngFor="let r of a.roles">
+                    <button *ngIf="r.id!=3" (click)="makeAdmin(a.id)" class="btn btn-danger">Make admin</button>
+                    <button *ngIf="r.id==3" (click)="removeAdmin(a.id)" class="btn btn-primary">Remove admin</button>
+                  </div>
+                </h3>
+              </td>
             </tr>
             </tbody>
           </table>
@@ -73,7 +84,6 @@
                 (click)="findAll(page =totalPages-1)"> {{totalPages}}</button>
         <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
       </div>
-
     </div>
   </div>
 </div>

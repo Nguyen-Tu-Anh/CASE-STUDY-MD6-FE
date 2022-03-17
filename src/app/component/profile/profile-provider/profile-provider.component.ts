@@ -138,6 +138,7 @@ export class ProfileProviderComponent implements OnInit {
       this.formUserProfile.get('price')?.setValue(this.userProvider.price);
       this.formUserProfile.get('serviceOfProviders')?.setValue(this.userProvider.serviceOfProviders);
       this.fb= this.userProvider.avatar;
+      // this.im=this.userProvider.images;
       this.checkUserProvider = true;
     }));
   }

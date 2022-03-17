@@ -1,72 +1,132 @@
-<div class="container single_product_container">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="single_product_pics">
-        <div class="row">
-          <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
-            <div class="single_product_thumbnails">
-              <ul *ngFor="let i of user.images">
-                <li><img src="{{i.link}} "></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-9 image_col order-lg-2 order-1">
-            <div class="single_product_image">
-              <div class="single_product_image_background" style="background-image:url({{user.avatar}})"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-<!--      <div class="product_details">-->
-        <div class="product_details_title">
-          <h2>Tên: {{user.name}}</h2>
-          <div style="margin-top: 1px">Ngày Sinh : {{user.dateOfBirth}}</div>
-          <div style="margin-top: 5px">Tuổi : {{user.age}}</div>
-          <div style="margin-top: 5px">Thành Phố : {{user.city}}</div>
-          <div style="margin-top: 5px">Giới tính : {{user.gender}}</div>
-          <div style="margin-top: 5px">Facebook : <a href="{{user.facebookUrl}}">{{user.facebookUrl}}</a></div>
-          <div style="margin-top: 5px"><h2>Mô tả về bản thân :</h2>{{user.description}}</div>
-          <div style="margin-top: 5px" class="" *ngFor="let a of user.serviceOfProviders"><h2>Dịch vụ cung cấp:</h2>{{a.name}}</div>
-        </div>
-        <div style="margin-top: 20px" class="col-lg-6 benefit_col">
-          <div class="benefit_item d-flex flex-row align-items-center">
-            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <div class="benefit_content">
-              <h4>Time Online</h4>
-              <h3>8AM - 23PM</h3>
-            </div>
-          </div>
-        </div>
-        <div class="product_price" style="margin-top: 5px">Giá Thuê: {{user.price}}đ/h</div>
-<!--      </div>-->
-    </div>
-  </div>
 
-  <!-- Tabs -->
-  <div class="tabs_section_container" style="margin-top: 80px">
-    <div class="container">
-      <div class="row">
-        <div class="col ">
-          <!-- Tab Description -->
-          <div id="tab_1" class="tab_container active">
-            <div class="row">
-              <div class="col-lg-5 desc_col">
-                <div class="tab_title">
-                  <h4>Review of customer</h4>
-                </div>
-                <div class="tab_text_block">
-                  <div *ngFor="let b of user.reviews">
-                    <p>Point : {{b.point}}</p>
-                    <h1> {{b.description}}</h1>
+
+  <div class="container single_product_container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="single_product_pics">
+          <div class="row">
+            <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+              <div class="single_product_thumbnails">
+                <ul *ngFor="let i of provider?.images">
+                  <li><img src="{{i.link}} "></li>
+                </ul>
                   </div>
-                </div>
+              </div>
+            <div class="col-lg-9 image_col order-lg-2 order-1">
+              <div class="single_product_image">
+                <div class="single_product_image_background" style="background-image:url({{provider.avatar}})"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-lg-4">
+        <div class="product_details">
+          <div class="product_details_title">
+            <h1>{{provider.name}}</h1>
+            <div>Gender : {{provider.gender}}</div>
+            <div class="product_price"  > {{provider.price}} VND/1H</div>
+          </div>
+          <div class=""  *ngFor="let a of provider.serviceOfProviders" >
+            <span > - {{a.name}} </span>
+          </div>
+
+          <div class="product_color">
+            <h2>description of me :</h2>
+            <span>{{provider.description}}</span>
+          </div>
+          <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+          </div>
+          <div>Age : {{provider.age}}</div>
+          <div class="col-lg-8 benefit_col">
+            <div class="benefit_item d-flex flex-row align-items-center">
+              <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+              <div class="benefit_content">
+                <h6>Time Service</h6>
+                <p>8AM - 23PM</p>
+              </div>
+            </div>
+            <div> Facebook Partner : <a href="{{provider.facebookUrl}}">{{provider.facebookUrl}}</a></div>
+        </div>
+        <div class="product_price" style="margin-top: 5px">Giá Thuê: {{user.price}}đ/h</div>
+<!--      </div>-->
     </div>
+
   </div>
+
+  <!-- Tabs -->
+
+  <div class="tabs_section_container" style="margin-top: 80px">
+
+    <div class="container">
+      <div class="row">
+        <div class="col ">
+
+          <!-- Tab Description -->
+<!--//show all comen-->
+
+
+          <div class="container mt-5">
+            <div class="d-flex justify-content-center row">
+              <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+
+                  <div *ngFor="let c of chats">
+
+                    <div class="bg-white p-2">
+                      <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{c.customer.avatar}}" width="40">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{c.customer.name}}</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                      </div>
+                      <div class="mt-2">
+                        <p class="comment-text">{{c.message}}</p>
+                      </div>
+                    </div>
+                    <div class="bg-white">
+                      <div class="d-flex flex-row fs-12">
+                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+<!--                  //khung chat -->
+                  <form [formGroup]="formComment" (ngSubmit)="saveComment()">
+                    <p>{{user.name}}</p>
+                    <div class="bg-light p-2" *ngIf="userId!=provider.id">
+                      <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{user.avatar}}" width="40"><input class="form-control ml-1 shadow-none textarea" formControlName="message"></div>
+                      <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                    </div>
+                    <div>
+                      <input type="number" formControlName="customer" hidden>
+                      <input type="number" formControlName="provider" hidden>
+                    </div>
+                  </form>
+                  <div>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAllComment(page=0)"> 1
+                    </button>
+                    <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                            (click)="findAllComment(page = totalPages-2)"> {{totalPages - 1}}</button>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                            (click)="findAllComment(page =totalPages-1)"> {{totalPages}}</button>
+                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
 </div>

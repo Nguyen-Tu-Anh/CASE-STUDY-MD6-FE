@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit {
   // ham Logout
   logOut(){
     window.sessionStorage.clear();
+    window.localStorage.clear();
     window.location.replace("");
   }
 }

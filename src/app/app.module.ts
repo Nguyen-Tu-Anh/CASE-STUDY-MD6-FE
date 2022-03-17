@@ -16,7 +16,6 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
-// import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
 import {MatButtonModule} from "@angular/material/button";
 import {DetailsComponent} from "./component/details/details.component";
@@ -55,6 +54,7 @@ export const appRoutes: Routes = [
     ModalRentComponent,
     DetailsComponent,
     ShowUserAndProviderComponent,
+
   ],
   imports: [
     FormsModule,
