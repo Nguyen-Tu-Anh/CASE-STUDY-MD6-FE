@@ -16,6 +16,7 @@ export class ShowUserAndProviderComponent implements OnInit {
   user!: Users;
   totalPages : number = 1;
   // @ts-ignore
+  userId:number = localStorage.getItem('userId');
 
 
   constructor(private homeService: HomeService,private router: Router) {
