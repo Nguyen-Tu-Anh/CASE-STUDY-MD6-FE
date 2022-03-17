@@ -21,7 +21,7 @@ export class AuthService {
     //truyen doi tuong nay vao Service
   }
   private API_SIGNIN = environment.API_LOCAL +'signin';
-  signIn(signIn : SignInForm) : Observable<JwtResponse>{
+  signIn(signIn : SignInForm) : Observable<any>{
     return this.http.post<JwtResponse>(this.API_SIGNIN,signIn);
     // Tao ham nay ben Service, truy xuat ra ben componment,
     // hung ra du lieu JWTReponse nhu ben BE

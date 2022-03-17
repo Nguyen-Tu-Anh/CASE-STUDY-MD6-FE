@@ -18,30 +18,39 @@
           </div>
           <!-- Name -->
           <div class="row mt-2">
+
             <div class="col-md-6" style="margin-top: 15px"><label class="labels">Tên</label><input type="text"
                                                                                                    class="form-control"
                                                                                                    formControlName="name">
+
               <small style="color: darkred"
                      *ngIf="formUserProfile.controls['name'].hasError('required') && formUserProfile.controls['name']">Không Để Trống</small>
             </div>
+
             <!-- Ussername -->
+
             <div class="col-md-6" style="margin-top: 15px"><label class="labels">Username</label><input type="text"
                                                                                                         class="form-control"
                                                                                                         formControlName="username">
               <small style="color: darkred"
                      *ngIf="formUserProfile.controls['username'].hasError('required') && formUserProfile.controls['username']">
+
                 Username Không Để Trống</small>
+
             </div>
             <br>
 
           </div>
           <div class="row mt-3">
+
             <!-- Phone Number -->
             <div class="col-md-12" style="margin-top: 10px"><label class="labels">Số Điện Thoại</label><input
+
               type="text" class="form-control" formControlName="phoneNumber">
               <small style="color: darkred"
                      *ngIf="formUserProfile.controls['phoneNumber'].hasError('required') && formUserProfile.controls['phoneNumber']">Không Để Trống</small>
             </div>
+
             <!-- Email -->
             <div class="col-md-12" style="margin-top: 10px"><label class="labels">Email</label>
               <input type="text" class="form-control" formControlName="email">
@@ -52,6 +61,7 @@
             <!-- Identify -->
             <div class="col-md-12" style="margin-top: 15px"><label class="labels">Chứng Minh
               Thư</label><input type="text" class="form-control" formControlName="identify">
+
               <small style="color: darkred"
                      *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">Không Để Trống</small>
             </div>
@@ -73,6 +83,7 @@
                 <div class="col-md-12" class="d-flex flex-column align-items-center">
                   <input class="col-md-12" type="file" class="form-control" multiple="multiple"
                          (change)="uploadFileImg($event)">
+
                   <div>
                     <table>
                       <tr>
@@ -82,6 +93,7 @@
                         </div>
                       </tr>
                     </table>
+
                   </div>
                 </div>
               </div>
@@ -90,7 +102,9 @@
           <!-- Save Profile -->
           <div class="mt-2 text-center">
             <button class="btn btn-primary profile-button" style="margin-top: 30px" [disabled]="!checkUploadFile"
+
                     type="submit">Lưu Thông Tin
+
             </button>
           </div>
         </div>
@@ -103,7 +117,9 @@
           </div>
           <div>
             <div>
+
               <div class="col-md-12" style="margin-top: 15px"><label class="labels">Ngày Sinh</label>
+
                 <input type="date" class="form-control" value="" formControlName="dateOfBirth"></div>
 
               <div class="col-md-6" style="margin-top: 35px"><label class="labels">Thành Phố</label>
@@ -126,11 +142,13 @@
               </div>
             </div>
             <div>
+
               <div class="col-lg-5" style=" margin-left: 5px; margin-top: 20px">
                 <label class="mdb-main-label">Giới Tính</label>
                 <select class="form-select" formControlName="gender">
                   <option value="nam">Nam</option>
                   <option value="nu">Nữ</option>
+
                 </select>
               </div>
             </div>

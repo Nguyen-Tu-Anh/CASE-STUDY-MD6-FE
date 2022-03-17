@@ -55,7 +55,6 @@ export const appRoutes: Routes = [
     ModalRentComponent,
     DetailsComponent,
     ShowUserAndProviderComponent,
-    AdminComponent
   ],
   imports: [
     FormsModule,
