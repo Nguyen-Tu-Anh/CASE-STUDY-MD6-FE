@@ -66,7 +66,6 @@ export class RegisterComponent implements OnInit {
       }
       if(JSON.stringify(data)==JSON.stringify(this.success)) {
         this.status = 'Create account success!'
-
         this.router.navigate(['']).then(()=>{
           window.location.replace('');
         })

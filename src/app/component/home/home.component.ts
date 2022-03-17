@@ -9,9 +9,10 @@ import {HomeService} from "../../service/home.service";
 })
 export class HomeComponent implements OnInit {
   users: Users[] = [];
-  usersNew : Users[] = [];
-  page:number = 0;
-  totalPages : number = 1;
+  usersNew: Users[] = [];
+  page: number = 0;
+  totalPages: number = 1;
+  user!: Users;
 
   constructor(private homeService: HomeService) {
   }
@@ -19,30 +20,35 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.show12ProviderHot(this.page)
     this.show12ProviderCreateNewAccount(this.page)
-
+    // @ts-ignore
+    this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
+    console.log("user",this.user)
   }
-  nextPage():void{
+
+  nextPage(): void {
     this.page++
     this.show12ProviderHot(this.page)
-    if(this.page > this.totalPages-1){
-      this.page = this.totalPages-1
+    if (this.page > this.totalPages - 1) {
+      this.page = this.totalPages - 1
       console.log('page')
       console.log(this.page)
       this.show12ProviderHot(this.page)
     }
 
   }
-  backPage():void{
 
-    if(this.page >0){
-      this.page --;
+  backPage(): void {
+
+    if (this.page > 0) {
+      this.page--;
       this.show12ProviderHot(this.page)
       console.log(this.page)
     }
 
   }
+
   show12ProviderHot(page: number) {
-    this.homeService.show12ProviderHotPage(page).subscribe((data)=> {
+    this.homeService.show12ProviderHotPage(page).subscribe((data) => {
       this.users = data.content;
       this.totalPages = data['totalPages']
       console.log("totalPages")
@@ -53,18 +59,19 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  nextPageNew():void{
+  nextPageNew(): void {
     this.page++
     this.show12ProviderCreateNewAccount(this.page)
-    if(this.page > this.totalPages-1){
-      this.page = this.totalPages-1
+    if (this.page > this.totalPages - 1) {
+      this.page = this.totalPages - 1
       console.log('page')
       console.log(this.page)
       this.show12ProviderCreateNewAccount(this.page)
     }
 
   }
-  backPageNew():void {
+
+  backPageNew(): void {
 
     if (this.page > 0) {
       this.page--;
@@ -74,8 +81,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-    show12ProviderCreateNewAccount(page: number) {
-    this.homeService.show12ProviderCreateNewAccount(page).subscribe((data)=> {
+  show12ProviderCreateNewAccount(page: number) {
+    this.homeService.show12ProviderCreateNewAccount(page).subscribe((data) => {
       this.usersNew = data.content;
       this.totalPages = data['totalPages']
       console.log("totalPages")

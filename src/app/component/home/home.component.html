@@ -16,12 +16,12 @@
           <div class="product-grid"
                data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
-            <div class="product-item men hiep" *ngFor="let a of users">
+            <div class="product-item men hiep" *ngFor="let user of users">
               <div class="product discount product_filter">
 
                 <div class="product_image">
-                  <a [routerLink]="'details/'+a.id">
-                    <img src="{{a.avatar}}" alt="" height="200" width="230">
+                  <a [routerLink]="'details/'+user.id">
+                    <img src="{{user.avatar}}" alt="" height="200" width="230">
                   </a>
                 </div>
                 <div class="favorite favorite_left"></div>
@@ -33,19 +33,20 @@
 
                   <div>
                     <div class="col-lg-3">
-                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
+                      <p *ngIf="user.status==1" style="color: #0dcaf0">online</p>
                     </div>
-                    <h3 class="product_name">{{a.name}}</h3>
+                    <h3 class="product_name">{{user.name}}</h3>
                   </div>
 
-                  <div class="product_price">{{a.price}}</div>
+                  <div class="product_price">{{user.price}}$</div>
 
                 </div>
               </div>
 
-              <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
+              <button class="red_button add_to_cart_button" data-toggle="modal" data-target="#exampleModal"
+                      style="margin-left: 32px"><a>Rent</a>
               </button>
-
+              <app-modal-rent [provider]="user"></app-modal-rent>
             </div>
           </div>
         </div>
@@ -67,7 +68,7 @@
   </div>
 </div>
 
-<div class="new_arrivals"  style="margin-top: 100px">
+<div class="new_arrivals" style="margin-top: 100px">
   <div class="container">
     <div class="row">
       <div style="left: 50px">
@@ -103,15 +104,19 @@
       </div>
     </div>
     <div style="margin-top: 30px">
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="show12ProviderCreateNewAccount(page=0)"> 1</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<
+      </button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderCreateNewAccount(page=0)"> 1
+      </button>
       <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
               (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
       <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
               (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >>
+      </button>
     </div>
     <div class="newsletter">
       <div class="container">

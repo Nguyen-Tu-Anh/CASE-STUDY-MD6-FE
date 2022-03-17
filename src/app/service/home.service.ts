@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {Users} from "../model/Users";
 import {HttpClient} from "@angular/common/http";
+import {Order} from "../model/order";
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +37,15 @@ export class HomeService {
     return this.http.put('http://localhost:8080/users/user/' , userProfile )
   }
 
-  updateProfileUserProvider( userProfile : Users) : Observable<any> {
+  updateProfileUserProvider(userProfile : Users) : Observable<any> {
     return this.http.put('http://localhost:8080/users/provider/',userProfile )
   }
 
+  createOrder(order: Order): Observable<any> {
+    return this.http.post('http://localhost:8080/users/createOrder', order);
+  }
 
+  showAllOrderById(id: number): Observable<any> {
+    return this.http.get('http://localhost:8080/users/' + id + "/showAllOrders")
+  }
 }
