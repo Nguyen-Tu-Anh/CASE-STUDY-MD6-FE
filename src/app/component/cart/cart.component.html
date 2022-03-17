@@ -1,0 +1,29 @@
+<br>
+<br>
+<div class="card">
+  <div class="row">
+    <div class="col-md-12 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Order Cart</b></h4>
+          </div>
+          <div class="col align-self-center text-right text-muted">{{orders.length}} items</div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center" *ngFor="let order of orders">
+          <div class="col-2"><img class="img-fluid" src="{{order.provider.avatar}}"></div>
+          <div class="col">
+            <div class="row">{{order.provider.name}}</div>
+          </div>
+          <div class="col">{{order.dateOfOrder}}</div>
+          <div class="col">$ {{order.priceOfHour}}</div>
+          <div class="col" *ngIf="order.status == 1">Pending</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>

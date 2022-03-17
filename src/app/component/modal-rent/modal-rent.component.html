@@ -1,36 +1,51 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <table class="table">
-        <thead>
-        <th colspan="2" style="text-align: center; ">
-          <h3>Rent Provider</h3>
-        </th>
-        </thead>
-        <tbody>
-        <tr>
-          <th scope="row">Name</th>
-          <td>Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">Time</th>
-          <td>Jacob</td>
-        </tr>
-
-        <tr>
-          <th scope="row">Payment</th>
-          <td>Jacob</td>
-        </tr>
-
-        <tr>
-          <th scope="row">Money</th>
-          <td>Jacob</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: x-large; color: #fe4c50">Rent Lover</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">Player</th>
+              <td>{{provider.name}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Time</th>
+              <td>
+                <select [(ngModel)]="time" (change)="price()" name="time">
+                  <option [ngValue]="1" name="1">1 hours</option>
+                  <option [ngValue]="2" name="2">2 hours</option>
+                  <option [ngValue]="4" name="4">4 hours</option>
+                  <option [ngValue]="6" name="6">6 hours</option>
+                  <option [ngValue]="8" name="8">8 hours</option>
+                  <option [ngValue]="10" name="10">10 hours</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Total Price</th>
+              <td style="font-size: large; color: #fe4c50"><b *ngIf="totalPrice!=null">{{totalPrice}}$</b></td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: medium">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #fe4c50; font-size: medium" (click)="rent()">Rent</button>
       </div>
     </div>
   </div>
