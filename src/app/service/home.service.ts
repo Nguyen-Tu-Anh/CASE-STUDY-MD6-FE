@@ -61,7 +61,7 @@ export class HomeService {
 
   removeAdmin(id:number){
     return this.http.get(`http://localhost:8080/users/remove/admin/${id}`);
-
+}
   findAllUsers(page:number):Observable<any>{
     return this.http.get(`http://localhost:8080/users/page/${page}`);
 
