@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  status = 'Please fill in the form Login!'
+  status = 'Please fill in the form Login!';
   hide = true;
   form: any = {};
   signInForm!: SignInForm;   //khai bao SignUpform moi
@@ -38,30 +38,35 @@ export class LoginComponent implements OnInit {
       this.form.username,
       this.form.password
     )
-    console.log("form--->", this.signInForm)
     //data nay tra ve kieu cua JWTREPONSE(trong data co token, users)
     // sau khi Login xong se Rounter ve 1 UserACCOUNT
     this.authService.signIn(this.signInForm).subscribe(data => {
-      console.log("data", data)
-
+      localStorage.setItem("userId",data.users.id)
+      console.log(data.users.roles);
+      localStorage.setItem("roles","1");
+      for (let r of data.users.roles) {
+        if(r.id===3){
+          localStorage.setItem("roles","3");
+        }
+      }
+      if(data.status === 202) {
+        this.status="Wrong username or password!"
+      }
       if (data.token != undefined) {
         this.tokenService.setToken(data.token);
         // @ts-ignore
         this.tokenService.setUsers(JSON.stringify(data.users));
-        console.log(this.tokenService.getUsers())
-
-        for(let r of data.users.roles){
-          if(r.id===3){
-            window.location.replace('/admin')
-          }
-        }
-       this.router.navigate(['']).then(()=>{
-         window.location.replace('');
-       })  //router link truc tiep den componment
-       // ko phai qua HTML
-
-
+        this.router.navigate(['']).then(() => {
+          window.location.replace('');
+        })  //router link truc tiep den componment
+        // ko phai qua HTML
+      }
+    }, err => {
+      if(err.status === 403){
+        this.status = "Your account has been banned!";
+      }
+    })
 
   }
-})}}
+}
 
