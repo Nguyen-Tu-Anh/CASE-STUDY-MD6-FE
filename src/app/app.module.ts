@@ -24,6 +24,8 @@ import {ProfileProviderComponent} from "./component/profile/profile-provider/pro
 import { AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
+import { CartComponent } from './component/cart/cart.component';
+import { PaymentComponent } from './component/payment/payment.component';
 
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 
@@ -36,6 +38,9 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
   {path: 'modal-rent', component: ModalRentComponent},
   {path: 'details/:id', component: DetailsComponent},
+  {path: 'show-user-and-provider', component: ShowUserAndProviderComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'payment', component: PaymentComponent},
   {path: 'admin/details/:id', component: DetailsComponent},
   {path: 'admin',component: ShowUserAndProviderComponent},
 
@@ -54,7 +59,8 @@ export const appRoutes: Routes = [
     ModalRentComponent,
     DetailsComponent,
     ShowUserAndProviderComponent,
-
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     FormsModule,
@@ -70,8 +76,7 @@ export const appRoutes: Routes = [
     MatButtonModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

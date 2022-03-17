@@ -866,7 +866,7 @@ section
 }
 .red_button:hover
 {
-	background: #FE7C7F !important;
+	background: #fe4c50 !important;
 }
 .red_button a
 {
@@ -1055,6 +1055,20 @@ section
 	padding-left: 2px;
 	padding-right: 10px;
 }
+.product_name
+{
+	margin-top: 27px;
+}
+.product_name a
+{
+	color: #1e1e27;
+	line-height: 20px;
+}
+.product_name:hover a
+{
+	color: #b5aec4;
+  text-decoration: none;
+}
 
 .discount .product_info .product_price
 {
@@ -1149,6 +1163,7 @@ section
 }
 .add_to_cart_button a
 {
+  text-decoration: none;
 	font-size: 12px;
 	font-weight: 600;
 }
