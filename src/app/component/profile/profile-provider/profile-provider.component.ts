@@ -72,7 +72,7 @@ export class ProfileProviderComponent implements OnInit {
     // @ts-ignore
     this.user = JSON.parse(window.sessionStorage.getItem("Users_Key"));
     this.formUserProfile = new FormGroup({
-
+      id:new FormControl(),
       name: new FormControl(null,Validators.required),//ko dc de trong
       username: new FormControl(null,Validators.required),
       password: new FormControl(),
@@ -117,6 +117,7 @@ export class ProfileProviderComponent implements OnInit {
   showProfileUser() {
     this.homeService.findById(this.id).subscribe((data =>{
       this.userProvider = data;
+      this.formUserProfile.get('id')?.setValue(this.userProvider.id);
       this.formUserProfile.get('name')?.setValue(this.userProvider.name);
       this.formUserProfile.get('username')?.setValue(this.userProvider.username);
       this.formUserProfile.get('password')?.setValue(this.userProvider.password);
