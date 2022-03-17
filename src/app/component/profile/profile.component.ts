@@ -24,6 +24,10 @@ export class ProfileComponent implements OnInit {
   id: any;
   userProvider!: Users;
 
+  emailFormControl = new FormControl('',
+    [Validators.required,
+      Validators.email
+    ])   //validate email
 
   constructor(private homeService: HomeService, private router: Router,
               private activerouter: ActivatedRoute,
