@@ -27,4 +27,8 @@ export class OrderService {
   // hiển thị chi tiết đơn hàng đã đặt của Provider
 
 
+  // hoàn thành đon
+  finishOrder(id:number):Observable<Order> {
+    return this.http.get<Order>(`http://localhost:8080/order/complete/${id}`);
+  }
 }

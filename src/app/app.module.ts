@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import { DetailComponent } from './component/detail/detail.component';
 import { ModalRentComponent } from './component/modal-rent/modal-rent.component';
@@ -26,6 +26,9 @@ import { AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+
+
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'profile/:id', component: ProfileComponent},
@@ -34,7 +37,8 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
   {path: 'modal-rent', component: ModalRentComponent},
   {path: 'details/:id', component: DetailsComponent},
-  {path: 'show-user-and-provider', component: ShowUserAndProviderComponent},
+  {path: 'admin/details/:id', component: DetailsComponent},
+  {path: 'admin',component: ShowUserAndProviderComponent},
 
 ];
 @NgModule({
@@ -50,7 +54,8 @@ export const appRoutes: Routes = [
     DetailComponent,
     ModalRentComponent,
     DetailsComponent,
-    ShowUserAndProviderComponent
+    ShowUserAndProviderComponent,
+
   ],
   imports: [
     FormsModule,
@@ -66,7 +71,8 @@ export const appRoutes: Routes = [
     MatButtonModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
