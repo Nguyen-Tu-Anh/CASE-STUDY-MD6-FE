@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {Users} from "../model/Users";
 import {HttpClient} from "@angular/common/http";
+import {Search} from "../model/Search";
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,11 @@ export class HomeService {
     return this.http.put('http://localhost:8080/users/provider/',userProfile )
   }
 
+
+  searchNow(search:Search):Observable<any>{
+    return this.http.post<any>('http://localhost:8080/users/search/0',search);
+  }
+
   ban(id: number) {
     return this.http.get(`http://localhost:8080/users/ban/${id}`)
   }
@@ -48,11 +54,16 @@ export class HomeService {
     return this.http.get(`http://localhost:8080/users/unban/${id}`);
   }
 
+
   makeAdmin(id:number){
     return this.http.get(`http://localhost:8080/users/make/admin/${id}`);
   }
 
   removeAdmin(id:number){
     return this.http.get(`http://localhost:8080/users/remove/admin/${id}`);
+
+  findAllUsers(page:number):Observable<any>{
+    return this.http.get(`http://localhost:8080/users/page/${page}`);
+
   }
 }

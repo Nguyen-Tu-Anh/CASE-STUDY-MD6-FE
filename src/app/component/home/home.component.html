@@ -1,27 +1,31 @@
+
 <div class="super_container">
   <!-- New Arrivals -->
-
   <div class="new_arrivals">
     <div class="container">
-      <div class="row">
-        <div style="left: 50px">
-          <div class=" ">
-            <p class="vipPlayer">Hot Player</p>
-          </div>
-        </div>
+      <div class="filter-players" align="center">
+        <input type="text" class="form-controls citys" placeholder="Độ tuổi tối thiểu"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
+        <input type="text" class="form-controls citys" placeholder="Độ tuổi tối đa"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.maxAge">
+        <input type="text" class="form-controls citys" placeholder="Nơi sống"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.city">
+        <input type="text" class="form-controls names" placeholder="Tên Player" autocomplete="off"  value="" [(ngModel)]="search.name">
+        <select class="form-controls gender "[(ngModel)]="search.gender" >
+          <option value="">Giới tính</option>
+          <option value="nữ">Nữ</option>
+          <option value="nam">Nam</option></select>
+        <button type="button" class="form-controls btn-filters btns btn-defaults" (click)="searchNow()"><i class="fa fa-search"></i> Tìm kiếm</button>
       </div>
-
+      <div >
+          <p class="vipPlayer"></p>
+        </div>
       <div class="row">
-        <div class="col">
+        <div class="col" >
           <div class="product-grid"
-               data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-
-            <div class="product-item men hiep" *ngFor="let a of users">
-              <div class="product discount product_filter">
-
+               data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
+            <div class="product-item men left"  *ngFor="let user of provider">
+              <div class="product discount product_filter" style="border-radius: 20px">
                 <div class="product_image">
-                  <a [routerLink]="'details/'+a.id">
-                    <img src="{{a.avatar}}" alt="" height="200" width="230">
+                  <a [routerLink]="'details/'+user.id">
+                    <img src="{{user.avatar}}" alt="" height="200" width="230">
                   </a>
                 </div>
                 <div class="favorite favorite_left"></div>
@@ -29,17 +33,13 @@
                   class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                   <span>-$20</span></div>
                 <div class="product_info">
-
-
                   <div>
                     <div class="col-lg-3">
-                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
+                    <p *ngIf="user.status==1" style="color: #0dcaf0">online</p>
                     </div>
-                    <h3 class="product_name">{{a.name}}</h3>
+                    <h3 class="product_name">{{user.name}}</h3>
                   </div>
-
-                  <div class="product_price">{{a.price}}</div>
-
+                  <div class="product_price">{{user.price}}</div>
                 </div>
               </div>
 
@@ -51,18 +51,77 @@
         </div>
       </div>
       <div style="margin-top: 30px">
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
                 (click)="show12ProviderHot(page=0)"> 1
         </button>
-        <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+        <button *ngIf="checkSearch" type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
                 (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
                 (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
-        <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
+        <button *ngIf="checkSearch" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
       </div>
+    </div>
+  </div>
+</div>
+<div class="new_arrivals">
+  <div class="container">
+    <div >
+      <p class="vipPlayer">Hot Player</p>
+    </div>
+    <div class="row">
+      <div class="col" >
+        <div class="product-grid"
+             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }' >
+
+          <div class="product-item men left"  *ngFor="let a of users">
+            <div class="product discount product_filter" style="border-radius: 20px">
+
+              <div class="product_image">
+                <a [routerLink]="'details/'+a.id">
+                  <img src="{{a.avatar}}" alt="" height="200" width="230">
+                </a>
+              </div>
+              <div class="favorite favorite_left"></div>
+              <div
+                class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                <span>-$20</span></div>
+              <div class="product_info">
+
+
+                <div>
+                  <div class="col-lg-3">
+                    <p *ngIf="a.status==1" style="color: #0dcaf0">online</p>
+                  </div>
+                  <h3 class="product_name">{{a.name}}</h3>
+                </div>
+
+                <div class="product_price">{{a.price}}</div>
+
+              </div>
+            </div>
+
+            <button class="red_button add_to_cart_button" style="margin-left: 32px"><a href="#">Connect Now</a>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 30px">
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPage()"> <<</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(page=0)"> 1
+      </button>
+      <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(page = totalPages-2)"> {{totalPages - 1}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+              (click)="show12ProviderHot(page =totalPages-1)"> {{totalPages}}</button>
+      <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
     </div>
   </div>
 </div>
@@ -76,12 +135,11 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col">
         <div class="product-grid"
              data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-          <div class="product-item men hiep" *ngFor="let a of usersNew">
+          <div class="product-item men left" *ngFor="let a of usersNew">
             <div class="product discount product_filter">
               <div class="product_image">
                 <a [routerLink]="'details/'+a.id">
