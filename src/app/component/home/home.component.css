@@ -1,13 +1,34 @@
 .left{
   float: left;
-  margin-left: 30px;
+  margin-left: 15px;
 
+}
+.player-information-card-wrap .player-information .player-name .player-status.ready {
+  background-color: #27ae60;
 }
 .vipPlayer{
   color: orangered;
   font-size: 30px;
   margin-top: 40px;
+  font-weight: 200;
+  font-size: 40px;
 
+}
+.description{
+  font-size: 10px;
+  margin-left: 13px;
+}
+.imgGame{
+  margin-left: 12px;
+  margin-top: 15px;
+}
+.player-status{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 0;
 }
 
 .right{
@@ -126,5 +147,303 @@ selects {
 
 
 
+element.style {
+}
+.player-information-card-wrap .player-information {
+  padding: 10px 15px 15px;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  display: block;
+  min-height: 99px;
+}
+a, button, div, p, span {
+  font-family: Poppins;
+}
+a, a:hover {
+  color: #f0564a;
+}
+a {
+  color: #23ccef;
+}
+.alert, .brand, .btn-simple, .h1, .h2, .h3, .h4, .h5, .h6, .navbar, .td-name, a, body, button.close, h1, h2, h3, h4, h5, h6, p, td {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Poppins,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+  font-weight: 400;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a {
+  background-color: initial;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+biểu định kiểu tác nhân người dùng
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.player-information-card-wrap {
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all .2s ease-in-out;
+}
+body {
+  font-family: Source Sans Pro;
+  background-color: initial;
+}
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+:root {
+  --main-color: #f0564a;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
 
+element.style {
+}
+.player-information-card-wrap .player-information .player-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 15px;
+}
+.h3, h3 {
+  font-size: 28px;
+  margin: 20px 0 10px;
+}
+.h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+  font-weight: 300;
+  margin: 30px 0 15px;
+}
+.alert, .brand, .btn-simple, .h1, .h2, .h3, .h4, .h5, .h6, .navbar, .td-name, a, body, button.close, h1, h2, h3, h4, h5, h6, p, td {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Poppins,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+  font-weight: 400;
+}
+.h3, h3 {
+  font-size: 24px;
+}
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+biểu định kiểu tác nhân người dùng
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+a, button, div, p, span {
+  font-family: Poppins;
+}
+a, a:hover {
+  color: #f0564a;
+}
+a {
+  color: #23ccef;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+biểu định kiểu tác nhân người dùng
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+.player-information-card-wrap {
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all .2s ease-in-out;
+}
+body {
+  font-family: Source Sans Pro;
+  background-color: initial;
+}
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+:root {
+  --main-color: #f0564a;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+element.style {
+}
+.player-information-card-wrap .player-information .player-name .player-status.ready {
+  background-color: #27ae60;
+}
+.player-information-card-wrap .player-information .player-name .player-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+a, button, div, p, span {
+  font-family: Poppins;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+biểu định kiểu tác nhân người dùng
+div {
+  display: block;
+}
+.player-information-card-wrap .player-information .player-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 15px;
+}
+.h3, h3 {
+  font-size: 28px;
+  margin: 20px 0 10px;
+}
+.h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+  font-weight: 300;
+  margin: 30px 0 15px;
+}
+.alert, .brand, .btn-simple, .h1, .h2, .h3, .h4, .h5, .h6, .navbar, .td-name, a, body, button.close, h1, h2, h3, h4, h5, h6, p, td {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Poppins,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+  font-weight: 400;
+}
+.h3, h3 {
+  font-size: 24px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+biểu định kiểu tác nhân người dùng
+h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+a, a:hover {
+  color: #f0564a;
+}
+a {
+  color: #23ccef;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+biểu định kiểu tác nhân người dùng
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+.player-information-card-wrap {
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all .2s ease-in-out;
+}
+body {
+  font-family: Source Sans Pro;
+  background-color: initial;
+}
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+:root {
+  --main-color: #f0564a;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+*, :after, :before {
+  box-sizing: border-box;
+}
+.iconPlay{
+  height: 20px;
+  width: 20px;
+
+}
 
