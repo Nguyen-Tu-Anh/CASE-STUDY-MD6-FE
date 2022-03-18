@@ -8,27 +8,15 @@ import {Order} from "../../model/order";
   providedIn: 'root'
 })
 export class OrderService {
-
-  constructor(private http: HttpClient) { }
-
-
-  // xem danh sách đơn thuê của provider
-  showBillProvider(page:number){
-    return this.http.get<any>('http://localhost:8080/order/rented-orders/' + page);
+  constructor(private http: HttpClient) {
   }
 
 
-  //tìm oderById trả về 1 đối tượng Oder.
-  findById(id: number): Observable<Order> {
-    return this.http.get<Order>(`http://localhost:8080/order/${id}`)
+  providerAccept(order: Order): Observable<any> {
+    return this.http.post('http://localhost:8080/providers' + "/accept", order);
   }
 
-
-  // hiển thị chi tiết đơn hàng đã đặt của Provider
-
-
-  // hoàn thành đon
-  finishOrder(id:number):Observable<Order> {
-    return this.http.get<Order>(`http://localhost:8080/order/complete/${id}`);
+  providerReject(order: Order): Observable<any> {
+    return this.http.post('http://localhost:8080/providers' + "/reject", order);
   }
 }

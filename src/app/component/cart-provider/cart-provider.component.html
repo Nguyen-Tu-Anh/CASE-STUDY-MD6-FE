@@ -19,7 +19,12 @@
           </div>
           <div class="col">{{order.dateOfOrder}}</div>
           <div class="col">$ {{order.priceOfHour}}</div>
-          <div class="col" >{{order.status}}</div>
+          <div class="col">
+            <button *ngIf="order.status != 'accepted'" type="button" style="background-color: #ef4c50; color: #fff" class="btn" (click)="accept(order)">Accept</button>
+            <button *ngIf="order.status == 'accepted'" style="background-color: #ef4c50; color: #fff" type="button" class="btn" (click)="accept(order)">{{order.status}}</button>&nbsp;
+            <button *ngIf="order.status != 'rejected'" type="button" class="btn" (click)="reject(order)">Reject</button>
+            <button *ngIf="order.status == 'rejected'" type="button" class="btn" (click)="reject(order)">{{order.status}}</button>
+          </div>
         </div>
       </div>
     </div>

@@ -28,6 +28,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { PaymentComponent } from './component/payment/payment.component';
 
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import { CartProviderComponent } from './component/cart-provider/cart-provider.component';
 
 
 export const appRoutes: Routes = [
@@ -43,7 +44,7 @@ export const appRoutes: Routes = [
   {path: 'payment', component: PaymentComponent},
   {path: 'admin/details/:id', component: DetailsComponent},
   {path: 'admin',component: ShowUserAndProviderComponent},
-
+  {path: 'cart-provider',component: CartProviderComponent},
 ];
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ export const appRoutes: Routes = [
     DetailsComponent,
     ShowUserAndProviderComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    CartProviderComponent
   ],
   imports: [
     FormsModule,

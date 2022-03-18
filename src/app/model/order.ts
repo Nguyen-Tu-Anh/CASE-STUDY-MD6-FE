@@ -5,7 +5,7 @@ export class Order{
   priceOfHour!:number;
   dateOfOrder!:Date;
   hoursOfService!: number;
-  status!:number;
+  status!:string;
   customer!:Users;
   provider!:Users;
 

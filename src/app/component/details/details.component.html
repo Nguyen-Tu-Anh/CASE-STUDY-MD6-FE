@@ -52,22 +52,22 @@
               <li class="status">Offline</li>
             </ul>
           </div>
-
-
         </div>
       </div>
       <div class=" borderNew" >
         <div class="product_price leftt">{{provider.price}} đ/h</div>
         <div class="leftt" >Số lượt thuê : {{provider.countOfDate}} </div>
         <div class="button-cart" >
-          <button class="red_button add_to_cart"  ><a href="#" style="text-decoration: none">Order Now</a></button>
+<!--          <button class="red_button add_to_cart"  ><a href="#" style="text-decoration: none">Order Now</a></button>-->
+          <button class="red_button add_to_cart" data-toggle="modal" data-target="#exampleModal"
+                  ><a>Rent</a>
+          </button>
+          <app-modal-rent [provider]="provider"></app-modal-rent>
           <button class="white_button add_to_cart"><a href="#" style="text-decoration: none">Point : </a></button>
           <button class="white_button add_to_cart"><a href="#" style="text-decoration: none">Chat Now</a></button>
         </div>
       </div>
-
     </div>
-
   </div>
 
   <!-- Tabs -->
@@ -97,9 +97,9 @@
           <!-- Tab Description -->
           <!--//show all comen-->
 
-          <div class="container mt-5">
+          <div class="container mt-100">
             <div class="d-flex justify-content-center row">
-              <div class="col-md-8">
+              <div class="col-md-10">
                 <div class="d-flex flex-column comment-section">
                   <div *ngFor="let c of chats">
                     <div class="bg-white p-2">
@@ -136,8 +136,8 @@
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAllComment(page=0)"> 1
                     </button>
                     <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-<!--                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "-->
-<!--                            (click)="findAllComment(page = totalPages-2)"> {{totalPages - 1}}</button>-->
+                    <!--                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "-->
+                    <!--                            (click)="findAllComment(page = totalPages-2)"> {{totalPages - 1}}</button>-->
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
                             (click)="findAllComment(page =totalPages-1)"> {{totalPages}}</button>
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
