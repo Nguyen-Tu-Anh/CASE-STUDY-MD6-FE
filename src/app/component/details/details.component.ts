@@ -107,10 +107,14 @@ export class DetailsComponent implements OnInit {
   //deletecomment
 
   deleteComment(id: number) {
+    let message = confirm("delete ok")
+    if (message){
       this.reviewService.deleteComment(id).subscribe(() => {
         this.findAllComment(this.page);
       })
-
+    }else {
+      this.findAllComment(this.page);
+    }
   }
 
   showIdComment(page: number) {
@@ -119,5 +123,7 @@ export class DetailsComponent implements OnInit {
       this.formComment.get('provider')?.setValue(this.provider);
     })
   }
+
+
 }
 

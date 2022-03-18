@@ -14,10 +14,6 @@
             <div class="col-lg-9 image_col order-lg-2 order-1">
               <div class="single_product_image">
                 <div class="single_product_image_background" style="background-image:url({{provider.avatar}})"></div>
-                <div class="imgvip">
-                  <img src="assets/images/vip2.png" height="60" width="60" alt="">
-
-                </div>
               </div>
             </div>
           </div>
@@ -26,12 +22,11 @@
       <div class="col-lg-3">
         <div class="product_details">
           <div class="product_details_title">
-            <h1 class="nameProvider" >{{provider.name}}</h1>
+            <h1 class="nameProvider"  >{{provider.name}}</h1>
             <div class="profile-more" >
               <h3> 👅 Giới tính : {{provider.gender}}</h3>
               <h3> ✨ Thành phố : {{provider.city}}</h3>
               <h3> 🍓 Ngày sinh : {{provider.dateOfBirth}}</h3>
-              <h3> 🍓 Tuổi      : {{provider.age}}</h3>
             </div>
            <div *ngFor="let service of provider.serviceOfProviders">
              <p>{{service.name}}</p>
@@ -57,13 +52,16 @@
               <li class="status">Offline</li>
             </ul>
           </div>
+          <img *ngIf="provider.vipDate!=null"  src="assets/images/vip2.png" height="60" width="60" alt="">
+
+
+
         </div>
       </div>
       <div class=" borderNew" >
-        <div class="product_price leftt">{{provider.price}} $ /h</div>
+        <div class="product_price leftt">{{provider.price}} $/h</div>
         <div class="leftt" >Số lượt thuê : {{provider.countOfDate}} </div>
         <div class="button-cart" >
-<!--          <button class="red_button add_to_cart"  ><a href="#" style="text-decoration: none">Order Now</a></button>-->
           <button class="red_button add_to_cart" data-toggle="modal" data-target="#exampleModal"
                   ><a>Rent</a>
           </button>
@@ -72,7 +70,9 @@
           <button class="white_button add_to_cart"><a href="#" style="text-decoration: none">Chat Now</a></button>
         </div>
       </div>
+
     </div>
+
   </div>
 
   <!-- Tabs -->
@@ -141,8 +141,8 @@
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="findAllComment(page=0)"> 1
                     </button>
                     <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-                    <!--                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "-->
-                    <!--                            (click)="findAllComment(page = totalPages-2)"> {{totalPages - 1}}</button>-->
+<!--                    <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "-->
+<!--                            (click)="findAllComment(page = totalPages-2)"> {{totalPages - 1}}</button>-->
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px "
                             (click)="findAllComment(page =totalPages-1)"> {{totalPages}}</button>
                     <button type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPage()"> >></button>
@@ -152,7 +152,7 @@
             </div>
           </div>
         </div>
-
-      </div>      </div>
+      </div>
+    </div>
   </div>
 </div>

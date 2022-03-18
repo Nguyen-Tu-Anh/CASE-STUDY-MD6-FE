@@ -3,7 +3,7 @@
   <!-- New Arrivals -->
   <div class="new_arrivals">
     <div class="container">
-      <div class="filter-players" >
+      <div class="filter-players" style="margin-left: 120px" >
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối thiểu"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.minAge">
         <input type="text" class="form-controls citys" placeholder="Độ tuổi tối đa"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.maxAge">
         <input type="text" class="form-controls citys" placeholder="Nơi sống"  aria-describedby="popover-trigger-city" value="" [(ngModel)]="search.city">
@@ -42,7 +42,7 @@
                   </div>
                   <div class="imgGame">
                     <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
-                    {{find.requirement}}
+                   {{find.requirement}}
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
               </div>
               <div class="favorite favorite_left"></div>
               <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>{{hotUser.price}}đ/h</span></div>
+                <span>{{hotUser.price}}$/h</span></div>
               <div class="product_info">
                 <a  [routerLink]="'details/'+hotUser.id">
                   <div class="product_price">{{hotUser.name}}
@@ -107,15 +107,14 @@
     </div>
   </div>
 </div>
+</div>
 
 <div class="new_arrivals" style="margin-top: 100px">
   <div class="container">
-    <div class="row">
       <div style="left: 50px">
-        <div class=" ">
+        <div>
           <p class="vipPlayer">New Player</p>
         </div>
-      </div>
     </div>
     <div class="row">
       <div class="col">
@@ -130,18 +129,19 @@
               </div>
               <div class="favorite favorite_left"></div>
               <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                <span>{{newUser.price}}d/h</span></div>
+                <span>{{newUser.price}}$/h</span></div>
               <div class="product_info">
                 <a  [routerLink]="'details/'+newUser.id">
                   <div class="product_price">{{newUser.name}}
                   </div>
                 </a>
-                <div >
+                <div>
                   <div class="description">
-                    🍓 Tuổi :{{newUser.age}}
+                    🍓 Tuổi :  {{newUser.age}}
+                  </div>
                 </div>
                 <div class="imgGame">
-                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" alt="category logo"  >
+                  <img src="https://files.playerduo.com/production/static-files/game-category/other.png" class="iconPlay" height="28" width="28"  >
                   {{newUser.requirement}}
                 </div>
               </div>
@@ -150,18 +150,18 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 30px">
-      <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
-      <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderCreateNewAccount(page=0)"> 1
-      </button>
-      <button *ngIf="page>1" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-      <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
-      <button *ngIf="page<(totalPages-2)" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
-      <button *ngIf="page!=(totalPages-1)"type="button" class="btn btn-outline-danger" style=" font-size: 11px "
-              (click)="show12ProviderCreateNewAccount(page =totalPages-1)"> {{totalPages}}</button>
-      <button *ngIf="page!=(totalPages-1)" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
-    </div>
+      <div class="Page">
+        <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="backPageNew()"> <<</button>
+        <button *ngIf="page!=0" type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                (click)="show12ProviderCreateNewAccount(page=0)"> 1
+        </button>
+        <button *ngIf="page>1" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+        <button type="button" class="btn btn-danger" style=" font-size: 11px "> {{page + 1}}</button>
+        <button *ngIf="page<(totalPages-2)" type="button" class="btn btn-outline-danger" style=" font-size: 11px "> ...</button>
+        <button *ngIf="page!=(totalPages-1)"type="button" class="btn btn-outline-danger" style=" font-size: 11px "
+                (click)="show12ProviderCreateNewAccount(page =totalPages-1)"> {{totalPages}}</button>
+        <button *ngIf="page!=(totalPages-1)" type="button" class="btn btn-outline-danger" style=" font-size: 11px " (click)="nextPageNew()"> >></button>
+      </div>
     <div class="newsletter">
       <div class="container">
         <div class="row">
@@ -188,5 +188,4 @@
     </div>
   </div>
 </div>
-</div>
-</div>
+
