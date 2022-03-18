@@ -33,3 +33,32 @@ body {
 .textarea {
   resize: none
 }
+.borderNew{
+  width: 270px;
+  height: 270px;
+  border: solid #e2e6ea 1px;
+  border-radius: 15px;
+}
+.button-cart{
+  margin-top: 15px;
+}
+.leftt {
+  margin-left: 10px;
+  color: #f0564a;
+}
+.imgGame{
+  font-size: 13px;
+  right: 30px;
+}
+.nameProvider{
+  color: #f0564a
+}
+.add_to_cart{
+  width: 220px;
+  margin-left: 19px;
+  font-size: 12px !important;
+
+}
+.profile-more{
+  margin-bottom: 30px;
+}

@@ -15,8 +15,10 @@
 
 }
 .description{
-  font-size: 15px;
+  font-size: 14px;
+  margin-top: 10px;
   margin-left: 13px;
+  color:orangered;
 }
 .imgGame{
   margin-left: 12px;
@@ -30,6 +32,7 @@
   top: 5px;
   right: 0;
 }
+
 
 .right{
   margin-left: 10px;
@@ -441,9 +444,5 @@ html {
 *, :after, :before {
   box-sizing: border-box;
 }
-.iconPlay{
-  height: 20px;
-  width: 20px;
 
-}
 

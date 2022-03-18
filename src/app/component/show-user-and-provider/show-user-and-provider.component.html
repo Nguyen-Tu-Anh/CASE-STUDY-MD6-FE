@@ -1,8 +1,7 @@
 <div class="super_container">
 
-  <button type="button" class="btn btn-primary btn-primary" routerLink="/admin">Users</button>
-  <br>
-  <button type="button" class="btn btn-primary btn-primary" routerLink="/">Orders</button>
+  <button type="button" class="btn btn-danger" routerLink="/admin" style="left: 640px">Users</button>
+  <button type="button" class="btn btn-danger" routerLink="/" style="left: 640px">Orders</button>
   <div class="container" style="height: 1500px">
     <div class="card my-6">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -34,7 +33,7 @@
               <td>
                 <div>
                   <a routerLink="/details/{{a.id}}">
-                  <img src="{{a.avatar}}" height="150" width="180">
+                  <img src="{{a.avatar}}" height="140" width="140" style="border-radius: 10px">
                   </a>
                 </div>
               </td>
@@ -52,7 +51,7 @@
               <td>
                 <h3>
                   <div>
-                    <button *ngIf="a.status!=3" (click)="ban(a.id)" class="btn btn-danger">Ban</button>
+                    <button *ngIf="a.status!=3" (click)="ban(a.id)" class="btn btn-danger" >Ban</button>
                   </div>
                   <div>
                     <button *ngIf="a.status==3" (click)="unban(a.id)" class="btn btn-primary">Unban</button>
