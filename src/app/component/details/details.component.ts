@@ -119,9 +119,5 @@ export class DetailsComponent implements OnInit {
       this.formComment.get('provider')?.setValue(this.provider);
     })
   }
-
-//   showUserDetails(id:number) {
-//     this.router.navigate(["/details/"+id]);
-//   }
 }
 

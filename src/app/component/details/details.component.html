@@ -14,6 +14,10 @@
             <div class="col-lg-9 image_col order-lg-2 order-1">
               <div class="single_product_image">
                 <div class="single_product_image_background" style="background-image:url({{provider.avatar}})"></div>
+                <div class="imgvip">
+                  <img src="assets/images/vip2.png" height="60" width="60" alt="">
+
+                </div>
               </div>
             </div>
           </div>
@@ -102,11 +106,11 @@
 
           <div class="container mt-5">
             <div class="d-flex justify-content-center row">
-              <div class="col-md-8">
+              <div class="col-md-10">
                 <div class="d-flex flex-column comment-section">
                   <div *ngFor="let c of chats">
                     <div class="bg-white p-2">
-                      <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{c.customer.avatar}}" width="40">
+                      <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{c.customer.avatar}}" width="60" height="60">
                         <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><a href="/details/{{c.customer.id}}"> {{c.customer.name}}</a></span><span class="date text-black-50">Shared publicly - Jan 2022-3-18</span></div>
                       </div>
                       <div class="mt-2">
@@ -124,9 +128,9 @@
 
                   <!--                  //khung chat -->
                   <form [formGroup]="formComment" (ngSubmit)="saveComment()">
-                    <p>{{user.name}}</p>
+                    <p style="color: #007bff">{{user.name}}</p>
                     <div class="bg-light p-2" *ngIf="userId!=provider.id">
-                      <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{user.avatar}}" width="40"><input class="form-control ml-1 shadow-none textarea" formControlName="message"></div>
+                      <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{user.avatar}}" width="50" height="50"><textarea class="form-control ml-1 shadow-none textarea" style="font-size: 15px" formControlName="message"></textarea></div>
                       <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
                     </div>
                     <div>

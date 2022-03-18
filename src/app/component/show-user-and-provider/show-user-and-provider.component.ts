@@ -91,4 +91,10 @@ export class ShowUserAndProviderComponent implements OnInit {
       this.findAll(this.page)
     })
   }
+  makeVip(id:number){
+    this.homeService.makeVip(id).subscribe(data => {
+      alert("Make Vip success!");
+      this.findAll(this.page);
+    })
+  }
 }
