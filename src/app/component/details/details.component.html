@@ -31,6 +31,7 @@
               <h3> 👅 Giới tính : {{provider.gender}}</h3>
               <h3> ✨ Thành phố : {{provider.city}}</h3>
               <h3> 🍓 Ngày sinh : {{provider.dateOfBirth}}</h3>
+              <h3> 🍓 Tuổi      : {{provider.age}}</h3>
             </div>
            <div *ngFor="let service of provider.serviceOfProviders">
              <p>{{service.name}}</p>
@@ -59,7 +60,7 @@
         </div>
       </div>
       <div class=" borderNew" >
-        <div class="product_price leftt">{{provider.price}} đ/h</div>
+        <div class="product_price leftt">{{provider.price}} $ /h</div>
         <div class="leftt" >Số lượt thuê : {{provider.countOfDate}} </div>
         <div class="button-cart" >
 <!--          <button class="red_button add_to_cart"  ><a href="#" style="text-decoration: none">Order Now</a></button>-->

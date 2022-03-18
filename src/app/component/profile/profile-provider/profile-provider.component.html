@@ -55,7 +55,7 @@
                      *ngIf="formUserProfile.controls['identify'].hasError('required') && formUserProfile.controls['identify']">Không Để Trống</small>
             </div>
             <!-- FacebookUrl -->
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FaceBookUrl</label><input type="text" class="form-control" formControlName="identify">
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">FaceBookUrl</label><input type="text" class="form-control" formControlName="facebookUrl">
             </div>
             <!-- Description -->
             <div class="form-group" style="margin-left: 15px; margin-top: 15px">
@@ -198,7 +198,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Giá Tiền/1 giờ</label>
+            <div class="col-md-12" style="margin-top: 15px"><label class="labels">Giá Tiền : $/1 Hour</label>
               <input type="number" class="form-control" value="" formControlName="price">
               <small style="color: darkred"
                      *ngIf="formUserProfile.controls['price'].hasError('required') && formUserProfile.controls['price']">Không
