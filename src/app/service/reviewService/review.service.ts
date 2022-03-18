@@ -21,5 +21,9 @@ export class ReviewService {
   create(chat: Chat): Observable<any> {
     return this.http.post('http://localhost:8080/riview/create', chat)
   }
+//delete comment
+  deleteComment(id: number): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8080/riview/delete/${id}`)
+  }
 
 }

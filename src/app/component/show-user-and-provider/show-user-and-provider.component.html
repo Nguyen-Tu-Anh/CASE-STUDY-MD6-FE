@@ -21,6 +21,7 @@
               <th>Status</th>
               <th>Ban</th>
               <th>Admin</th>
+              <th>Make vip</th>
             </tr>
             </thead>
             <tbody>
@@ -56,6 +57,8 @@
                   <div>
                     <button *ngIf="a.status==3" (click)="unban(a.id)" class="btn btn-primary">Unban</button>
                   </div>
+                  <div>
+                  </div>
                 </h3>
               </td>
               <td>
@@ -64,6 +67,11 @@
                     <button *ngIf="r.id!=3" (click)="makeAdmin(a.id)" class="btn btn-danger">Make admin</button>
                     <button *ngIf="r.id==3" (click)="removeAdmin(a.id)" class="btn btn-primary">Remove admin</button>
                   </div>
+                </h3>
+              </td>
+              <td>
+                <h3>
+                  <button *ngIf="a.vipDate==null" (click)="makeVip(a.id)" class="btn btn-primary">Make VIP</button>
                 </h3>
               </td>
             </tr>

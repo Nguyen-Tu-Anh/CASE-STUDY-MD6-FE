@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Users} from "../../model/Users";
 import {HomeService} from "../../service/home.service";
 import {ReviewService} from "../../service/reviewService/review.service";
@@ -28,7 +28,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(private homeService: HomeService,
               private activatedRoute: ActivatedRoute,
-              private reviewService: ReviewService
+              private reviewService: ReviewService,
+              private router: Router
   ) {
 
   }
@@ -91,8 +92,7 @@ export class DetailsComponent implements OnInit {
   findAllComment(page: number) {
     this.reviewService.showAllComment(page, this.id).subscribe((data) => {
       this.chats = data.content;
-      this.totalPages = data['totalPages']
-
+      this.totalPages = data['totalPages'];
     })
   }
 
@@ -103,6 +103,15 @@ export class DetailsComponent implements OnInit {
     })
   }
 
+
+  //deletecomment
+
+  deleteComment(id: number) {
+      this.reviewService.deleteComment(id).subscribe(() => {
+        this.findAllComment(this.page);
+      })
+
+  }
 
   showIdComment(page: number) {
     this.reviewService.showAllComment(page, this.id).subscribe((data) => {

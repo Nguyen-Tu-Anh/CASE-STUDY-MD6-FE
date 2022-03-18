@@ -73,6 +73,9 @@ export class HomeService {
     return this.http.get(`http://localhost:8080/users/page/${page}`);
 
   }
+  makeVip(id: number) {
+    return this.http.get(`http://localhost:8080/users/vip/${id}`);
+  }
   showAllProviderOrder(id: number): Observable<any> {
     return this.http.get('http://localhost:8080/providers/' + id + "/showAll");
   }
